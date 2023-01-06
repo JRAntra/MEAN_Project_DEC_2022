@@ -1,1 +1,1 @@
-This is the branch for team "callback cats 3"
+This is the release branch of Team Bug Hunters.

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 
 @NgModule({
@@ -10,12 +11,14 @@ import { LoginPageComponent } from './login-page/login-page.component';
     NewsFeedComponent,
     ProfilePageComponent,
     LoginPageComponent,
+    RegisterPageComponent,
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    LoginPageComponent
+    LoginPageComponent,
+    RegisterPageComponent
   ]
 })
 export class FeaturesModule { }

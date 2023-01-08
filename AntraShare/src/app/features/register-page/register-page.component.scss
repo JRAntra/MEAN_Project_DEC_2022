@@ -1,0 +1,77 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	background-size: cover;
+	background-position: center;
+	font-family: sans-serif;
+}
+
+.register-box{
+      width: 350px;
+      height: 550px;
+      background: #000;
+      color: #fff;
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      box-sizing: border-box;
+      padding: 20px 20px;
+}
+
+h1{
+      margin: 0;
+      padding: 20px 0 20px 0;
+      text-align: center;
+      font-size: 22px;
+}
+
+.register-box p{
+      margin: 0;
+      padding: 0;
+      font-weight: bold;
+}
+
+.register-box input{
+      width: 100%;
+      margin-bottom: 20px;
+}
+
+
+.register-box input[type="text"], input[type="password"], input[type="email"]{
+      color: #fff;
+      border: none;
+      border-bottom: 1px solid #fff;
+      background: transparent;
+      outline: none;
+      height: 35px
+}
+
+
+.register-box input[type="submit"]{
+      border: none;
+      outline: none;
+      height: 35px;
+      background-color: rgb(94, 124, 222);
+      color:#fff;
+      font-size: 20;
+      border-radius: 20px;
+}
+
+.register-box input[type="submit"]:hover{
+      cursor: pointer;
+      background-color: rgb(250, 218, 76);
+      color: #000;
+}
+
+.register-box a{
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 20px;
+      color: darkgray;
+}
+
+.register-box a:hover{
+      color: rgb(250, 218, 76);
+}

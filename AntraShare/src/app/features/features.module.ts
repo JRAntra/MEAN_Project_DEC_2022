@@ -20,7 +20,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     CommonModule
   ],
   exports: [
-    RegisterPageComponent
+    RegisterPageComponent,
     SettingPageComponent,
     LoginPageComponent
   ]

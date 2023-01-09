@@ -1,0 +1,24 @@
+
+.news-feed {
+    margin: auto;
+    width: 50%;
+    padding:10px;
+
+    .news-post {
+        margin: 20px;
+        width: 600px;
+        height: 300px;
+        background-color: antiquewhite;
+        font-size: xx-small;
+        border: 1px solid black;
+    }
+
+    .news-story {
+        margin: 20px;
+        width: 600px;
+        height: 200px;
+        background-color: aliceblue;
+        font-size: xx-small;
+        border: 1px solid black;
+    }
+}

@@ -5,6 +5,7 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SettingPageComponent } from './setting-page/setting-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 
 @NgModule({
@@ -12,8 +13,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
     NewsFeedComponent,
     ProfilePageComponent,
     AdminPageComponent,
-    SettingPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    RegisterPageComponent,
+    SettingPageComponent
   ],
   imports: [
     CommonModule
@@ -22,6 +24,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
     NewsFeedComponent,
     ProfilePageComponent,
     AdminPageComponent,
+    RegisterPageComponent,
     SettingPageComponent,
     LoginPageComponent
   ]

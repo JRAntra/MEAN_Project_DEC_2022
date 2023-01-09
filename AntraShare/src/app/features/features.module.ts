@@ -19,9 +19,11 @@ import { LoginPageComponent } from './login-page/login-page.component';
     CommonModule
   ],
   exports: [
+    NewsFeedComponent,
+    ProfilePageComponent,
+    AdminPageComponent,
     SettingPageComponent,
-    LoginPageComponent,
-    AdminPageComponent
+    LoginPageComponent
   ]
 })
 export class FeaturesModule { }

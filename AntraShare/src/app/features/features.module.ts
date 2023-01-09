@@ -10,6 +10,7 @@ import { StoryComponent } from './news-feed/story/story.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import { RegisterPageComponent } from './register-page/register-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     LikeListBarComponent,
     NewPostComponent,
     StoryComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    AdminPageComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { RegisterPageComponent } from './register-page/register-page.component';
     NewsFeedComponent,
     ProfilePageComponent,
     SettingPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    AdminPageComponent
   ]
 })
 export class FeaturesModule { }

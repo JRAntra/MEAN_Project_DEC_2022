@@ -1,0 +1,32 @@
+.admin-page{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .users-list{
+        background-color: lightgrey;
+    }
+
+    .users-list ul{
+        list-style: none;
+
+        li{
+            background-color: gray;
+            margin-bottom: 20px;
+        }
+
+        .add-user-button{
+            justify-items: center;
+        }
+    }
+
+    .user-info-panel{
+        ul{
+            list-style: none;
+        }
+    }
+    
+
+}

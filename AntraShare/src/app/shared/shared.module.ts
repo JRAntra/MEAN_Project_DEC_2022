@@ -13,6 +13,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
   ],
   exports: [
     NavBarComponent
+  ],
+  bootstrap: [
+    NavBarComponent
   ]
 })
 export class SharedModule { }

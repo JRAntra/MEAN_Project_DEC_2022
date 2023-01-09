@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LikeListBarComponent } from './like-list-bar.component';
+import { RegisterPageComponent } from './register-page.component';
 
-describe('LikeListBarComponent', () => {
-  let component: LikeListBarComponent;
-  let fixture: ComponentFixture<LikeListBarComponent>;
+describe('RegisterPageComponent', () => {
+  let component: RegisterPageComponent;
+  let fixture: ComponentFixture<RegisterPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LikeListBarComponent ]
+      declarations: [ RegisterPageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LikeListBarComponent);
+    fixture = TestBed.createComponent(RegisterPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

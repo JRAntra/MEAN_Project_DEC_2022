@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1rem;
+    
+  
+  }
+.setting-main{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%;
+    
+    text-align: center;
+
+}
+.setting-main-panel{
+    position: relative;
+    height: 70%;
+    border: #04AA6D 2px solid;
+    margin-bottom: 5%;
+    
+
+}
+.setting-main-panel p{
+    font-size: 1.5rem;
+}
+.theme{
+    width: 15%;
+    height: 15%;
+    line-height: 220%;
+    background-color: gray;
+    margin-left: 85%;
+}
+.setting-main-btn{
+    width: 40%;
+    height: 15%;
+    background-color: #04AA6D;
+    border: none;
+
+}
+
+
+

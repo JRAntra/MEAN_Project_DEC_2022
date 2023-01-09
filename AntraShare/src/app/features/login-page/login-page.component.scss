@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    box-sizing: border-box;
+    
+    
+  
+  }
+body{
+    background: #04AA6D;
+}
+.main-page{
+    position: absolute;
+    left: 30%;
+    top:15%;
+    display: flex;
+    width: 50%;
+    height: 70%;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    align-content:space-between;
+}
+img{
+    width: 30%;
+    height: 30%;
+    position: relative;
+    left:20%;
+
+}
+
+.text,.password,.main-page button,.main-page>p{
+    width: 60%;
+    height: 2rem;
+    position: relative;
+    left:5%;
+   
+
+    
+}
+.main-page>p{
+    margin-bottom: 0;
+    
+    position: relative;
+    left:18%;
+}
+
+.agree{
+    overflow: hidden;
+    
+    height: 4rem;
+    width: 60%;
+    position: relative;
+    left:5%;
+    
+}
+.checkbox{
+    float: left;
+    
+    width: 50%;
+    height: 4rem;
+    
+   
+    
+}
+.checkbox input{
+    width: 5%;
+    height: 1rem;
+    background-color: gray;
+    margin-right: 0.5rem;
+
+
+}
+.checkbox input:hover{
+    background-color: black;
+}
+.help{
+    
+    
+    float: right;
+    
+}

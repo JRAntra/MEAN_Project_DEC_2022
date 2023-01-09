@@ -9,6 +9,7 @@ import { NewPostComponent } from './news-feed/new-post/new-post.component';
 import { StoryComponent } from './news-feed/story/story.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {MatCardModule} from '@angular/material/card';
     SettingPageComponent,
     LikeListBarComponent,
     NewPostComponent,
-    StoryComponent
+    StoryComponent,
+    RegisterPageComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import {MatCardModule} from '@angular/material/card';
     LoginPageComponent,
     NewsFeedComponent,
     ProfilePageComponent,
-    SettingPageComponent
+    SettingPageComponent,
+    RegisterPageComponent
   ]
 })
 export class FeaturesModule { }

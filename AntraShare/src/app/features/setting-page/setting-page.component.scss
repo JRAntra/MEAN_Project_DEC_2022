@@ -13,7 +13,6 @@
     height: 50%;
     top: 25%;
     left: 25%;
-    
     text-align: center;
 
 }
@@ -22,8 +21,7 @@
     height: 70%;
     border: #04AA6D 2px solid;
     margin-bottom: 5%;
-    
-
+    padding-top: 10px;
 }
 .setting-main-panel p{
     font-size: 1.5rem;
@@ -44,4 +42,20 @@
 }
 
 
+input {
+    font-size: 20px;
+    padding: 6px;
+    color: whitesmoke;
+    background-color: #04AA6D;
+    border: none;
+}
+input:hover {
+    background-color: #048656;
+    cursor: pointer;
+}
 
+.setting-icon {
+    transform: scale(2);
+    float: right;
+    margin: 5px;
+}

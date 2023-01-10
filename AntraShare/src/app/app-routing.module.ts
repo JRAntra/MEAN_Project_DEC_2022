@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './features/login/login.component';
-import { SignupComponent } from './features/signup/signup.component';
-import { SettingPageComponent } from './features/setting-page/setting-page.component';
-import { AdminPageComponent } from './features/admin-page/admin-page.component';
-import { ProfilePageComponent } from './features/profile-page/profile-page.component';
-import { NewsfeedPageComponent } from './features/newsfeed-page/newsfeed-page.component';
+import { LoginComponent } from './features/login-page/login-component/login.component';
+import { SignupComponent } from './features/signup-page/signup-component/signup.component';
+import { SettingPageComponent } from './features/setting-page/setting-page-component/setting-page.component';
+import { AdminPageComponent } from './features/admin-page/admin-page-component/admin-page.component';
+import { ProfilePageComponent } from './features/profile-page/profile-page-component/profile-page.component';
+import { NewsfeedPageComponent } from './features/newsfeed-page/newsfeed-page-component/newsfeed-page.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},

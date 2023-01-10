@@ -1,38 +1,24 @@
-$color_1: #fff;
-$color_2: #000;
-$color_3: darkgray;
-$color_4: rgb(250, 218, 76);
-
-// primary_color
-// secondary_color 
-
-
+$primary_color: #fff;
+$secondary_color: #000;
+$tertiary_color: darkgray;
+$hover_color: rgb(250, 218, 76);
 $font-family_1: sans-serif;
 $background-color_1: white;
 $background-color_2: rgb(94, 124, 222);
 $background-color_3: rgb(250, 218, 76);
 
-// body should set inside global style.scss
-body {
-	margin: 0;
-	padding: 0;
-	background-color: $background-color_1;
-	background-size: cover;
-	background-position: center;
-	font-family: $font-family_1;
-}
 .login-box {
 	width: 350px;
 	height: 470px;
 	background: #000;
-	color: $color_1;
+	color: $primary_color;
 	top: 50%;
 	left: 50%;
 	position: absolute;  //not preferable: use flex-box instead
 	transform: translate(-50%, -50%);
 	box-sizing: border-box;
 	padding: 20px 20px;
-	p {
+	label {
 		margin: 0;
 		padding: 0;
 		font-weight: bold;
@@ -40,36 +26,20 @@ body {
 	input {
 		width: 100%;
 		margin-bottom: 20px;
-	}
-	input[type="text"] {
-		color: $color_1;
+		color: $primary_color;
 		border: none;
+		height: 35px;
 		border-bottom: 1px solid #fff;
 		background: transparent;
 		outline: none;
-		height: 35px;
-	}
-	input[type="submit"] {
-		border: none;
-		outline: none;
-		height: 35px;
-		background-color: $background-color_2;
-		color: $color_1;
-		font-size: 20;
-		border-radius: 20px;
-		&:hover {
-			cursor: pointer;
-			background-color: $background-color_3;
-			color: $color_2;
-		}
 	}
 	a {
 		text-decoration: none;
 		font-size: 12px;
 		line-height: 20px;
-		color: $color_3;
+		color: $tertiary_color;
 		&:hover {
-			color: $color_4;
+			color: $hover_color;
 		}
 	}
 }
@@ -79,11 +49,19 @@ h1 {
 	text-align: center;
 	font-size: 22px;
 }
-input[type="password"] {
-	color: $color_1;
+.loginButton {
+	width: 100%;
+	margin-bottom: 20px;
 	border: none;
-	border-bottom: 1px solid #fff;
-	background: transparent;
 	outline: none;
 	height: 35px;
+	background-color: $background-color_2;
+	color: $primary_color;
+	font-size: 20;
+	border-radius: 20px;
+	&:hover {
+		cursor: pointer;
+		background-color: $background-color_3;
+		color: $secondary_color;
+	}
 }

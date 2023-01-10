@@ -19,6 +19,12 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    SettingPageComponent,
+    AdminPageComponent,
+    NewsfeedPageComponent,
+    ProfilePageComponent
   ]
 })
 export class FeaturesModule { }

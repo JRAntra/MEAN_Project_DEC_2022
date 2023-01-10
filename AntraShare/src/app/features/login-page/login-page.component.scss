@@ -14,7 +14,7 @@ $background-color_3: rgb(250, 218, 76);
 	color: $primary_color;
 	top: 50%;
 	left: 50%;
-	position: absolute;
+	position: absolute;  //not preferable: use flex-box instead
 	transform: translate(-50%, -50%);
 	box-sizing: border-box;
 	padding: 20px 20px;

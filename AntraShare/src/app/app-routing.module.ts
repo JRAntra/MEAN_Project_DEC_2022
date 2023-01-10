@@ -4,6 +4,8 @@ import { NewsFeedComponent } from './features/news-feed/news-feed.component';
 import { ProfilePageComponent } from './features/profile-page/profile-page.component';
 import { SettingPageComponent } from './features/setting-page/setting-page.component';
 import { LoginPageComponent } from './features/login-page/login-page.component';
+import { RegisterPageComponent } from './features/register-page/register-page.component';
+import { AdminPageComponent } from './features/admin-page/admin-page.component';
 
 const routes: Routes = [
   {
@@ -15,12 +17,30 @@ const routes: Routes = [
   {
     path: 'settings', component: SettingPageComponent
   },
-  {
-    path: '', component: LoginPageComponent
-  },
+  
   {
     path: 'login', component: LoginPageComponent
   },
+
+  {
+    path: 'register', component: RegisterPageComponent
+  },
+
+  {
+    path: 'admin', component: AdminPageComponent
+  },
+
+  
+  {
+    path: '', component: LoginPageComponent
+  },
+  
+  {
+    // path: '**', component: NotFoundComponent
+    path: '**', component: LoginPageComponent
+
+  },
+
   
 ];
 

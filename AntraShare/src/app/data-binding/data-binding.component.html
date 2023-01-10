@@ -1,0 +1,59 @@
+<h2>Data Binding</h2>
+
+<!-- Angular 1 way Data Bindings
+1. String Interpolation
+{{ text }} 
+
+2. Property Binding
+value = "lastname"
+[ value ] = " var "
+
+class = "css1"
+[class] = "styleVar"
+
+3. Event Binding
+
+(click)="onClickButton()"
+
+Angular 2 way data Bindings
+1. Template Driven 
+2. ReactiveForms -->
+<!-- 
+<div>{{text}}</div>
+<input [value]="textContent">
+<button (click)="onClickButton()">click me to alert</button>
+<input (change)="onChangeInputText()"> -->
+
+<!-- Template Driven vs Reactive Forms -->
+<!-- 1.Syntax [(ngModel)]="var" vs. FormControls
+2.Forms Module vs ReactiveForms Module
+3.Reactive Forms provides more functionalities such as validators/ form status etc. -->
+
+<!-- <form (ngSubmit)="submitForms()">
+    <input [(ngModel)]="name" (click)="clearValue()" name="lastname" #lastname = ngModel>
+    <input [(ngModel)]="name" (click)="clearValue()" name="lastname" #firstname = ngModel>
+    <div>{{ lastname.value }}</div>
+    <button type="submit" (click)="submitForms()">submit</button>
+</form> -->
+
+<!-- // FormControl , FormGroup, FormArray -->
+
+<!-- <input [formControl]="firstname" (keyup)="displayValue()"/> -->
+
+<div [formGroup]="nameField">
+    <input formControlName="firstname"/>
+    <input formControlName="lastname">
+    <div formGroupName= "contacts">
+        <input type="text" formControlName="phoneNum">
+    </div>
+    <div formArrayName="career">
+        <div [formGroup]="jobs">
+            <input formControlName="title"/>
+        </div>
+
+    </div>
+</div>
+
+
+
+

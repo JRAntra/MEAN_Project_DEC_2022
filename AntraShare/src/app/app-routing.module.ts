@@ -9,9 +9,9 @@ import { SettingPageComponent } from './features/setting-page/setting-page.compo
 
 const routes: Routes = [
   { path: '', component: NewsFeedComponent },
-  { path: 'admins', component: AdminPageComponent},
-  { path: 'login', component: LoginPageComponent},
-  { path: 'register', component: RegisterPageComponent},
+  { path: 'admins', component: AdminPageComponent },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent },
   { path: 'profiles', component: ProfilePageComponent },
   { path: 'news', component: NewsFeedComponent },
   { path: 'settings', component: SettingPageComponent },
@@ -19,6 +19,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

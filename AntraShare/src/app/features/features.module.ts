@@ -6,7 +6,7 @@ import { SettingPageComponent } from './setting-page/setting-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { NewsfeedPageComponent } from './newsfeed-page/newsfeed-page.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
-
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     ProfilePageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatButtonModule
   ],
   exports: [
     SettingPageComponent,

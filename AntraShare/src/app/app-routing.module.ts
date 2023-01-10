@@ -8,7 +8,7 @@ import { ProfilePageComponent } from './features/profile-page/profile-page.compo
 import { NewsfeedPageComponent } from './features/newsfeed-page/newsfeed-page.component';
 
 const routes: Routes = [
-
+  {path:'', component: LoginComponent},
   {path:'login', component: LoginComponent},
   {path:'signup', component: SignupComponent },
   { path: 'settings', component: SettingPageComponent },

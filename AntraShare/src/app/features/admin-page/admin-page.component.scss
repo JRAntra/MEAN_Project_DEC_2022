@@ -2,10 +2,25 @@
     display: flex;
     box-sizing: border-box;
 }
-.users{
-    float: left;
-    margin-right: 20px;
+.left-users{
+    background-color: bisque;
+    padding-right: 10px;
+}
+.users-list{
+    list-style: none;
+    li{
+        margin-bottom: 10px;
+    }
+    button{
+        margin-left: 10px;
+    }
 }
 .users__btn{
-    margin-top: 10px;
+    margin-top: 100px;
+    margin-left: 50px;
+}
+.right-details{
+    background-color: beige;
+    margin-left: 10px;
+    padding: 10px;
 }

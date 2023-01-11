@@ -11,6 +11,10 @@ import {MatCardModule} from '@angular/material/card';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SharedModule } from '../shared/shared.module';
+
+
+
+
 @NgModule({
   declarations: [
     LoginPageComponent,
@@ -26,7 +30,9 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     SharedModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    
+    
   ],
   exports: [
     LoginPageComponent,

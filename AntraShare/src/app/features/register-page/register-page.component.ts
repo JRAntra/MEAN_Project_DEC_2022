@@ -24,6 +24,14 @@ export class RegisterPageComponent implements OnInit {
 
   onSubmit(){
     this.submitted = true
+    const username = this.registerForm.get('username')?.value;
+    const password = this.registerForm.get('password')?.value;
+    const email = this.registerForm.get('email')?.value;
+    this.registerForm.setValue({
+      username: username,
+      password: password,
+      email: email,
+    });
      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
   }
 

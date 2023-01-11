@@ -32,7 +32,7 @@ export class RegisterPageComponent implements OnInit {
       password: password,
       email: email,
     });
-     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
   }
 
 }

@@ -1,0 +1,31 @@
+<p>homepage works!</p>
+<!-- <button [routerLink]="['login']" >Go to Login Page</button> -->
+<!-- <a href="login">go to login page</a> -->
+<button (click)="goToLoginPage()">Go to Login Page with Logic</button>
+
+<div *ngIf="indicator">This is a test for direvtives</div>
+
+<!-- <div *ngif='boolean'>test</div> -->
+
+<!-- <ng-template [ngIf]="boolean">
+    <div>test</div>
+</ng-template> -->
+<!-- <div *ngIf="datasource">{{datasource from server}}</div> -->
+
+<ng-container *ngIf="indicator">
+    <div *ngFor="let user of dataArray; let i = index">
+        data entries {{user.name}}, which has the index {{i}}
+    </div>
+</ng-container>
+
+<span [ngSwitch]="textIndicator">
+    <span *ngSwitchCase= "'first'">
+        <div>this is for first expression</div>
+    </span>
+    <span *ngSwitchCase="'second'">
+        <div>this is for second expression</div>
+    </span>
+    <p *ngSwitchDefault>
+
+    </p>
+</span>

@@ -1,28 +1,41 @@
 
 <div class="profile-top">
-    <img src="../../assets/antra_200x400.jpg" alt="your-avatar.jpg"> <div></div>
-    <div class="profile-name">
-        <p>User Name: </p>
-        <input placeholder="User Name">
-    </div>
-    <div class="profile-email">
-        <p>Email: </p>
-        <input placeholder="Email">
-    </div>
-    <div class="profile-age">
-        <p>Age: </p>
-        <input placeholder="Age">
-    </div>
-    <div class="profile-gender">Gender: 
-        <input type="radio" id="gender-select" value="Male">
-        <label for="gender-select">Male</label>
+    <img src="../../../assets/icons/antra_200*400.png" alt="your-avatar.jpg"> <div></div>
+        
 
-        <input type="radio" id="gender-select" value="Female">
-        <label for="gender-select">Female</label>
-    </div>
+    <fieldset [disabled]="isDisabled">
 
-    <div class="profile-password"><p>Password: </p><input placeholder="Password"></div>
-    <button>Reveal</button>
+        <div class="profile-block" [formGroup]="profileForm">
+            <label class="profile-label">UserName: </label>
+            <input formControlName="userName" >
+            <br>
+    
+            <label class="profile-label">Email: </label>
+            <input formControlName="email">
+            <br>
+    
+            <label class="profile-label">Age: </label>
+            <input formControlName="age">
+            <br>
+    
+            <label class="profile-label">Gender: </label>
+            <label><input type="radio" value="Male" formControlName="gender">
+                <span>Male</span>
+            </label>
+    
+            <label><input type="radio" value="Female" formControlName="gender">
+                <span>Female</span>
+            </label>
+            <br>
+            <label class="profile-label">Password: </label>
+            <input formControlName="password" type="{{isHidden}}">
+            <button (click)="onReveal()" >Reveal</button>
+        </div>
+    </fieldset>
+    
+    <button (click)="onEdit()">Edit</button>
+
+    <button (click)="onSubmit()" [disabled]="isDisabled">Submit</button>
 
     <hr>
     <img src="foo.jpg" alt="amount-of-posts.jpg"> <div>Posts: #</div>

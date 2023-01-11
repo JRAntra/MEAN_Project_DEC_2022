@@ -1,26 +1,21 @@
 .admin-page{
     display: flex;
+    margin-left: 10%;
     box-sizing: border-box;
+    height: 400px;
 }
 .left-users{
-    background-color: bisque;
-    padding-right: 10px;
+    width: 28%;
 }
-.users-list{
-    list-style: none;
-    li{
-        margin-bottom: 10px;
-    }
-    button{
-        margin-left: 10px;
-    }
-}
-.users__btn{
-    margin-top: 100px;
-    margin-left: 50px;
+.middle-spacer {
+    flex: 1 1 auto;
 }
 .right-details{
-    background-color: beige;
-    margin-left: 10px;
+    width: 70%;
+    margin-left: 2%;
     padding: 10px;
+}
+.users__btn{
+    margin-top: 300px;
+    margin-left: 30%;
 }

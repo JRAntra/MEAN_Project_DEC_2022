@@ -1,0 +1,26 @@
+<mat-toolbar>
+    <span class="logo">
+        <img src="../../../../assets/AntraShare.svg" width="120" height="50"
+        style="vertical-align:bottom"/>
+    </span>
+    <span class="middle-spacer"></span>
+    <button mat-icon-button aria-label="Button that redirects to home page" 
+    matTooltip="Home" [routerLink]="['/newsfeed']" routerLinkActive="router-link-active" >
+        <mat-icon>home</mat-icon>
+    </button>
+    <span class="icon-spacer"></span>
+    <button mat-icon-button aria-label="Button that redirects to setting page" 
+    matTooltip="Setting" [routerLink]="['/settings']" routerLinkActive="router-link-active" >
+        <mat-icon>settings</mat-icon>
+    </button>
+    <span class="icon-spacer"></span>
+    <button mat-icon-button aria-label="Button that redirects to profile page" 
+    matTooltip="Profile" [routerLink]="['/profile']" routerLinkActive="router-link-active" >
+        <mat-icon>account_circle</mat-icon>
+    </button>
+    <span class="icon-spacer"></span>
+    <button mat-icon-button aria-label="Button that redirects to admin page" 
+    matTooltip="Admin" [routerLink]="['/admin']" routerLinkActive="router-link-active" >
+        <mat-icon>manage_accounts</mat-icon>
+    </button>
+</mat-toolbar>

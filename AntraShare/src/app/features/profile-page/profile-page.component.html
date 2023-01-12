@@ -1,15 +1,30 @@
-<h2 style="text-align: center">User Profile Card</h2>
+<h2 style="text-align: center; margin: 30px 0px">User Profile Card</h2>
 
 <div class="card">
-  <img src="https://picsum.photos/200/300" alt="John" style="width: 100%" />
-  <h1>John Doe</h1>
-  <p class="title">CEO & Founder, Example</p>
-  <p>Harvard University</p>
-  <div style="margin: 24px 0">
-    <a href="#"><i class="fa fa-dribbble"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
-    <a href="#"><i class="fa fa-facebook"></i></a>
-  </div>
-  <p><button>Contact</button></p>
+  <img src="../../../assets/profile.jpeg" alt="John" style="width: 100%" />
+  <form [formGroup]="form" class="profile-main" (submit)="onSubmit()">
+    <div>
+      <label for="username">User Name:</label>
+      <input
+        formControlName="userName"
+        type="text"
+        id="username"
+        name="username"
+      />
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input
+        formControlName="password"
+        type="password"
+        id="password"
+        name="password"
+      />
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input formControlName="email" type="email" id="email" name="email" />
+    </div>
+    <button>Save</button>
+  </form>
 </div>

@@ -29,7 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     MatIconModule,
     MatCardModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     LoginPageComponent,

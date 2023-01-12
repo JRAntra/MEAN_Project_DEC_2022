@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register-page',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./register-page.component.scss']
 })
 export class RegisterPageComponent {
+  form = new FormGroup({
+    userName: new FormControl(),
+    password: new FormControl(),
+    passwordcon: new FormControl(),
+    email: new FormControl()
+  });
 
+  onSubmit() {
+    console.log(this.form);
+    console.log(this.form.get('userName')?.value, 
+    this.form.get('password')?.value, 
+    this.form.get('passwordcon')?.value, 
+    this.form.get('email')?.value);
+    
+    this.form.setValue({userName: "", password: "", passwordcon: "", email: ""});  
+  }
 }

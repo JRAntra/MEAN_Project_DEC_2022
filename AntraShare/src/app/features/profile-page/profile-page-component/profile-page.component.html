@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,18 +7,6 @@
     <title></title>
   </head>
   <body>
-    <!-- <header>
-      <h2>AntraShare</h2>
-      <input type="text" placeholder="Search" />
-      <ul class="icons">
-        <li>Home</li>
-        <li>Message</li>
-        <li>Add</li>
-        <li>Navigation</li>
-        <li>Like</li>
-        <li>Myself</li>
-      </ul>
-    </header> -->
     <app-top-nav-bar></app-top-nav-bar>
     <div class="profile">
       <section class="section_1">
@@ -77,4 +65,59 @@
       </section>
     </div>
   </body>
-</html>
+</html> -->
+<app-top-nav-bar></app-top-nav-bar>
+<main class="profile-panel">
+  
+  <div class="profile-panel__avatar">
+    <img src="../../../../assets/avatar1.jpeg" width="80px" height="80px">
+    <p>Change profile photo</p>
+  </div>
+ 
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput value="user1">
+    <!-- <mat-hint>Hint</mat-hint> -->
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput value="password">
+    <!-- <mat-hint>Hint</mat-hint> -->
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Gender</mat-label>
+    <mat-select>
+      <mat-option value="Male">Male</mat-option>
+      <mat-option value="Female">Female</mat-option>
+      <mat-option value="Not to say">Prefer not to say</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Age</mat-label>
+    <input type="number" matInput value="22">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput value="user1@antra.com">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Phone</mat-label>
+    <input type="tel" matInput value="1234567890">
+  </mat-form-field>
+
+  <mat-tab-group>
+    <mat-tab> 
+      <ng-template mat-tab-label>
+        <mat-icon aria-label="See my post">view_module</mat-icon>
+      
+      </ng-template>
+      My post
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon aria-label="See my likes">favorite</mat-icon>
+      </ng-template>
+      My likes
+    </mat-tab>
+  </mat-tab-group>
+</main>

@@ -12,7 +12,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     LoginPageComponent,
@@ -29,7 +29,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     MatIconModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule,
   ],
   exports: [
     LoginPageComponent,

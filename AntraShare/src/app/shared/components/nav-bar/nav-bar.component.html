@@ -1,7 +1,8 @@
 <ul>
-    <li><a class="active" href="profiles">My profile</a></li>
-    <li><a href="news">News Feed</a></li>
-    <li><a href="settings">Setting</a></li>
-    <li><a href="settings">Like List</a></li>
-
-  </ul>
+  <li><a [routerLink]="['/news']" routerLinkActive="active">News Feed</a></li>
+  <li><a [routerLink]="['/settings']" routerLinkActive="active">Setting</a></li>
+  <li>
+    <a [routerLink]="['/profiles']" routerLinkActive="active">Profile</a>
+  </li>
+  <li><a>Like List</a></li>
+</ul>

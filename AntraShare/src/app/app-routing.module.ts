@@ -8,7 +8,7 @@ import { RegisterPageComponent } from './features/register-page/register-page.co
 import { SettingPageComponent } from './features/setting-page/setting-page.component';
 
 const routes: Routes = [
-  { path: '', component: NewsFeedComponent },
+  { path: '', redirectTo: 'news', pathMatch: 'full' },
   { path: 'admins', component: AdminPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },

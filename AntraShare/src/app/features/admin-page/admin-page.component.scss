@@ -1,53 +1,39 @@
-.container{
-    display: flex;
-    margin: 20px;
-    height: 300px;
-    position: relative;
-
+.container {
+  display: flex;
+  margin: 20px;
+  height: 300px;
+  position: relative;
 }
 
 .panel-left {
-    margin: 15px;
-    
+  margin: 15px;
 }
 .panel-right {
-    margin: 15px auto;
-    
-    justify-content: center;
+  margin: 15px auto;
+
+  justify-content: center;
 }
-.user-detail-title{
-    font-size: 30px;
-    font-weight: 400;
+.user-detail-title {
+  font-size: 30px;
+  font-weight: 400;
 }
-.container li{
-    list-style-type: none;
-    margin: 10px 0px;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
+.container li {
+  list-style-type: none;
+  margin: 10px 0px;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
 }
 
 .delete-icon {
-    // transform: scale(1.2);
-}
-
-input {
-    font-size: 20px;
-    padding: 6px;
-    color: whitesmoke;
-    background-color: #04AA6D;
-    border: none;
-}
-input:hover {
-    background-color: #048656;
-    cursor: pointer;
+  // transform: scale(1.2);
 }
 
 .user-list {
-    height: 80%;
+  height: 80%;
 }
 
 .user-detail {
-    margin: 30px 0px;
+  margin: 30px 0px;
 }

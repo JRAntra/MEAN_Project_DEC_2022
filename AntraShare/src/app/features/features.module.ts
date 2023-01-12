@@ -6,12 +6,13 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { SettingPageComponent } from './setting-page/setting-page.component';
 import { NewPostComponent } from './news-feed/new-post/new-post.component';
 import { StoryComponent } from './news-feed/story/story.component';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     LoginPageComponent,
@@ -21,7 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NewPostComponent,
     StoryComponent,
     RegisterPageComponent,
-    AdminPageComponent
+    AdminPageComponent,
   ],
   imports: [
     CommonModule,
@@ -36,7 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfilePageComponent,
     SettingPageComponent,
     RegisterPageComponent,
-    AdminPageComponent
-  ]
+    AdminPageComponent,
+  ],
 })
-export class FeaturesModule { }
+export class FeaturesModule {}

@@ -14,6 +14,8 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FadeOutDirective } from '../directive/fadeout.directive';
+import { TruncatePipe } from '../pipe/truncate.pipe';
+
 @NgModule({
   declarations: [
     LoginPageComponent,
@@ -25,6 +27,7 @@ import { FadeOutDirective } from '../directive/fadeout.directive';
     RegisterPageComponent,
     AdminPageComponent,
     FadeOutDirective,
+    TruncatePipe,
   ],
   imports: [
     CommonModule,

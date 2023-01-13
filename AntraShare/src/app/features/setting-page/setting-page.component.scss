@@ -1,61 +1,44 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-align: center;
-    font-size: 1rem;
-    
-  
-  }
-.setting-main{
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    top: 25%;
-    left: 25%;
-    text-align: center;
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 1rem;
 }
-.setting-main-panel{
-    position: relative;
-    height: 70%;
-    border: #04AA6D 2px solid;
-    margin-bottom: 5%;
-    padding-top: 10px;
+.setting-main {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 25%;
+  left: 25%;
+  text-align: center;
 }
-.setting-main-panel p{
-    font-size: 1.5rem;
+.setting-main-panel {
+  position: relative;
+  height: 70%;
+  border: #04aa6d 2px solid;
+  margin-bottom: 5%;
+  padding-top: 10px;
 }
-.theme{
-    width: 15%;
-    height: 15%;
-    line-height: 220%;
-    background-color: gray;
-    margin-left: 85%;
+.setting-main-panel p {
+  font-size: 1.5rem;
 }
-.setting-main-btn{
-    width: 40%;
-    height: 15%;
-    background-color: #04AA6D;
-    border: none;
-
+.theme {
+  width: 15%;
+  height: 15%;
+  line-height: 220%;
+  background-color: gray;
+  margin-left: 85%;
 }
-
-
-input {
-    font-size: 20px;
-    padding: 6px;
-    color: whitesmoke;
-    background-color: #04AA6D;
-    border: none;
-}
-input:hover {
-    background-color: #048656;
-    cursor: pointer;
+.setting-main-btn {
+  width: 40%;
+  height: 15%;
+  background-color: #04aa6d;
+  border: none;
 }
 
 .setting-icon {
-    transform: scale(2);
-    float: right;
-    margin: 5px;
+  transform: scale(2);
+  float: right;
+  margin: 5px;
 }

@@ -1,23 +1,35 @@
 <form [formGroup]="form" class="register-main" (submit)="onSubmit()">
-    <p><strong>Register</strong></p>
-    <div>
-        <label for="username">User Name:</label>
-        <input formControlName="userName" type="text" id="username" name="username">
-    </div>
-    <div>
-        <label for="password">Password:</label>
-        <input formControlName="password" type="password" id="password" name="password">
-    </div>
-    <div>
-        <label for="passwordcon">Password Confirm:</label>
-        <input formControlName="passwordcon" type="password" id="passwordcon" name="passwordcon">
-    </div>
-    <div>
-        <label for="email">Email:</label>
-        <input formControlName="email" type="email" id="email" name="email">
-    </div>
-    <button>Register</button>
-
-
-
+  <p><strong>Register</strong></p>
+  <div>
+    <label for="username">User Name:</label>
+    <input
+      formControlName="userName"
+      type="text"
+      id="username"
+      name="username"
+    />
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input
+      formControlName="password"
+      type="password"
+      id="password"
+      name="password"
+    />
+  </div>
+  <div>
+    <label for="passwordcon">Password Confirm:</label>
+    <input
+      formControlName="passwordcon"
+      type="password"
+      id="passwordcon"
+      name="passwordcon"
+    />
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input formControlName="email" type="email" id="email" name="email" />
+  </div>
+  <button (click)="goToLoginPage()">Register</button>
 </form>

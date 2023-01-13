@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { First20CharsPipe } from 'src/app/pipes/first20-chars.pipe';
 
 @Component({
   selector: 'app-news-stories',

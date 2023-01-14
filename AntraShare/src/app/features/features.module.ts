@@ -18,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginPageComponent,
     RegisterPageComponent,
     SettingPageComponent,
-    NewsStoriesComponent
+    NewsStoriesComponent,
   ],
   imports: [
     CommonModule,

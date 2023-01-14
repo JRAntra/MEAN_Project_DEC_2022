@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class RegisterPageComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
   submitted = false;
+  // testing pipe
+  longtext: string = 'abcdefgfdsferwtewgdfgsgergregdfsgregreggfdsg';
 
   constructor(private formBuilder: FormBuilder) { }
 

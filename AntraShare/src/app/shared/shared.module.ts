@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterBannerComponent } from './router-banner/router-banner.component';
+import { ShortenPipe } from './shorten-pipe/shorten.pipe';
 
 
 @NgModule({
   declarations: [
-    RouterBannerComponent
+    RouterBannerComponent,
+    ShortenPipe,
   ],
   imports: [
     CommonModule

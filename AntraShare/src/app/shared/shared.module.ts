@@ -14,6 +14,7 @@ import { ShortenPipe } from './shorten-pipe/shorten.pipe';
   ],
   exports: [
     RouterBannerComponent,
+    ShortenPipe
   ],
   bootstrap: [
     RouterBannerComponent

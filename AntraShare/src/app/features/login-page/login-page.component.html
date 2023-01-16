@@ -1,12 +1,13 @@
-<div class="login-box">
+<form class="login-box" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <h1>Login</h1>
       <label>Username</label>
-      <input aria-label="username" type="text" name="" placeholder="Enter Username">
-
+      <input aria-label="username" formControlName="username" type="text" name="" placeholder="Enter Username">
       <label>Password</label>
-      <input aria-label="password" type="password" name="" placeholder="Enter Password">
-      <button type="submit" value='Login' (click)="toNewsFeed()">Login</button>
+      <input aria-label="password" formControlName="password" type="password" name="" placeholder="Enter Password">
+      <!-- <button type="submit" value='Login' (click)="toNewsFeed()">Login</button> -->
+      <button type="submit" value='Login'>Login</button>
+
 
       <a href='/register'>No Accounts? Register Now!</a><br>
       <a href='#'>Need Help?</a><br>
-</div>
+</form>

@@ -13,6 +13,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { CharTwentyCapPipe } from '../pipe/char-twenty-cap.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RouterModule } from '@angular/router';
     StoryComponent,
     RegisterPageComponent,
     AdminPageComponent,
+    CharTwentyCapPipe
   ],
   imports: [
     CommonModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 
@@ -12,22 +12,31 @@ export class LoginPageComponent implements OnInit {
   loginForm:FormGroup = new FormGroup({});
   constructor(
     private router: Router,
-    private fb:FormBuilder
+    // private fb:FormBuilder
   ) { }
 
-  ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      username: '',
-      password: ''
-    })
+  ngOnInit() {
+    this.loginForm = new FormGroup({
+      'username': new FormControl(null),
+      'password': new FormControl(null),
+    });
   }
+
+  // ngOnInit(): void {
+  //   this.loginForm = this.fb.group({
+  //     username: '',
+  //     password: ''
+  //   })
+  // }
+
+
 
   toNewsFeed() {
     this.router.navigate(['/news']);
   }
 
   onSubmit(){
-    
+    console.log(this.loginForm)
   }
 
 }

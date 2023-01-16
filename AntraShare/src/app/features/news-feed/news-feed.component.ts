@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./news-feed.component.scss']
 })
 export class NewsFeedComponent {
+  story = "sajkdfhsjkdahfkjahsdjkhsjklhsljkfdah"
 
 }

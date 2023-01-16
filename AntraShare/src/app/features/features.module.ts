@@ -13,6 +13,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { AutoHideAfterFiveDirective } from '../directive/auto-hide-after-five.directive';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RouterModule } from '@angular/router';
     StoryComponent,
     RegisterPageComponent,
     AdminPageComponent,
+    AutoHideAfterFiveDirective
   ],
   imports: [
     CommonModule,

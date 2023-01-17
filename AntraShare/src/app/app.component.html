@@ -1,7 +1,12 @@
 <router-outlet></router-outlet>
-
 <div>
-    <p appHide>create a custom directive</p>
-    <span>that will auto hide the element after 5 seconds</span>
+    <label>Original Sentence</label>
+    <input (input) = "onStringChange($any($event.target).value)">
 </div>
 
+<div>
+    <label>trimmed sentence</label>
+    <div>
+        {{ sentence | trim : 20}}
+    </div>
+</div>

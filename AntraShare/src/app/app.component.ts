@@ -10,5 +10,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   
   title = 'AntraShare';
+  sentence!: string;
+  onStringChange(value:string) {
+    this.sentence = value;
+  }
+
 
 }

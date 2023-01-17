@@ -1,9 +1,9 @@
 <p>homepage works!</p>
 <!-- <button [routerLink]="['login']" >Go to Login Page</button> -->
 <!-- <a href="login">go to login page</a> -->
-<button (click)="goToLoginPage()">Go to Login Page with Logic</button>
+<!-- <button (click)="goToLoginPage()">Go to Login Page with Logic</button>
 
-<div *ngIf="indicator">This is a test for direvtives</div>
+<div *ngIf="indicator">This is a test for direvtives</div> -->
 
 <!-- <div *ngif='boolean'>test</div> -->
 
@@ -12,7 +12,7 @@
 </ng-template> -->
 <!-- <div *ngIf="datasource">{{datasource from server}}</div> -->
 
-<ng-container *ngIf="indicator">
+<!-- <ng-container *ngIf="indicator">
     <div *ngFor="let user of dataArray; let i = index">
         data entries {{user.name}}, which has the index {{i}}
     </div>
@@ -28,4 +28,34 @@
     <p *ngSwitchDefault>
 
     </p>
-</span>
+</span> -->
+
+<!-- ngClass -->
+<!-- <div [ngClass]="redIndicator ? 'red' : (blueIndicator ? 'blue' : 'green')">This is the text that will change color according to users' choice</div>
+
+<button (click)="changeColor('red')">Red</button>
+<button (click)="changeColor('blue')">Blue</button>
+<button (click)="changeColor('green')">Green</button> -->
+
+<!-- ngStyle -->
+<!-- <div [ngStyle]= "redIndicator ? {'color' : 'red', 'font-size' : '20px'} 
+: blueIndicator ? {'color':'blue', 'font-size': '30px'}
+: {'color': 'green'}">This is the text that will change color according to users' choice</div> -->
+<!-- This is the text that will change color according to users' choice</div> -->
+
+<!-- <div [ngStyle]="{
+    'color' :  redIndicator ? 'red' : blueIndicator ? 'blue' : 'green',
+    'font-size': '16px'
+}">This is the text that will change color according to users' choice</div> -->
+
+<!-- <div [style.color]="color">This is the text that will change color according to users' choice</div>
+
+<button (click)="changeColor('red')">Red</button>
+<button (click)="changeColor('blue')">Blue</button>
+<button (click)="changeColor('green')">Green</button> -->
+
+<!-- <h1 appRandomColor>this is a test for custom directive</h1> -->
+
+<!-- <div>current time : <i>{{time | date: 'M/d/yyyy'}}</i></div> -->
+
+<div>This is the text that using pipe : {{longtextObj | first10Chars}} </div>

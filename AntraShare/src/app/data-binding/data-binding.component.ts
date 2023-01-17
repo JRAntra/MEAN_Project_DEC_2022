@@ -17,7 +17,7 @@ export class DataBindingComponent implements OnInit {
 
   nameField : FormGroup = new FormGroup({})
   jobs: FormGroup = new FormGroup({})
-
+  childColor: string = 'red'
   constructor(private fb: FormBuilder) {
 
    }
@@ -68,5 +68,10 @@ export class DataBindingComponent implements OnInit {
     return this.nameField.get('firstname') as FormControl
   }
 
+
+  childTextUpdated(event:Event){
+    console.log(event)
+    alert(event)
+  }
 
 }

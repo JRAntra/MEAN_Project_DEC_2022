@@ -30,7 +30,8 @@ export class HideAfterFiveSecDirective {
 
   ngOnInit() {
     setTimeout(() => {
-      this.renderer.setStyle(this.elRef.nativeElement, 'display', 'none')
+      // this.renderer.setStyle(this.elRef.nativeElement, 'display', 'none')
+      this.renderer.setStyle(this.elRef.nativeElement, 'visibility', 'hidden') // hide and keep the element's space on the web page
     }, 5000)
   }
 }

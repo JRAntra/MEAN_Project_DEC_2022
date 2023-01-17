@@ -9,7 +9,6 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { NewsStoriesComponent } from './news-feed/news-stories/news-stories.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ShortenPipe } from '../shared/shorten-pipe/shorten.pipe';
 
 @NgModule({
   declarations: [

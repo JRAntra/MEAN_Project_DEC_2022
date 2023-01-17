@@ -22,15 +22,6 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
-  // ngOnInit(): void {
-  //   this.loginForm = this.fb.group({
-  //     username: '',
-  //     password: ''
-  //   })
-  // }
-
-
-
   toNewsFeed() {
     this.router.navigate(['/news']);
   }

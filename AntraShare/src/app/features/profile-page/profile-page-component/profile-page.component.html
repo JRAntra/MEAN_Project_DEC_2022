@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,18 +7,6 @@
     <title></title>
   </head>
   <body>
-    <!-- <header>
-      <h2>AntraShare</h2>
-      <input type="text" placeholder="Search" />
-      <ul class="icons">
-        <li>Home</li>
-        <li>Message</li>
-        <li>Add</li>
-        <li>Navigation</li>
-        <li>Like</li>
-        <li>Myself</li>
-      </ul>
-    </header> -->
     <app-top-nav-bar></app-top-nav-bar>
     <div class="profile">
       <section class="section_1">
@@ -77,4 +65,60 @@
       </section>
     </div>
   </body>
-</html>
+</html> -->
+<app-top-nav-bar></app-top-nav-bar>
+<main class="profile-panel">
+  
+  <div class="profile-panel__avatar">
+    <img src="../../../../assets/avatar1.jpeg" width="80px" height="80px">
+    <p>Change profile photo</p>
+  </div>
+  <form [formGroup]="profileForm" (submit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput name="username" formControlName="username" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput name="password" formControlName="password" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option *ngFor="let g of genders" [value]="g" name="gender">{{g}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Age</mat-label>
+      <input type="number" matInput name="age" formControlName="age">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput name="email" formControlName="email" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input type="tel" matInput name="phone" formControlName="phone">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      Save
+    </button>
+  </form>
+
+  <mat-tab-group>
+    <mat-tab> 
+      <ng-template mat-tab-label>
+        <mat-icon aria-label="See my post">view_module</mat-icon>
+      
+      </ng-template>
+      My post
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon aria-label="See my likes">favorite</mat-icon>
+      </ng-template>
+      My likes
+    </mat-tab>
+  </mat-tab-group>
+</main>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SettingPageComponent } from './setting-page-component/setting-page.component';
 import { MatButtonModule } from '@angular/material/button';
 import { TopNavModule } from '../top-nav/top-nav.module';
+import { AppRoutingModule } from 'app/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { TopNavModule } from '../top-nav/top-nav.module';
   imports: [
     CommonModule,
     TopNavModule,
+    AppRoutingModule,
     MatButtonModule
   ],
   exports: [

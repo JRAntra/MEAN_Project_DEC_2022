@@ -7,7 +7,6 @@ import { AdminPageModule } from './admin-page/admin-page.module';
 import { NewsfeedPageModule } from './newsfeed-page/newsfeed-page.module';
 import { ProfilePageModule } from './profile-page/profile-page.module';
 import { TopNavModule } from './top-nav/top-nav.module';
-import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [],

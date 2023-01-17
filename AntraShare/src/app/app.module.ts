@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeaturesModule } from './features/features.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HideDirective } from './hide.directive';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HideDirective
   ],
   imports: [
     BrowserModule,

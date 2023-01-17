@@ -2,19 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterBannerComponent } from './router-banner/router-banner.component';
 import { ShortenPipe } from './shorten-pipe/shorten.pipe';
+import { HideAfterFiveSecDirective } from './hide-after-five-sec/hide-after-five-sec.directive';
 
 
 @NgModule({
   declarations: [
     RouterBannerComponent,
     ShortenPipe,
+    HideAfterFiveSecDirective,
   ],
   imports: [
     CommonModule
   ],
   exports: [
     RouterBannerComponent,
-    ShortenPipe
+    ShortenPipe,
+    HideAfterFiveSecDirective,
   ],
   bootstrap: [
     RouterBannerComponent

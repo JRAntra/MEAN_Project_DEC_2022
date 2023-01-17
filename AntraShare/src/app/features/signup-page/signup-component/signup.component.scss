@@ -66,24 +66,24 @@ input[type='password']{
     box-shadow: none;
 }
 
-img{
-    width: 40px;
-    height:40px;
-    object-fit: cover;
-    border-radius: 50%;
-    position: relative;
-}
+// img{
+//     width: 40px;
+//     height:40px;
+//     object-fit: cover;
+//     border-radius: 50%;
+//     position: relative;
+// }
 
-.bordert{
-    border-top: 1px solid #aaa;
-    position: relative;
-}
+// .bordert{
+//     border-top: 1px solid #aaa;
+//     position: relative;
+// }
 
-.bordert::after{
-    content: "or connect with";
-    position: absolute;
-    top: -13px;
-    left: 33%;
-    background-color: #fff;
-    padding: 0 8px;
-}
+// .bordert:after{
+//     content: "or connect with";
+//     position: absolute;
+//     top: -13px;
+//     left: 33%;
+//     background-color: #fff;
+//     padding: 0 8px;
+// }

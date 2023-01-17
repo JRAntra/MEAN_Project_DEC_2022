@@ -9,8 +9,8 @@ import { NewsfeedPageComponent } from './features/newsfeed-page/newsfeed-page-co
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
-  {path:'login', component: LoginComponent},
-  {path:'signup', component: SignupComponent },
+  { path:'login', component: LoginComponent },
+  { path:'signup', component: SignupComponent },
   { path: 'settings', component: SettingPageComponent },
   { path: 'admin', component: AdminPageComponent },
   { path: 'newsfeed', component: NewsfeedPageComponent },

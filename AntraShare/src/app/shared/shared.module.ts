@@ -14,6 +14,7 @@ import { HideAfterFiveSecDirective } from './hide-after-five-sec/hide-after-five
   ],
   exports: [
     RouterBannerComponent,
+    HideAfterFiveSecDirective
   ],
   bootstrap: [
     RouterBannerComponent

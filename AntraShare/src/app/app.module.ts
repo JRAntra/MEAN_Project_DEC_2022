@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { FeaturesModule } from './features/features.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AutoHideDirective } from './shared/directives/auto-hide.directive';
+import { FirstFewCharsPipe } from './shared/pipes/first-few-chars.pipe';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AutoHideDirective,
+    FirstFewCharsPipe
   ],
   imports: [
     BrowserModule,

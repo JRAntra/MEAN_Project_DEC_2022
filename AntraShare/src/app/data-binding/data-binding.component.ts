@@ -9,41 +9,41 @@ export class DataBindingComponent implements OnInit {
 
   // firstname: FormControl = new FormControl('JR')
   // lastname: FormControl = new FormControl('Zhang')
-  
+
   // nameField: FormGroup = new FormGroup({
   //   firstname: new FormControl('JR'),
   //   lastname: new FormControl('Zhang')
   // })
 
-  nameField : FormGroup = new FormGroup({})
+  nameField: FormGroup = new FormGroup({})
   jobs: FormGroup = new FormGroup({})
   childColor: string = 'red'
   constructor(private fb: FormBuilder) {
 
-   }
+  }
 
   name: string = ''
   ngOnInit(): void {
 
     this.nameField = this.fb.group({
       firstname: 'JR',
-      lastname:'Zhang',
+      lastname: 'Zhang',
       contacts: this.fb.group({
         phoneNum: '00000000000',
-        address:'Sterling'
+        address: 'Sterling'
       }),
       career: this.fb.array(
-      [
-        this.jobs = this.fb.group({
-               
-          title: 'web developer',
-          period: this.fb.group({
-            
+        [
+          this.jobs = this.fb.group({
+
+            title: 'web developer',
+            period: this.fb.group({
+
+            })
+
           })
-        
-        })
-  
-      ]
+
+        ]
       )
     })
 
@@ -57,19 +57,19 @@ export class DataBindingComponent implements OnInit {
     console.log(this.nameField)
     // this.firstname.valueChanges.subscribe
   }
-  clearValue(){
+  clearValue() {
     this.name = 'cleared'
   }
-  submitForms(){
+  submitForms() {
 
   }
 
-  get firstname(): FormControl{
+  get firstname(): FormControl {
     return this.nameField.get('firstname') as FormControl
   }
 
 
-  childTextUpdated(event:Event){
+  childTextUpdated(event: Event) {
     console.log(event)
     alert(event)
   }

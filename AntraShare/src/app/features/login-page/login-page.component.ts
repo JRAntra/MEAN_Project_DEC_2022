@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 
@@ -8,18 +9,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-
+  loginForm:FormGroup = new FormGroup({});
   constructor(
-    private router: Router
+    private router: Router,
+    // private fb:FormBuilder
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.loginForm = new FormGroup({
+      'username': new FormControl(null, Validators.required),
+      'password': new FormControl(null, Validators.required),
+    });
   }
 
   toNewsFeed() {
-
     this.router.navigate(['/news']);
+  }
 
+  onSubmit(){
+    console.log(this.loginForm)
   }
 
 }

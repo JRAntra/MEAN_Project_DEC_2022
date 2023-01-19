@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserInfoService } from 'src/app/shared/services/user-info.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-register-page',
@@ -10,13 +12,13 @@ export class RegisterPageComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private userInfoService: UserInfoService) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      username: "vilavivida",
-      password: '12345',
-      email: 'vilavivida@gmail.com',
+      username: ["John Doe", Validators.required],
+      password: ['nowyouseemypassword', [Validators.required, Validators.minLength(6)]],
+      email: ['jdoe1@yahoo.com', Validators.required],
     })
   }
 
@@ -32,7 +34,15 @@ export class RegisterPageComponent implements OnInit {
       password: password,
       email: email,
     });
-     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+
+    // test data binding
+    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
+
+    // TODO: route to login page after the user completed registration
+
+    this.userInfoService.register(this.registerForm.value)
+    .pipe(first())
+    .subscribe(val => console.log(`Register form being sent: ${val}`))
   }
 
 }

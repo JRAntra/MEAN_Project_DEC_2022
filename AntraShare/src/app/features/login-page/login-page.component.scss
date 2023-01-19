@@ -41,7 +41,7 @@ $background-color_3: rgb(250, 218, 76);
 		color: $primary_color;
 		border: none;
 		height: 35px;
-		border-bottom: 1px solid #fff;
+		border-bottom: 1px solid $primary_color;
 		background: transparent;
 		outline: none;
 	}

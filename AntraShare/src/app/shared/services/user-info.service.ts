@@ -12,6 +12,7 @@ export class UserInfoService {
   constructor(private http: HttpClient) { }
 
   register(user: User) {
+        console.log(user)
         return this.http.post(`${this.apiUrl}/api/register/createNewAccount`, user);
     }
 }

@@ -13,9 +13,9 @@ export class AppComponent implements OnInit{
   text = "this is a demo for data Bindings"
   textContent = "lastname"
   styleVar = ""
+  parentColor = "red"
 
   ngOnInit(): void {
-    // console.log(this.text)
   }
 
   onClickRed(): string{
@@ -30,6 +30,10 @@ export class AppComponent implements OnInit{
   onChangeInputText(): void {
     alert("text changed")
     FormControl
+  }
+
+  changeColor(){
+    this.parentColor = 'blue';
   }
     
 }

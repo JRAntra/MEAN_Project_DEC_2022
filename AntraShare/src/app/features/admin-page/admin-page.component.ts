@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { pipe, map } from 'rxjs';
+import { first } from 'rxjs-compat/operator/first';
+import { UserInfoService } from 'src/app/shared/services/user-info.service';
 
 @Component({
   selector: 'app-admin-page',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPageComponent implements OnInit {
 
-  constructor() { }
+  users:any = [];
+
+  constructor(private userService:UserInfoService) { }
 
   ngOnInit(): void {
+    this.userService.getAll()
+      
+      .subscribe(username =>{
+        console.log(username)
+      })
   }
 
 }

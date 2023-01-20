@@ -20,6 +20,9 @@ export class AdminPageComponent {
         let u = res as Array<User>
         u.forEach(user => this.users.push(new User(user._id, user.name, user.userName, user.userEmail, user.password, user.userRole, user.age, user.gender, user.phone)));
         console.log(this.users);
+        this.users.shift()
+        this.displayUser = this.users[0]
+        
       }
       
     )

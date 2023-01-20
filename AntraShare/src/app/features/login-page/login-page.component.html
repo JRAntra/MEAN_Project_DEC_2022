@@ -1,5 +1,5 @@
 <body>
-  <div class="main-page" [formGroup]="usergroup" (ngSubmit)="onSubmit()">
+  <form class="main-page" [formGroup]="usergroup" (ngSubmit)="onSubmit()">
     <img src="assets/antrashare.png" />
 
     <div>
@@ -20,7 +20,8 @@
       />
     </div>
 
-    <button (click)="onLogin()" type="sumbit">Login</button>
+    <!-- <button (click)="onLogin()" type="sumbit">Login</button> -->
+    <button type="submit">Login</button>
 
     <button [routerLink]="['/register']" routerLinkActive="active">
       No Accounts? Register Now!
@@ -40,5 +41,5 @@
 
       <p class="help"><u>Need Help?</u></p>
     </div>
-  </div>
+  </form>
 </body>

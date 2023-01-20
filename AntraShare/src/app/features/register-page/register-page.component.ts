@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { Subscription } from 'rxjs';
+import { RegisterService } from 'src/app/core/service/register/register.service';
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
@@ -14,27 +15,46 @@ export class RegisterPageComponent {
     passwordcon: new FormControl(),
     email: new FormControl(),
   });
+  subscription: Subscription = new Subscription();
 
-  constructor(private router: Router) {}
-
+  constructor(
+    private router: Router,
+    private registerService: RegisterService
+  ) {}
   onSubmit() {
-    console.log(this.form);
-    console.log(
-      this.form.get('userName')?.value,
-      this.form.get('password')?.value,
-      this.form.get('passwordcon')?.value,
-      this.form.get('email')?.value
+    const registerData: user = {
+      userName: this.form.get('userName')?.value,
+      userEmail: this.form.get('email')?.value,
+      password: this.form.get('password')?.value,
+    };
+    this.subscription = this.registerService.register(registerData).subscribe(
+      (response) => {
+        console.log(response);
+        this.goToLoginPage();
+      },
+      (error) => {
+        console.log(error);
+      }
     );
-
-    this.form.setValue({
-      userName: '',
-      password: '',
-      passwordcon: '',
-      email: '',
-    });
+    // this.form.setValue({
+    //   userName: '',
+    //   password: '',
+    //   passwordcon: '',
+    //   email: '',
+    // });
   }
 
   goToLoginPage() {
     this.router.navigate(['login']);
   }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
+
+type user = {
+  userName: string;
+  userEmail: string;
+  password: string;
+};

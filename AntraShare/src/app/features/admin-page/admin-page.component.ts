@@ -11,8 +11,11 @@ import { UserInfoService } from 'src/app/shared/services/user-info.service';
 export class AdminPageComponent implements OnInit {
 
   users:any = [];
+  user:any = {};
 
-  constructor(private userService:UserInfoService) { }
+  constructor(private userService:UserInfoService) {
+
+  }
 
   ngOnInit(): void {
     this.userService.getAll()
@@ -21,6 +24,15 @@ export class AdminPageComponent implements OnInit {
         console.log(users)
         this.users = users
         })
-        
     };
+  
+  
+
+  showInfo(username:string){
+    this.userService.getByUsername(username)
+      .subscribe(user => {
+        this.user = user
+        console.log(user)
+      })
+  }
 }

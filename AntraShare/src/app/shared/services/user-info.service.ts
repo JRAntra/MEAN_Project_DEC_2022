@@ -17,6 +17,10 @@ export class UserInfoService {
     }
   
   getAll(){
-    return this.http.get<User[]>(`${this.apiUrl}/api/users/getAllUsers`)
+    return this.http.get(`${this.apiUrl}/api/users/getAllUsers`)
+  }
+
+  getByUsername(username:string){
+    return this.http.get(`${this.apiUrl}/api/users//getProfile/${username}`)
   }
 }

@@ -12,6 +12,15 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NewsFeedPipe } from './news-feed/news-feed.pipe';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule,HttpClient } from '@angular/common/http';
+import { NewsFeedService } from './news-feed/news-feed.service';
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -23,14 +32,22 @@ import { ReactiveFormsModule } from '@angular/forms';
     StoryComponent,
     RegisterPageComponent,
     AdminPageComponent,
+    NewsFeedPipe,
+    
+    
   ],
   imports: [
     CommonModule,
     SharedModule,
     MatIconModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule,
+    HttpClientModule,
+    
+    
   ],
+  providers:[NewsFeedService],
   exports: [
     LoginPageComponent,
     NewsFeedComponent,

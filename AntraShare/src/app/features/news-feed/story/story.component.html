@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <div class="top-container">
         <ul>
             <li><div class="avatar"></div></li>
@@ -17,5 +17,26 @@
             <li><mat-icon>comment</mat-icon> <span>4</span></li>
             <li><mat-icon>favorite</mat-icon><span>23</span></li>
         </ul>
+    </div>  
+</div> -->
+
+<div class="container" *ngFor="let news of newsList">
+    <div class="top-container">
+        <ul>
+            <!-- <li><div class="avatar"></div></li> -->
+            <li class="li"><p>{{news.publisherName}}</p></li>
+            <!-- <li class="userName">{{news.publisherName}}</li> -->
+            <li class="publishTime">{{news.publishedTime}}</li>
+        </ul>
     </div>
+    <div class="mid-container">
+        <img src={{news?.content?.image}}>
+        <p>{{news?.content?.text}}</p>
+    </div>
+    <div class="btm-container">
+        <ul>
+            <li><mat-icon>comment</mat-icon> <span>4</span></li>
+            <li><mat-icon>favorite</mat-icon><span>23</span></li>
+        </ul>
+    </div>  
 </div>

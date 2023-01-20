@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import{FormGroup,FormControl,FormBuilder} from '@angular/forms';
-
+import { PopupserviceService } from 'src/app/shared/services/popupservice.service';
 
 
 
@@ -11,39 +11,40 @@ import{FormGroup,FormControl,FormBuilder} from '@angular/forms';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-  usergroup:FormGroup=new FormGroup({})
+  usergroup:FormGroup;
+  name:string='';
+  constructor(private fb:FormBuilder,private appservice:PopupserviceService){
+    
 
-  agree_or_not:FormGroup=new FormGroup({
-    agreecheckbox:new FormControl('')
-  })
-  
-  constructor(private fb:FormBuilder){
-
-    this.usergroup=fb.group(
+    this.usergroup=this.fb.group(
       {
         username:'',
         password:'',
-        agreecheckbox:''
+        agree_or_not:this.fb.group({agreecheckbox:''})
       }
     )
+
     
    }
 
   ngOnInit(): void {
-    //console.log( this.agree_or_not)
+    //console.log(this.usergroup)
+    console.log(this.name)
+
     
     
   }
   get user(){
     return this.usergroup.controls
   }
-  get agree(){
-    return this.agree_or_not.controls
-  }
+  
   
   onSubmit():void{
-    console.log(this.usergroup.value)
+    //console.log(this.user['username']?.value)
+    this.appservice.upDateState(this.user['username']?.value)
     this.usergroup.reset();
+    console.log(this.appservice.currentPopUpService)
+
   }
   
 

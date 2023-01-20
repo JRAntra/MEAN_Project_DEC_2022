@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '../models/users.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetAllUsersService {
+  url = 'http://localhost:4231/api/users/getAllUsers';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  
+  getUsers(): Observable<any>{
+    return this.http.get(this.url);
+  }
+
 }

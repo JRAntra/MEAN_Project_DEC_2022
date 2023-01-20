@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutoHideDirective } from './shared/directives/auto-hide.directive';
 import { FirstFewCharsPipe } from './shared/pipes/first-few-chars.pipe';
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,6 +23,7 @@ import { FirstFewCharsPipe } from './shared/pipes/first-few-chars.pipe';
     FeaturesModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

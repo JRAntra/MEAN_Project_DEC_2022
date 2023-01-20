@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { from, fromEvent, of, Subscription } from 'rxjs';
+import { UserInfoService } from 'src/app/services/user-info.service';
 
 @Component({
   selector: 'app-user-forms',
@@ -10,7 +11,7 @@ import { from, fromEvent, of, Subscription } from 'rxjs';
 export class UserFormsComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private userInfo : UserInfoService) { }
 
   username: FormControl = new FormControl('')
 
@@ -18,9 +19,13 @@ export class UserFormsComponent implements OnInit {
 
   subscriptions : Subscription[] = []
 
+  userList = [];
+
   ngOnInit(): void {
     this.subscriptions.push(this.username.valueChanges.subscribe(
+
       res=> console.log("Async value :" +res)
+  
     ))
     // console.log("sync value :" + this.username.value)
 

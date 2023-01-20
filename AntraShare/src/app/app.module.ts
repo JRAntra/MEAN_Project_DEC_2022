@@ -12,13 +12,17 @@ import { RandomColorDirective } from './directives/random-color.directive';
 import { First10CharsPipe } from './pipes/first10-chars.pipe';
 import { ChildDataBindingComponent } from './data-binding/child-data-binding/child-data-binding.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UserFormsComponent } from './formInput/user-forms/user-forms.component'
+import { UserFormsComponent } from './formInput/user-forms/user-forms.component';
+import { TestAComponent } from './dataSharing/test-a/test-a.component';
+import { TestBComponent } from './dataSharing/test-b/test-b.component'
 @NgModule({
   declarations: [
     AppComponent,
     DataBindingComponent,
     ChildDataBindingComponent,
     UserFormsComponent,
+    TestAComponent,
+    TestBComponent,
 
   ],
   imports: [

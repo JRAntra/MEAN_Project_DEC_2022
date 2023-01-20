@@ -31,7 +31,11 @@
 }
 
 .user-list {
-  height: 80%;
+  height: auto;
+}
+
+.user-list:hover {
+  cursor: pointer;
 }
 
 .user-detail {

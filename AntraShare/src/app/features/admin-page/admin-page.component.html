@@ -1,10 +1,9 @@
 <div class="admin-page">
     <div class="users-list">
         <ul *ngFor="let user of users">
-            <li>{{user.username}} <button>Delete</button></li>
-            <button class="add-user-button">Add User Button</button>
+            <li>{{user.userName}} <button>Delete</button></li>
         </ul>
-        
+        <button class="add-user-button">Add User Button</button>
     </div>
     <div class="user-info-panel">
         <ul>

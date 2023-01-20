@@ -17,6 +17,6 @@ export class UserInfoService {
     }
   
   getAll(){
-    return this.http.get(`${this.apiUrl}/api/users`)
+    return this.http.get<User[]>(`${this.apiUrl}/api/users/getAllUsers`)
   }
 }

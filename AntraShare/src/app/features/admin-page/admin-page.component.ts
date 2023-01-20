@@ -16,10 +16,11 @@ export class AdminPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getAll()
-      
-      .subscribe(username =>{
-        console.log(username)
-      })
-  }
-
+      .pipe()
+      .subscribe(users => {
+        console.log(users)
+        this.users = users
+        })
+        
+    };
 }

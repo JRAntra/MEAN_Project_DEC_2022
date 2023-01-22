@@ -2,6 +2,15 @@
 //    display: flex-box
 //    use percentage, min-width
 
+.count-down-banner {
+    margin: 0 auto;
+    width: 50%;
+    background-color: yellow;
+    height: 100px;
+    z-index: 1;
+
+}
+
 .news-feed {
     display: block;
     margin: 0 auto;

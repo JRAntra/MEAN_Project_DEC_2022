@@ -1,12 +1,11 @@
-    <!-- <div appDisappear>This will be hidden after 5 seconds</div> -->
 
     <div class="news-story" *ngFor="let story of stories">
 
         <div  class="news-content" *ngIf="story.content">
 
-            <span class="news-publisher"> {{story.publisherName}}</span>
-            <span class="news-publisher">{{story.publishedTime | date}}</span>
-            <div *ngIf="story.content.text">
+            <span class="news-publisher"> <b>{{story.publisherName}}</b></span>
+            <span class="news-publish-time">{{story.publishedTime | date}}</span>
+            <div class="news-content-text" *ngIf="story.content.text">
                 {{story.content.text | first20Chars}}
             </div>
     
@@ -14,7 +13,7 @@
                 <img class="news-image" src="{{story.content.image}}">
             </div>
     
-            <div>
+            <div class="news-like-button">
                 <button (click)="onLike()">Like</button>
             </div>
             <div class="news-comment" *ngIf="story.comment">

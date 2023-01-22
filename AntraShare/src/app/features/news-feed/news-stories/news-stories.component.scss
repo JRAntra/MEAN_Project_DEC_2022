@@ -17,9 +17,20 @@
 }
 
 .news-publisher{
-    margin: 10px;
-    padding: 10px;
+    margin-right: 30px;
     font-family:'Courier New', Courier, monospace
+}
+
+.news-publish-time {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.news-content-text {
+    margin-top: 20px;
+}
+
+.news-like-button{
+    margin-top: 20px;
+    margin-left: 10%;
 }
 
 .news-comments {

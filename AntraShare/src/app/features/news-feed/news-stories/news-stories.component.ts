@@ -22,14 +22,22 @@ export class NewsStoriesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.receiveNews();
-
+    // this.receiveNews();
+    this.receiveAllNews();
   }
 
 
 // to do: modify numbers of page, number of news per page
   receiveNews(): void {
     this.newsService.getNews(this.numsOfPage,this.numsOfNews)
+      .subscribe(Response => {
+        this.stories = Response;
+        
+      })
+  }
+
+  receiveAllNews(): void {
+    this.newsService.getAllNews()
       .subscribe(Response => {
         this.stories = Response;
         

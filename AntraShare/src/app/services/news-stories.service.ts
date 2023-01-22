@@ -11,6 +11,11 @@ export class NewsStoriesService {
 
   constructor(private http: HttpClient) { }
 
+
+  getAllNews(): Observable<News[]> {
+    return this.http.get<News[]>(`${this.apiUrl}/api/news/`);
+  }
+
   getNews(page: number, perpage: number): Observable<News[]> {
     return this.http.get<News[]>(`${this.apiUrl}/api/news/` + page + '/' + perpage);
   }

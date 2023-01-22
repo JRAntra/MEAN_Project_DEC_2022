@@ -6,7 +6,7 @@
             <span class="news-publisher"> <b>{{story.publisherName}}</b></span>
             <span class="news-publish-time">{{story.publishedTime | date}}</span>
             <div class="news-content-text" *ngIf="story.content.text">
-                {{story.content.text | first20Chars}}
+                {{story.content.text }}
             </div>
     
             <div *ngIf="story.content.image">
@@ -14,8 +14,12 @@
             </div>
     
             <div class="news-like-button">
-                <button (click)="onLike()">Like</button>
+                <a (click)="onLike(story)">
+                    <img src="../../../../assets/icons/like.png"  alt="" height="20px">
+                    Like
+                </a>
             </div>
+
             <div class="news-comment" *ngIf="story.comment">
                 <hr>
                 <span class="comment-font">Comments:</span>

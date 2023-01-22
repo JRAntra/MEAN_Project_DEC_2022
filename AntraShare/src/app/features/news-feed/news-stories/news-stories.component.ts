@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { NewsStoriesService } from 'src/app/services/news-stories.service';
 import { News, Comment } from 'src/app/shared/models/news';
 
@@ -9,6 +9,8 @@ import { News, Comment } from 'src/app/shared/models/news';
 })
 export class NewsStoriesComponent implements OnInit {
   
+  @Output() newLikeList = new EventEmitter<News>();
+
   stories: News[] = [];
   
   // todo: change fix pages, news to dynamic
@@ -26,8 +28,7 @@ export class NewsStoriesComponent implements OnInit {
     this.receiveAllNews();
   }
 
-
-// to do: modify numbers of page, number of news per page
+// to do: Infinite page: modify numbers of page, number of news per page?
   receiveNews(): void {
     this.newsService.getNews(this.numsOfPage,this.numsOfNews)
       .subscribe(Response => {
@@ -44,9 +45,12 @@ export class NewsStoriesComponent implements OnInit {
       })
   }
 
-
-  onLike(){
-    console.log("Liked!")
+  onLike(news: News){
+    console.log("I like :" + news._id )
+    this.newLikeList.emit(news);
   }
 
+  getCount(ids: string[]){
+    return ids.length
+  }
 }

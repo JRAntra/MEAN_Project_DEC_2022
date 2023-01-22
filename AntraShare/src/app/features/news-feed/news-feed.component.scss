@@ -5,9 +5,12 @@
 .count-down-banner {
     margin: 0 auto;
     width: 50%;
-    background-color: yellow;
+    position: relative;
+    background-color: red;
+    opacity: 0.8;
     height: 100px;
-    z-index: 1;
+    text-align: center;
+    z-index: 10;
 
 }
 
@@ -18,7 +21,7 @@
 
     .news-post {
         display: inline-block;
-        margin-top: 20px;
+        margin-top: 40px;
         min-width: 400px;
         width: 100%;
         height: 160px;
@@ -38,5 +41,46 @@
         margin-left: 20px;
 
     }
+
+}
+
+
+
+.news-publisher{
+    margin-right: 30px;
+    font-family:'Courier New', Courier, monospace
+}
+
+.news-publish-time {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.news-content-text {
+    margin-top: 20px;
+}
+
+.news-liked-list-outer{
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 20px;
+    width: 33%;
+    height: 20px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: beige;
+    border: 1px solid black;
+    z-index: 9;
+}
+
+
+.news-liked-list-outer:hover{
+    background-color: sandybrown;
+    border: 1px solid black;
+}
+
+.news-liked-list  {
+
+    background-color: grey;
+    border: 1px solid black;
+    z-index: 9;
 
 }

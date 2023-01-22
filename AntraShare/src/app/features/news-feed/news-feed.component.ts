@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { News } from 'src/app/shared/models/news';
 
 @Component({
   selector: 'app-news-feed',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsFeedComponent implements OnInit{
 
-  isHidden = false;
+  isHidden = false; // 5 sec countdown
   
+  item: News[] = [];
+  likeList = new Set(this.item);
+
+  showLikedList = false;
+
 
   ngOnInit(): void {
     console.log("Start");
@@ -17,7 +23,7 @@ export class NewsFeedComponent implements OnInit{
   }
 
   onSubmit(){
-    console.log("Submitted!")
+    console.log("Submitted!")  //  not implemented yet
   }
 
   hideDiv(){
@@ -26,6 +32,24 @@ export class NewsFeedComponent implements OnInit{
       this.isHidden = true;
       
     }, 5000)
+  }
+
+  toggleLikeList(){
+    if (this.showLikedList == false) {
+      this.showLikedList = true;
+    } else {
+      this.showLikedList = false;
+    }
+    
+  }
+
+
+  addLikeList(event: News){
+    this.likeList.add(event);
+  }
+
+  removeLikedList(event: News){
+    this.likeList.delete(event);
   }
 
 }

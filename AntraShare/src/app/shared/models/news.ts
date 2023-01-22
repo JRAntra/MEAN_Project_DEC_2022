@@ -6,13 +6,15 @@ export interface News {
     content: Content;
     comment?: Comment[];
     LikedIdList: LikedIdList;
-    
+    _id: string;
 }
 
 export interface Comment {
     publisherName: string;
     content: Content;
     publishedTime: Date;
+    _id: string;
+
 }
 
 export interface Content {
@@ -22,9 +24,11 @@ export interface Content {
     video?: string;
     textUrl: string;
     text?: string;
+    _id: string;
+
 
 }
 
 export interface LikedIdList {
-    userId: string;
+    _id?: string;
 }

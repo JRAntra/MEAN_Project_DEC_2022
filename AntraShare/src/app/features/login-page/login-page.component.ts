@@ -28,6 +28,7 @@ export class LoginPageComponent implements OnInit {
 
   onSubmit(){
     console.log(this.loginForm)
+    this.toNewsFeed();
   }
 
 }

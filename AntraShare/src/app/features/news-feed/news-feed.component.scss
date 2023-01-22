@@ -3,25 +3,31 @@
 //    use percentage, min-width
 
 .news-feed {
-    margin: auto;
+    display: block;
+    margin: 0 auto;
     width: 50%;
-    padding:10px;
 
     .news-post {
-        margin: 20px;
-        width: 600px;
-        height: 300px;
-        background-color: antiquewhite;
-        font-size: xx-small;
+        display: inline-block;
+        margin-top: 20px;
+        min-width: 400px;
+        width: 100%;
+        height: 160px;
+        background-color: aliceblue;
         border: 1px solid black;
     }
 
-    .news-story {
+    .news-post-area {
         margin: 20px;
-        width: 600px;
-        height: 200px;
-        background-color: aliceblue;
-        font-size: xx-small;
-        border: 1px solid black;
+        min-width: 350px;
+        width: 90%;
+        height: 80px;
     }
+
+    .submit-post {
+        display: block;
+        margin-left: 20px;
+
+    }
+
 }

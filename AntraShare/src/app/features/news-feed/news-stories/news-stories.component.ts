@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsStoriesService } from 'src/app/services/news-stories.service';
+import { News, Comment } from 'src/app/shared/models/news';
 
 @Component({
   selector: 'app-news-stories',
@@ -6,15 +8,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news-stories.component.scss']
 })
 export class NewsStoriesComponent implements OnInit {
-  storyContent: string[] = [
-    "When a chatbot called ChatGPT hit the internet late last year, executives at a number of Silicon Valley companies worried they were suddenly dealing with new artificial intelligence technology that could disrupt their businesses.But at Microsoft, it was a cause for celebration. For several years, Satya Nadella, Microsoft’s chief executive, had been putting the pieces in place for this moment.",
-    "In 2019, Microsoft invested $1 billion in OpenAI, the tiny San Francisco company that designed ChatGPT. And in the years since, it has quietly invested another $2 billion, according to two people familiar with the investment who requested anonymity because they were not authorized to speak with the media. The $3 billion paid for the huge amounts of computing power that OpenAI needed to build the chatbot. And it meant that Microsoft could rapidly build and deploy new products based on the technology.",
-]
+  
+  stories: News[] = [];
+  
+  // todo: change fix pages, news to dynamic
+  numsOfPage: number = 34;
+  numsOfNews: number = 5;
 
-  constructor() { }
+  constructor(
+    private newsService: NewsStoriesService,
+
+  ) { }
 
   ngOnInit(): void {
+
+    this.receiveNews();
+
   }
 
+
+// to do: modify numbers of page, number of news per page
+  receiveNews(): void {
+    this.newsService.getNews(this.numsOfPage,this.numsOfNews)
+      .subscribe(Response => {
+        this.stories = Response;
+        
+      })
+  }
+
+
+  onLike(){
+    console.log("Liked!")
+  }
 
 }

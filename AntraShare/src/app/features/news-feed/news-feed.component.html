@@ -1,13 +1,14 @@
+<app-router-banner></app-router-banner>
+
 <div class="news-feed">
     <div class="news-post">
-        <div>Post News Feed Form</div>
-        <input type="text" placeholder="Post something here">
+        <input class="news-post-area" type="text" placeholder="What's on your mind?">
+
+        <button class="submit-post" (click)="onSubmit()">Submit</button>
     </div>
-    
-    
+
     <app-news-stories></app-news-stories>
 
 </div>
 
 
-<app-router-banner></app-router-banner>

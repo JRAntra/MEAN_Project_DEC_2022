@@ -2,14 +2,14 @@
       <form class="register-box" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <h1>Register</h1>
             <label>Username</label>
-            <input aria-label="username" formControlName="username" type="text" name="" placeholder="Enter Username">
+            <input aria-label="userName" formControlName="userName" type="text" name="" placeholder="Enter Username">
             <label>Password</label>
             <input aria-label="password" formControlName="password" type="password" name=""
                   placeholder="Enter Password">
             <label>Confirm Password</label>
             <input aria-label="confirmPassword" type="password" name="" placeholder="Re-enter Password">
             <label>Email</label>
-            <input aria-label="email" formControlName="email" type="email" name="" placeholder="Enter Email">
+            <input aria-label="userEmail" formControlName="userEmail" type="email" name="" placeholder="Enter Email">
 
             <button class="registerButton" type="submit" value='Register'>Register</button>
             <a href='/'>Already got an account? Login here</a><br>

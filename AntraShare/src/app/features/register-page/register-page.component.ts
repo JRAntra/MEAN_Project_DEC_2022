@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserInfoService } from 'src/app/shared/services/user-info.service';
 import { first } from 'rxjs/operators';
@@ -12,7 +13,7 @@ export class RegisterPageComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, private userInfoService: UserInfoService) { }
+  constructor(private formBuilder: FormBuilder, private userInfoService: UserInfoService, private router: Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -42,7 +43,10 @@ export class RegisterPageComponent implements OnInit {
 
     this.userInfoService.register(this.registerForm.value)
     .pipe(first())
-    .subscribe(val => console.log(`Register form being sent: ${val}`))
+    .subscribe(val => {
+      console.log('Registration successful')
+      this.router.navigate(['/login'])
+    })
   }
 
 }

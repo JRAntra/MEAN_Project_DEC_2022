@@ -1,0 +1,23 @@
+div{
+    background-color: rgb(43, 43, 239);
+    width: 0 auto;
+    height: 3rem;
+    position: relative;
+    button{
+        text-align: center;
+        color: aqua;
+        position: absolute;
+        right:3%;
+        top:30%;
+
+    }
+}
+.like-list-content{
+    position: absolute;
+    background-color:green;
+    width: 20%;
+    height: 20rem;
+    top:3rem;
+    right:0;
+    display: none;
+}

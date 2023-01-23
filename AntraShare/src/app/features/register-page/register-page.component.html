@@ -1,20 +1,24 @@
-<form [formGroup]="form" class="register-main" (submit)="onSubmit()">
+<form [formGroup]="form" class="register-main" (submit)="onSubmit()" (keyup)="error3()">
     <p><strong>Register</strong></p>
     <div>
         <label for="username">User Name:</label>
-        <input formControlName="userName" type="text" id="username" name="username">
+        <input formControlName="userName" (keyup)="errors()" type="text" id="username" name="username">
+        <p *ngIf="form.controls['userName']?.errors?.['usernameExists']">Username already been used</p>
     </div>
     <div>
         <label for="password">Password:</label>
-        <input formControlName="password" type="password" id="password" name="password">
+        <input formControlName="password" type="password" id="password" name="password" (keyup)="errors2()">
+        <p *ngIf="form.controls['password'].errors?.['error']">Password must have at least 1 uppercase, 1 lowercase, 1 special character</p>
     </div>
     <div>
         <label for="passwordcon">Password Confirm:</label>
         <input formControlName="passwordcon" type="password" id="passwordcon" name="passwordcon">
+        <p *ngIf="form.errors?.['notSame']">password confirm should be the same as password</p>
     </div>
     <div>
         <label for="email">Email:</label>
-        <input formControlName="email" type="email" id="email" name="email">
+        <input formControlName="email" type="email" id="email" name="email" (keyup)="errors1()">
+        <p *ngIf="form.controls['email']?.errors?.['emailExists']">Email already been used</p>
     </div>
     <button>Register</button>
 

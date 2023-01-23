@@ -3,11 +3,20 @@ div.container {
     padding: 20px 40px;
     border-radius: 6px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left:20%;
+
 }
+    
 :host {
     display: flex;
     justify-content: center;
     margin: 10px 0px;
+    flex-direction: column;
+    
+    
 }
 
 
@@ -33,6 +42,7 @@ div.container {
 }
 .userName {
     font-size: 1.5em;
+     
 }
 .publishTime{
     color:darkgrey;
@@ -73,3 +83,4 @@ mat-icon {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
   }
+

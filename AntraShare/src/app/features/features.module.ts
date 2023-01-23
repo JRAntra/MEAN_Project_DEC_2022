@@ -16,6 +16,7 @@ import { NewsFeedPipe } from './news-feed/news-feed.pipe';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { NewsFeedService } from './news-feed/news-feed.service';
+import { RegisterService } from './register-page/register-service/register.service';
 
 
 
@@ -47,7 +48,7 @@ import { NewsFeedService } from './news-feed/news-feed.service';
     
     
   ],
-  providers:[NewsFeedService],
+  providers:[NewsFeedService,RegisterService],
   exports: [
     LoginPageComponent,
     NewsFeedComponent,

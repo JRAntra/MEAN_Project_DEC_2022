@@ -10,6 +10,7 @@ import{PopupserviceService} from './shared/services/popupservice.service'
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { NewsFeedService } from './features/news-feed/news-feed.service';
+import { RegisterService } from './features/register-page/register-service/register.service';
 
 
 
@@ -30,7 +31,7 @@ import { NewsFeedService } from './features/news-feed/news-feed.service';
     HttpClientModule
     
   ],
-  providers: [PopupserviceService, NewsFeedService],
+  providers: [PopupserviceService, NewsFeedService,RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

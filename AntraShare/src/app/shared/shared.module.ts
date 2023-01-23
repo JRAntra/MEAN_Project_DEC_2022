@@ -5,6 +5,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { DirectivesDirective } from './directives/directives.directive';
 import{PopupserviceService} from './services/popupservice.service'
 import { RouterModule } from '@angular/router';
+import { LikeListComponent } from './like-list/like-list.component';
+import { LikeListDirective } from './directives/like-list.directive';
 
 
 
@@ -13,6 +15,9 @@ import { RouterModule } from '@angular/router';
   declarations: [
     NavBarComponent,
     DirectivesDirective,
+    LikeListComponent,
+    LikeListDirective,
+    
     
   ],
   imports: [
@@ -23,6 +28,8 @@ import { RouterModule } from '@angular/router';
   exports: [
     NavBarComponent,
     DirectivesDirective,
+    LikeListComponent,
+    LikeListDirective
     
   ],
   bootstrap: [

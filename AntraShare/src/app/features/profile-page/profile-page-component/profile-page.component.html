@@ -9,7 +9,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Username</mat-label>
       <input matInput name="username" formControlName="username" required>
-      <mat-error *ngIf="profileForm.controls['username'].hasError('required')">This username already exists</mat-error>
+      <mat-error *ngIf="profileForm.controls['username'].hasError('usernameExists')">This username already exists</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>

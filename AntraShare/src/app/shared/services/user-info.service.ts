@@ -21,5 +21,16 @@ export class UserInfoService {
 
   register(user: User) {
         return this.http.post(`${this.apiUrl}/api/register/createNewAccount`, user);
+<<<<<<< HEAD
+    }
+  
+  getAll(){
+    return this.http.get(`${this.apiUrl}/api/users/getAllUsers`)
+  }
+
+  getByUsername(username:string){
+    return this.http.get(`${this.apiUrl}/api/users//getProfile/${username}`)
+=======
+>>>>>>> Release_Branch/BossHypnotizer
   }
 }

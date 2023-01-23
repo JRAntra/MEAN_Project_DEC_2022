@@ -9,7 +9,8 @@
     <mat-form-field appearance="outline">
       <mat-label>Username</mat-label>
       <input matInput name="username" formControlName="username" required>
-      <mat-error *ngIf="profileForm.controls['username'].hasError('usernameExists')">This username already exists</mat-error>
+      <mat-error *ngIf="profileForm.controls['username'].hasError('required')">Please enter your username</mat-error>
+      <mat-error *ngIf="profileForm.get('username')?.errors?.['usernameExists']">This username already exists</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
@@ -26,13 +27,14 @@
       <mat-error *ngIf="profileForm.controls['password'].hasError('oneUppercase') || profileForm.controls['password'].hasError('oneSpecialChar')">Your password must have at least
       1 uppercase letter and 1 special character</mat-error>
     </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>Confirm Password</mat-label>
-      <input [type]="hide ? 'password' : 'text'" matInput name="passwordConfirm" formControlName="passwordConfirm" required>
+      <input [type]="hide ? 'password' : 'text'" matInput [formControl]="passwordConfirm" required>
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
-      <mat-error *ngIf="profileForm.controls['passwordConfirm'].hasError('passwordConfirm')">Passwords do not match</mat-error>
+      <mat-error *ngIf="passwordConfirm?.errors?.['passwordsDoNotMatch']">Passwords do not match</mat-error>
     </mat-form-field>
     
     <br><br>

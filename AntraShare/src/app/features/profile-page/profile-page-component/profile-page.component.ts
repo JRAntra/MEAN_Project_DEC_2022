@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { map, Observable } from 'rxjs';
 import { UsernameService } from '../service/username.service';
 
 @Component({
@@ -11,20 +10,20 @@ import { UsernameService } from '../service/username.service';
 export class ProfilePageComponent implements OnInit{
   genders: string[] = ['Male', 'Female', 'Prefer not to say'];
   hide = true;
-  profileForm = new FormGroup({});
+  profileForm: FormGroup = new FormGroup({});
+  passwordConfirm = new FormControl();
 
   constructor(private fb: FormBuilder, private usernameService: UsernameService) { }
   
   ngOnInit(): void {
     this.profileForm = this.fb.group({
-        username: [' ', [Validators.required, this.checkUsername]],
-        password: [' ', [Validators.required, this.oneUppercase, 
-            this.oneSpecialChar]],
-        passwordConfirm: ['', [Validators.required, this.passwordsMatch]],
-        // age: [''],
+        username: ['', [Validators.required, this.checkUsername()]],
+        password: ['', [Validators.required, this.oneUppercase, 
+            this.oneSpecialChar, this.passwordsMatch(this.passwordConfirm)]],
+        age: [''],
         email: [' ', [Validators.required, Validators.email]],
-        // phone: [''],
-        // gender: [''],
+        phone: [''],
+        gender: [''],
       })
   }
 
@@ -78,9 +77,8 @@ export class ProfilePageComponent implements OnInit{
     return (control: AbstractControl) => {
       const password = control.value;
       const passwordConfirm = match.value;
-
       if (password !== passwordConfirm){
-        match.setErrors({'passwordsMatch': false})
+        match.setErrors({'passwordsDoNotMatch': true})
       }
     }
   }

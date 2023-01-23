@@ -19,11 +19,9 @@ export class RegisterPageComponent implements OnInit {
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       userName: ["John Doe", [Validators.required, this.asyncValidatorForUserName()]],
-      password: ['nowyouseemypassword', [Validators.required, Validators.minLength(6), Validators.maxLength(20), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Za-z$@$!%*?&].{6,20}')]],
+      password: ['nowyouseemypassword', [Validators.required, Validators.minLength(6), Validators.maxLength(20), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Za-z$@$!%*?&].{6,20}'), this.matchPassword(this.confirmPassword)]],
       userEmail: ['jdoe1@yahoo.com', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"), this.asyncValidatorForUserEmail()]],
-    }, {validator: this.matchPassword(this.confirmPassword)}
-    )
-
+    })
   }
 
   onSubmit(){
@@ -47,8 +45,8 @@ export class RegisterPageComponent implements OnInit {
   }
 
   matchPassword(matchingControl: FormControl){
-    return (formGroup: FormGroup) => {
-      const controlValue = formGroup.controls['password'].value
+    return (control: AbstractControl) => {
+      const controlValue = control.value
       const matchingControlValue = matchingControl.value
 
       if (controlValue !== matchingControlValue){

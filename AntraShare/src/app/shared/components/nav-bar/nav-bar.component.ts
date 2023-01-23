@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent {
-
+  likeListHidden = false
+  showLikeList() {
+    this.likeListHidden = !this.likeListHidden
+    
+  }
 }

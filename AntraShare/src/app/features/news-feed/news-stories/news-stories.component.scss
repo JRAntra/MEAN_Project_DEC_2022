@@ -1,0 +1,42 @@
+
+.news-story {
+    min-width: 400px;
+
+    width: 100%;
+    margin-top: 20px;
+    border: black solid 1px;
+
+}
+
+.news-content{
+    margin: 20px;
+    background-color: white;
+}
+
+.news-image {
+    width: 200px;
+}
+
+.news-publisher{
+    margin-right: 30px;
+    font-family:'Courier New', Courier, monospace
+}
+
+.news-publish-time {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.news-content-text {
+    margin-top: 20px;
+}
+
+.news-like-button{
+    margin-top: 20px;
+    margin-left: 10%;
+}
+
+.news-comments {
+    border: black solid 1px;
+}
+.comment-font {
+    font-family: 'Courier New', Courier, monospace;
+}

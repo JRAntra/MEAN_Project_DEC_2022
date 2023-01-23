@@ -1,15 +1,32 @@
-<div class="news-feed">
-    <div class="news-post">
-        <div>Post News Feed Form</div>
-        <input type="text" placeholder="Post something here">
-    </div>
-    
-    <div class="news-story">
-        Story A
-    </div>
-    <div class="news-story">
-        Story B
+<app-router-banner></app-router-banner>
+
+
+<div class="news-liked-list-outer">
+    <a (click)="toggleLikeList()"> Liked List </a>
+    <div class="news-liked-list" [hidden]="!showLikedList">
+
+        <div *ngFor="let item of likeList">
+            <span class="news-publisher"> <b>{{item.publisherName}}</b></span>
+            <span class="news-publish-time">{{item.publishedTime | date}}</span>
+            <div class="news-content-text" *ngIf="item.content.text">
+                {{item.content.text | first20Chars}}
+            </div>
+            <button (click)="removeLikedList(item)">Remove</button>
+            <hr>
+        </div>
     </div>
 </div>
 
-<app-router-banner></app-router-banner>
+<div class="count-down-banner" [hidden]="isHidden">This will be hidden after 5 seconds</div>
+
+
+<div class="news-feed">
+    <div class="news-post">
+        <input class="news-post-area" type="text" placeholder="What's on your mind?">
+
+        <button class="submit-post" (click)="onSubmit()">Submit</button>
+    </div>
+
+    <app-news-stories (newLikeList)="addLikeList($event)"></app-news-stories>
+
+</div>

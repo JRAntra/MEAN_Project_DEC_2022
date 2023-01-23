@@ -1,11 +1,34 @@
 <div class="panel">
       <form class="login-box" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <h1>Login</h1>
-            <label>Username</label>
-            <input aria-label="username" formControlName="username" type="text" name="" placeholder="Enter Username">
-            <label>Password</label>
-            <input aria-label="password" formControlName="password" type="password" name=""
-                  placeholder="Enter Password">
+            <!-- <div class="input-box">
+                  <label>Email</label>
+                  <input aria-label="userEmail" formControlName="userEmail" type="text" name="" placeholder="Enter Email">
+                  <div *ngIf="(loginForm.get('userEmail')?.invalid && loginForm.get('userEmail')?.touched) || loginForm.get('userName')?.dirty">
+                        <small *ngIf="loginForm.get('userEmail')?.errors?.['required']" class="invalid-message">Email is required</small>
+                        <small *ngIf="loginForm.get('userEmail')?.errors?.['userNameAlreadyExists']">Username already been
+                              used</small>
+                  </div>
+            </div> -->
+            <div class="input-box">
+                  <label>Username</label>
+                  <input aria-label="username" formControlName="username" type="text" name="" placeholder="Enter Username">
+                  <div *ngIf="(loginForm.get('username')?.invalid && loginForm.get('username')?.touched) || loginForm.get('username')?.dirty">
+                        <small *ngIf="loginForm.get('username')?.errors?.['required']" class="invalid-message">Username is
+                              required</small>
+                        <small *ngIf="loginForm.get('username')?.errors?.['userNameDoesNotExists']" class="invalid-message">Username does not exist</small>
+                  </div>
+                  <small *ngIf="unknown">Username does not exist</small>
+            </div>
+            
+            <div class="input-box">
+                  <label>Password</label>
+                  <input aria-label="password" formControlName="password" type="password" name="" placeholder="Enter Password">
+                  <div *ngIf="(loginForm.get('password')?.invalid && loginForm.get('password')?.touched)">
+                        <small *ngIf="loginForm.get('password')?.errors?.['required']" class="invalid-message">Password should have minimum length of 8</small>
+                  </div>
+            </div>
+            
             <button class='loginButton' type="submit" value='Login'>Login</button>
 
 

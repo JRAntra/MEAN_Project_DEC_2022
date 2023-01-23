@@ -10,11 +10,12 @@ import { FirstFewCharsPipe } from './shared/pipes/first-few-chars.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     FirstFewCharsPipe
+    AppComponent
+
   ],
   imports: [
     BrowserModule,

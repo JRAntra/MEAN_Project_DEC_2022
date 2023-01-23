@@ -22,7 +22,7 @@ $background-color_3: rgb(250, 218, 76);
 
 .register-box {
 	width: 350px;
-	height: 550px;
+	height: 600px;
 	background: #000;
 	color: $primary_color;
 	top: 50%;
@@ -32,13 +32,13 @@ $background-color_3: rgb(250, 218, 76);
 	box-sizing: border-box;
 	padding: 20px 20px;
 	label {
-		margin: 0;
+		margin-top: 10px;
 		padding: 0;
 		font-weight: bold;
 	}
 	input {
 		width: 100%;
-		margin-bottom: 20px;
+		margin-bottom: 12px;
 		color: $primary_color;
 		border: none;
 		height: 35px;
@@ -64,7 +64,8 @@ h1 {
 }
 .registerButton {
 	width: 100%;
-	margin-bottom: 20px;
+	margin-top: 25px;
+	margin-bottom: 25px;
 	border: none;
 	outline: none;
 	height: 35px;
@@ -77,4 +78,8 @@ h1 {
 		background-color: $background-color_3;
 		color: $secondary_color;
 	}
+}
+
+.invalid-feedback small{
+	color: #ff0000;
 }

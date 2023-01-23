@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { News, Comment } from '../../../shared/models/news';
+import { News, Comment } from 'src/app/shared/models/news';
 import { Observable } from 'rxjs';
 
 @Injectable({

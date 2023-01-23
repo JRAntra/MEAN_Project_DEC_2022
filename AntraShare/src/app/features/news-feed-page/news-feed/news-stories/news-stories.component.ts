@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { NewsStoriesService } from 'src/app/features/news-feed/services/news-stories.service';
+import { NewsStoriesService } from '../services/news-stories.service';
 import { News, Comment } from 'src/app/shared/models/news';
 
 @Component({

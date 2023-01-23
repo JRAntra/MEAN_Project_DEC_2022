@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { RegisterService  } from 'app/core/services/register/register.service';
+import { User } from 'app/shared/model/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +14,8 @@ export class SignupComponent implements OnInit {
   isText: boolean = false;
   eyeIcon: string = "fa-eye-slash";
   signUpForm!: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  router: any;
+  constructor(private fb: FormBuilder, private registerService: RegisterService) { }
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group ({
@@ -32,11 +36,32 @@ export class SignupComponent implements OnInit {
     if(this.signUpForm.valid) {
       //perform the logic for signup
 
-      console.log(this.signUpForm.value);
+      // console.log(this.signUpForm.value);
+
+      const firstName = this.signUpForm.get('firstName')?.value;
+      const lastName = this.signUpForm.get('lastName')?.value;
+      const name = this.signUpForm.get('firstName')?.value + ' ' + this.signUpForm.get('lastName')?.value;
+      const userName = this.signUpForm.get('userName')?.value;
+      const userEmail = this.signUpForm.get('email')?.value;
+      const password = this.signUpForm.get('password')?.value;
+      this.signUpForm.patchValue({
+        name: name,
+        firstName: firstName,
+        lastName: lastName,
+        userName: userName,
+        userEmail: userEmail,
+        password: password
+      });
+      alert('congratulations!You already register an account!');
+      // this.router.navigate(['/login/']);
+
     } else {
-      this.validateAllFormFields(this.signUpForm);
+      // this.validateAllFormFields(this.signUpForm);
       //logic for throwing error
     }
+
+    
+    
   }
   private validateAllFormFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(field=>{

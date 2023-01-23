@@ -11,9 +11,17 @@ export class UserInfoService {
 
   constructor(private http: HttpClient) { }
 
+  checkUserEmail(userEmail: string){
+    return this.http.get(`${this.apiUrl}/api/register/checkExistByUsername/:${userEmail}`)
+  }
+
+  checkUserName(userName: string){
+    return this.http.get(`${this.apiUrl}/api/register/checkExistByUsername/:${userName}`)
+  }
+
   register(user: User) {
-        console.log(user)
         return this.http.post(`${this.apiUrl}/api/register/createNewAccount`, user);
+<<<<<<< HEAD
     }
   
   getAll(){
@@ -22,5 +30,7 @@ export class UserInfoService {
 
   getByUsername(username:string){
     return this.http.get(`${this.apiUrl}/api/users//getProfile/${username}`)
+=======
+>>>>>>> Release_Branch/BossHypnotizer
   }
 }

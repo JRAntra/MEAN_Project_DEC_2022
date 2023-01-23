@@ -1,3 +1,8 @@
+.outer {
+    margin: 20px;
+    
+}
+
 .banner {
     box-sizing: border-box;
     float: left;
@@ -8,4 +13,5 @@
     background-color: #e4e4e4;
     border-style: solid;
     border-width: 1px;
+    font-family: 'Courier New', Courier, monospace;
 }

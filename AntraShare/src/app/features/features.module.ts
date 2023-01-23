@@ -9,6 +9,7 @@ import { RegisterPageComponent } from './register-page/register-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { NewsStoriesComponent } from './news-feed/news-stories/news-stories.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { First20CharsPipe } from './pipes/first20-chars.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginPageComponent,
     RegisterPageComponent,
     SettingPageComponent,
-    NewsStoriesComponent
+    NewsStoriesComponent,
+    First20CharsPipe,
+
   ],
   imports: [
     CommonModule,

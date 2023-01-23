@@ -1,18 +1,56 @@
 <div class='panel'>
       <form class="register-box" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <h1>Register</h1>
+
             <label>Username</label>
-            <input aria-label="username" formControlName="userName" type="text" name="" placeholder="Enter Username">
+            <input aria-label="username" formControlName="userName" type="text" name="" placeholder="Enter Username"
+                  [ngClass]="{ 'is-invalid': submitted && registerForm.get('userEmail')?.errors }">
+
+            <div *ngIf="(registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched) || registerForm.get('userName')?.dirty"
+                  class="invalid-feedback">
+                  <small *ngIf="registerForm.get('userName')?.errors?.['required']">Username is required</small>
+                  <small *ngIf="registerForm.get('userName')?.errors?.['userNameAlreadyExists']">Username already been
+                        used</small>
+            </div>
+
             <label>Password</label>
             <input aria-label="password" formControlName="password" type="password" name=""
                   placeholder="Enter Password">
+            <div *ngIf="(registerForm.get('password')?.invalid && registerForm.get('password')?.touched) || registerForm.get('password')?.dirty"
+                  class="invalid-feedback">
+                  <small *ngIf="registerForm.get('password')?.errors?.['required']">Password is required</small>
+                  <small *ngIf="registerForm.get('password')?.errors?.['pattern']">Password has to contain 1 uppercase,
+                        1 lowercase, and 1 special character</small>
+            </div>
+
             <label>Confirm Password</label>
-            <input aria-label="confirmPassword" type="password" name="" placeholder="Re-enter Password">
+            <input aria-label="confirmPassword" type="password" [formControl]="confirmPassword" name=""
+                  placeholder="Re-enter Password">
+            <div *ngIf="confirmPassword?.errors?.['mustMatch']" class="invalid-feedback">
+                  <small>Password confirm should be the
+                        same as password</small>
+            </div>
+
             <label>Email</label>
-            <input aria-label="email" formControlName="userEmail" type="email" name="" placeholder="Enter Email">
+            <input aria-label="email" formControlName="userEmail" type="email" name="" placeholder="Enter Email"
+                  [ngClass]="{ 'is-invalid': submitted && registerForm.get('userEmail')?.errors }">
+
+            <div *ngIf="(registerForm.get('userEmail')?.invalid && registerForm.get('userEmail')?.touched) || registerForm.get('userEmail')?.dirty"
+                  class="invalid-feedback">
+                  <small *ngIf="registerForm.get('userEmail')?.errors?.['required']">Email is
+                        required</small>
+                  <small *ngIf="registerForm.get('userEmail')?.errors?.['pattern']">Please provide a
+                        valid email
+                        address</small>
+                  <small *ngIf="registerForm.get('userEmail')?.errors?.['userEmailAlreadyExists']">Email already been
+                        used</small>
+            </div>
 
             <button class="registerButton" type="submit" value='Register'>Register</button>
+
             <a href='/'>Already got an account? Login here</a><br>
             <a href='#'>Need Help?</a><br>
       </form>
+
+
 </div>

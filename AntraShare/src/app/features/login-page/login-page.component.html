@@ -14,11 +14,9 @@
                   <label>Username</label>
                   <input aria-label="username" formControlName="username" type="text" name="" placeholder="Enter Username">
                   <div *ngIf="(loginForm.get('username')?.invalid && loginForm.get('username')?.touched) || loginForm.get('username')?.dirty">
-                        <small *ngIf="loginForm.get('username')?.errors?.['required']" class="invalid-message">Username is
-                              required</small>
-                        <small *ngIf="loginForm.get('username')?.errors?.['userNameDoesNotExists']" class="invalid-message">Username does not exist</small>
+                        <small *ngIf="loginForm.get('username')?.errors?.['required']" class="invalid-message">Username is required</small>
                   </div>
-                  <small *ngIf="unknown">Username does not exist</small>
+                  <div *ngIf="unknown">Username does not exist</div>
             </div>
             
             <div class="input-box">

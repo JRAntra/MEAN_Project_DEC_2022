@@ -27,7 +27,8 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      username: [null, [Validators.required],[this.validateUsername]],
+      // username: [null, [Validators.required],[this.validateUsername]],
+      username: [null, [Validators.required]],
       password: [null, [Validators.required, Validators.minLength(8)]]
     })
   }
@@ -55,21 +56,30 @@ export class LoginPageComponent implements OnInit {
   // }
 
   onSubmit(){
-    if (this.loginForm.invalid) {
+    // if (this.loginForm.invalid) {
+    //   return
+    // } else {
+    //   this.toNewsFeed
+    // }
+    console.log(this.loginForm);
+    if(this.loginForm.invalid){
+      console.log(this.loginForm.errors)
       return
     } else {
-      this.toNewsFeed
+      this.toNewsFeed()
     }
   }
 
-  validateUsername(control:AbstractControl){
-    return this.userService
-      .checkUserName(control.value)
-      .subscribe(res => {
-        console.log(res)
-        return res ? null : {NotExistUsername: true}
-      })
-  }
+  // validateUsername(control:AbstractControl){
+  //   return this.userService.checkUserName(control.value)
+  //     .subscribe(res => {
+  //       if(res){
+  //         return null
+  //       } else {
+  //         return {'username':"does not exist"}
+  //       }
+  //     })
+  // }
 
 
 

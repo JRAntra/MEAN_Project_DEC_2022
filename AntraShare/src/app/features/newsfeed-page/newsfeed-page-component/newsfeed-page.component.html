@@ -28,12 +28,11 @@
             <span>Stephen</span>
           </div>
         </div>
-        <div class="blogs">
+        <div class="blogs" *ngFor="let singleNew of news">
           <div class="user">
             <div class="user-top">
               <div class="user-left">
-                <img src="assets/imgs/2.jpg" alt="" />
-                <span class="username">Katarina</span>
+                <span class="username">{{ singleNew.publisherName }}</span>
               </div>
 
               <button
@@ -60,7 +59,12 @@
               </mat-menu>
             </div>
 
-            <img src="assets/imgs/5.jpg" alt="" class="blog-img" />
+            <img
+              [src]="singleNew.content.image"
+              onerror="this.src='assets/imgs/1.jpg'"
+              alt=""
+              class="blog-img"
+            />
             <div class="post_details">
               <!-- "faHeart" -->
               <div class="icons">
@@ -72,9 +76,10 @@
                 <fa-icon [icon]="tag"></fa-icon>
               </div>
               <span class="live_numbers">
-                Liked by <b>you</b> and <b>905235</b> others
+                Liked by <b>you</b> and
+                <b>{{ singleNew.comment.length }}</b> others
               </span>
-              <div class="topic">
+              <!-- <div class="topic">
                 <span>
                   <b
                     >#mediamodifier #mockups #design #blackfriday
@@ -87,12 +92,15 @@
                 <button class="view_more" (click)="viewMore = !viewMore">
                   ...more
                 </button>
-              </div>
+              </div> -->
               <button class="comments" (click)="viewComments = !viewComments">
                 View all 1 comments
               </button>
               <div class="comments_content" *ngIf="viewComments">
-                <span>Peter: This picture looks great!</span>
+                <div *ngFor="let singleComment of singleNew.comment">
+                  {{ singleComment.content.text }}
+                </div>
+                <!-- <span>Peter: This picture looks great!</span> -->
               </div>
               <form class="example-form">
                 <mat-form-field class="example-full-width">

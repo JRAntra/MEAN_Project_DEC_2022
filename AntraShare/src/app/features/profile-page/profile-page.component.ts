@@ -19,11 +19,12 @@ export class ProfilePageComponent {
         else return null
       })
     )}
-    
+
   form = new FormGroup({
     userName: new FormControl("", [Validators.required], [this.usernameValidation]),
     password: new FormControl("", [Validators.required, this.passwordValidation]),
-    email: new FormControl("", [Validators.required]),
+    passConfirm: new FormControl("", [Validators.required]),
+    email: new FormControl("", [Validators.email]),
   }, [this.passConfirmValidation]);
 
   passwordValidation(control: AbstractControl) {
@@ -36,7 +37,7 @@ export class ProfilePageComponent {
 
 
   passConfirmValidation(control: AbstractControl) {
-    var val = control.get("email")?.value
+    var val = control.get("passConfirm")?.value
     var pass = control.get("password")?.value
     if (val === pass) return null
     else return {"mismatch": "password and confirm doesn't match"}
@@ -56,6 +57,7 @@ export class ProfilePageComponent {
     this.form.setValue({
       userName: userName,
       password: password,
+      passConfirm: password,
       email: email,
     });
   }

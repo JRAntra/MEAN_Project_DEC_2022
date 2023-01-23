@@ -4,31 +4,36 @@
 <div class="card">
   <img src="../../../assets/profile.jpeg" alt="John" style="width: 100%" />
   <form [formGroup]="form" class="profile-main" (submit)="onSubmit()">
-    <div>
-      <label for="username">User Name:</label>
+    <div class="userInfoInputContainer">
+      <label for="username">User Name: </label>
       <input
         formControlName="userName"
         type="text"
         id="username"
         name="username"
-        (keyup)="show()"
       />
-      <div *ngIf="">Username already been used</div>
+      <div class="warning" *ngIf="form.get('userName')?.value !== '' && form.get('userName')?.errors">Username already been used</div>
     </div>
-    <div>
-      <label for="password">Password:</label>
+    <div class="userInfoInputContainer">
+      <label for="password">Password: </label>
       <input
         formControlName="password"
         type="password"
         id="password"
         name="password"
       />
-      <div *ngIf="form.get('password')?.errors?.['passwordValidation']">Password must have at least 1 uppercase, 1 lowercase, 1 special character</div>
+      <div class="warning" *ngIf="form.get('password')?.value !== '' && form.get('password')?.errors?.['upper']">Password must have 1 uppercase character</div>
+      <div class="warning" *ngIf="form.get('password')?.value !== '' && form.get('password')?.errors?.['lower']">Password must have 1 lowercase character</div>
+      <div class="warning" *ngIf="form.get('password')?.value !== '' && form.get('password')?.errors?.['special']">Password must have 1 special character</div>
     </div>
-    <div>
-      <label for="email">Email:</label>
+    <div class="userInfoInputContainer">
+      <label for="passConfirm">Confirm Password: </label>
+      <input formControlName="passConfirm" type="password" id="passcon" name="passcon" />
+      <div class="warning" *ngIf="form.get('passConfirm')?.value !== '' && form.errors">password confirm should be the same as password</div>
+    </div>
+    <div class="userInfoInputContainer">
+      <label for="email">Email: </label>
       <input formControlName="email" type="email" id="email" name="email" />
-      <div *ngIf="">password confirm should be the same as password</div>
     </div>
     <app-button text="Save"></app-button>
     <!-- <button>Save</button> -->

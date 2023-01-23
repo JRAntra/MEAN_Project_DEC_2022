@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { pipe, map } from 'rxjs';
-import { first } from 'rxjs-compat/operator/first';
+// import { first } from 'rxjs-compat/operator/first';
 import { UserInfoService } from 'src/app/shared/services/user-info.service';
 
 @Component({

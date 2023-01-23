@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { NewsStoriesService } from 'src/app/services/news-stories.service';
+import { NewsStoriesService } from 'src/app/features/news-feed/services/news-stories.service';
 import { News, Comment } from 'src/app/shared/models/news';
 
 @Component({
@@ -14,6 +14,7 @@ export class NewsStoriesComponent implements OnInit {
   stories: News[] = [];
   
   // todo: change fix pages, news to dynamic
+  // reverse the order of the storys
   numsOfPage: number = 34;
   numsOfNews: number = 5;
 
@@ -29,6 +30,8 @@ export class NewsStoriesComponent implements OnInit {
   }
 
 // to do: Infinite page: modify numbers of page, number of news per page?
+// consider renaming function names
+// return type for function
   receiveNews(): void {
     this.newsService.getNews(this.numsOfPage,this.numsOfNews)
       .subscribe(Response => {
@@ -49,7 +52,7 @@ export class NewsStoriesComponent implements OnInit {
     console.log("I like :" + news._id )
     this.newLikeList.emit(news);
   }
-
+  // getLikeCount
   getCount(ids: string[]){
     return ids.length
   }

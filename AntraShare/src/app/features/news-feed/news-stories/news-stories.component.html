@@ -1,41 +1,42 @@
+<div class="news-story" *ngFor="let story of stories">
 
-    <div class="news-story" *ngFor="let story of stories">
+    <div class="news-content" *ngIf="story.content">
 
-        <div  class="news-content" *ngIf="story.content">
+        <span class="news-publisher"> <b>{{story.publisherName}}</b></span>
+        <span class="news-publish-time">{{story.publishedTime | date}}</span>
+        <!-- Potential error here (text undefined when story is empty) -->
+        <div class="news-content-text" *ngIf="story.content.text">
+            {{story.content.text }}
+        </div>
 
-            <span class="news-publisher"> <b>{{story.publisherName}}</b></span>
-            <span class="news-publish-time">{{story.publishedTime | date}}</span>
-            <div class="news-content-text" *ngIf="story.content.text">
-                {{story.content.text }}
-            </div>
-    
-            <div *ngIf="story.content.image">
-                <img class="news-image" src="{{story.content.image}}">
-            </div>
-    
-            <div class="news-like-button">
-                <a (click)="onLike(story)">
-                    <img src="../../../../assets/icons/like.png"  alt="" height="20px">
-                    Like
-                </a>
-            </div>
+        <div *ngIf="story.content.image">
+            <img class="news-image" src="{{story.content.image}}">
+        </div>
 
-            <div class="news-comment" *ngIf="story.comment">
-                <hr>
-                <span class="comment-font">Comments:</span>
+        <div class="news-like-button">
+            <a (click)="onLike(story)">
+                <!-- add alt -->
+                <img src="../../../../assets/icons/like.png" alt="" height="20px">
+                Like
+            </a>
+        </div>
 
-                <div *ngFor="let item of story.comment">
-                    
-                    <div>
-                        <img class="news-image" src="{{item.content.image}}">
-                    </div>
-                    <div>
-                        {{item.content.text}}
-                    </div>
-    
+        <div class="news-comment" *ngIf="story.comment">
+            <hr>
+            <span class="comment-font">Comments:</span>
+
+            <div *ngFor="let item of story.comment">
+
+                <div>
+                    <img class="news-image" src="{{item.content.image}}">
                 </div>
+                <div>
+                    {{item.content.text}}
+                </div>
+
             </div>
-    
         </div>
 
     </div>
+
+</div>

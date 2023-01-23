@@ -61,7 +61,7 @@ export class RegisterPageComponent implements OnInit {
     return (control: AbstractControl) => {
       if (control.value.length !== 0){
         this.userInfoService.checkUserName(control.value).subscribe(val => {
-          // console.log(val)
+          console.log(val)
           if (val) control.setErrors({'userNameAlreadyExists': true})
           else return null
         })

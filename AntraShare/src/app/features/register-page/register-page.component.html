@@ -8,7 +8,11 @@
       id="username"
       name="username"
     />
+    <span class="error" *ngIf="form.controls['userName'].hasError('exist')">
+      This username already exists
+    </span>
   </div>
+
   <div>
     <label for="password">Password:</label>
     <input
@@ -26,11 +30,21 @@
       id="passwordcon"
       name="passwordcon"
     />
+
+    <span class="error" *ngIf="form.controls['passwordcon'].hasError('match')">
+      Confirm password doesn't match
+    </span>
   </div>
   <div>
     <label for="email">Email:</label>
     <input formControlName="email" type="email" id="email" name="email" />
+    <span class="error" *ngIf="form.controls['email'].hasError('email')">
+      Invalid email
+    </span>
+
+    <span class="error" *ngIf="form.controls['email'].hasError('exist')">
+      Email already exists
+    </span>
   </div>
-  <!-- <button (click)="goToLoginPage()">Register</button> -->
   <button type="submit">Register</button>
 </form>

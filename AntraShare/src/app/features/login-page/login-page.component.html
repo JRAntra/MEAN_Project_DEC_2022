@@ -16,14 +16,15 @@
                   <div *ngIf="(loginForm.get('username')?.invalid && loginForm.get('username')?.touched) || loginForm.get('username')?.dirty">
                         <small *ngIf="loginForm.get('username')?.errors?.['required']" class="invalid-message">Username is required</small>
                   </div>
-                  <div *ngIf="unknown">Username does not exist</div>
+                  <div *ngIf="invalidUsername">Username does not exist</div>
             </div>
             
             <div class="input-box">
                   <label>Password</label>
                   <input aria-label="password" formControlName="password" type="password" name="" placeholder="Enter Password">
-                  <div *ngIf="(loginForm.get('password')?.invalid && loginForm.get('password')?.touched)">
-                        <small *ngIf="loginForm.get('password')?.errors?.['required']" class="invalid-message">Password should have minimum length of 8</small>
+                  <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                        <small *ngIf="loginForm.get('password')?.errors?.['required']" class="invalid-message">Password is required</small>
+                        <small *ngIf="loginForm.get('password')?.errors?.['minlength']" class="invalid-message">Password should have minimum length of 8</small>
                   </div>
             </div>
             

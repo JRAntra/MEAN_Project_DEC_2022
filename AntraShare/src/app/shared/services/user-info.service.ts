@@ -21,7 +21,6 @@ export class UserInfoService {
 
   register(user: User) {
         return this.http.post(`${this.apiUrl}/api/register/createNewAccount`, user);
-<<<<<<< HEAD
     }
   
   getAll(){

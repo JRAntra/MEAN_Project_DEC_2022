@@ -37,7 +37,7 @@ export class LoginPageComponent implements OnInit {
     this.router.navigate(['/news']);
   }
 
-  get unknown(){
+  get invalidUsername(){
     return this.loginForm.get('username')?.hasError('validateUsername') && this.loginForm.get("username")?.dirty
   }
 
@@ -56,30 +56,25 @@ export class LoginPageComponent implements OnInit {
   // }
 
   onSubmit(){
-    // if (this.loginForm.invalid) {
-    //   return
-    // } else {
-    //   this.toNewsFeed
-    // }
     console.log(this.loginForm);
     if(this.loginForm.invalid){
-      console.log(this.loginForm.errors)
+      console.log(this.loginForm.get("password")?.errors)
       return
     } else {
       this.toNewsFeed()
     }
   }
 
-  // validateUsername(control:AbstractControl){
-  //   return this.userService.checkUserName(control.value)
-  //     .subscribe(res => {
-  //       if(res){
-  //         return null
-  //       } else {
-  //         return {'username':"does not exist"}
-  //       }
-  //     })
-  // }
+  validateUsername(control:AbstractControl){
+    return this.userService.checkUserName(control.value)
+      .subscribe(res => {
+        if(res){
+          return null
+        } else {
+          return {'username':"does not exist"}
+        }
+      })
+  }
 
 
 

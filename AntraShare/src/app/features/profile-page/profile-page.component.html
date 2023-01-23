@@ -35,7 +35,7 @@
     
     <button (click)="onEdit()">Edit</button>
 
-    <button (click)="onSubmit()" [disabled]="isDisabled">Submit</button>
+    <button (click)="onSubmit()" [disabled]="isDisabled || !profileForm.valid">Submit</button>
 
     <hr>
     <img src="foo.jpg" alt="amount-of-posts.jpg"> <div>Posts: #</div>

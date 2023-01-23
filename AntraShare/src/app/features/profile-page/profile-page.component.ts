@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormArray, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormArray, FormBuilder, Validators } from '@angular/forms';
+import { PasswordValidatorDirective } from 'src/app/shared/directive/password-validator.directive';
 
 @Component({
   selector: 'app-profile-page',
@@ -18,10 +19,22 @@ export class ProfilePageComponent implements OnInit{
 
     this.profileForm = this.fb.group({
       userName: 'John Doe',
-      email: 'jdoe1@yahoo.com',
+      email: ['jdoe1@yahoo.com',{
+        validators: [
+          Validators.required,
+          Validators.email
+        ],
+        updateOn: 'blur'
+      }],
       age: '21',
       gender: 'Female',
-      password: 'nowyouseemypassword',
+      password: ['nowyouseemypassword',
+    [
+      Validators.required, 
+      Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
+      
+      
+    ]],
       
     });
   

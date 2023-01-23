@@ -37,7 +37,7 @@ $background-color_3: rgb(250, 218, 76);
 	}
 	input {
 		width: 100%;
-		margin-bottom: 20px;
+		// margin-bottom: 20px;
 		color: $primary_color;
 		border: none;
 		height: 35px;
@@ -76,4 +76,12 @@ h1 {
 		background-color: $background-color_3;
 		color: $secondary_color;
 	}
+}
+
+.input-box {
+	margin-bottom: 20px;
+}
+
+.invalid-message{
+	color: red;
 }

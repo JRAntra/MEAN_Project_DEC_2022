@@ -21,7 +21,7 @@ export class AdminPageComponent implements OnInit {
     this.userService.getAll()
       .pipe()
       .subscribe(users => {
-        console.log(users)
+        // console.log(users)
         this.users = users
         })
     };
@@ -32,7 +32,7 @@ export class AdminPageComponent implements OnInit {
     this.userService.getByUsername(username)
       .subscribe(user => {
         this.user = user
-        console.log(user)
+        // console.log(user)
       })
   }
 }

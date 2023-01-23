@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/users.model';
+import { User } from '../../../shared/models/users.model';
 import { GetAllUsersService } from '../services/get-all-users.service';
 
 @Component({

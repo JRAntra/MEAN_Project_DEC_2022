@@ -9,11 +9,35 @@
     <mat-form-field appearance="outline">
       <mat-label>Username</mat-label>
       <input matInput name="username" formControlName="username" required>
+      <mat-error *ngIf="profileForm.controls['username'].hasError('required')">Please enter your username</mat-error>
+      <mat-error *ngIf="profileForm.get('username')?.errors?.['usernameExists']">This username already exists</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Password</mat-label>
-      <input type="password" matInput name="password" formControlName="password" required>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput name="email" formControlName="email" required>
+      <mat-error *ngIf="profileForm.controls['email'].hasError('required') || profileForm.controls['email'].hasError('email')">Please enter a valid email address</mat-error>
     </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input [type]="hide ? 'password' : 'text'" matInput name="password" formControlName="password" required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="profileForm.controls['password'].hasError('oneUppercase') || profileForm.controls['password'].hasError('oneSpecialChar')">Your password must have at least
+      1 uppercase letter and 1 special character</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Confirm Password</mat-label>
+      <input [type]="hide ? 'password' : 'text'" matInput [formControl]="passwordConfirm" required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="passwordConfirm?.errors?.['passwordsDoNotMatch']">Passwords do not match</mat-error>
+    </mat-form-field>
+    
+    <br><br>
     <mat-form-field appearance="outline">
       <mat-label>Gender</mat-label>
       <mat-select formControlName="gender">
@@ -24,10 +48,7 @@
       <mat-label>Age</mat-label>
       <input type="number" matInput name="age" formControlName="age">
     </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-      <input type="email" matInput name="email" formControlName="email" required>
-    </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>Phone</mat-label>
       <input type="tel" matInput name="phone" formControlName="phone">

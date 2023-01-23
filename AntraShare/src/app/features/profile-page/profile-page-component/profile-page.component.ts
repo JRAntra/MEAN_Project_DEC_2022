@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { UsernameService } from '../service/username.service';
 
 @Component({
   selector: 'app-profile-page',
@@ -8,19 +9,24 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ProfilePageComponent implements OnInit{
   genders: string[] = ['Male', 'Female', 'Prefer not to say'];
-  profileForm: FormGroup;
-  constructor() {
-    this.profileForm = new FormGroup({
-      username: new FormControl(),
-      password: new FormControl(),
-      age: new FormControl(),
-      email: new FormControl(),
-      phone: new FormControl(),
-      gender: new FormControl()
-    });
-  }
+  hide = true;
+  profileForm: FormGroup = new FormGroup({});
+  passwordConfirm = new FormControl();
+
+  constructor(private fb: FormBuilder, private usernameService: UsernameService) { }
+  
   ngOnInit(): void {
+    this.profileForm = this.fb.group({
+        username: ['', [Validators.required, this.checkUsername()]],
+        password: ['', [Validators.required, this.oneUppercase, 
+            this.oneSpecialChar, this.passwordsMatch(this.passwordConfirm)]],
+        age: [''],
+        email: [' ', [Validators.required, Validators.email]],
+        phone: [''],
+        gender: [''],
+      })
   }
+
   onSubmit(): void{
     const username = this.profileForm.get('username')?.value;
     const password = this.profileForm.get('password')?.value;
@@ -30,13 +36,51 @@ export class ProfilePageComponent implements OnInit{
     const phone = this.profileForm.get('phone')?.value;
 
     this.profileForm.setValue({
-      username: username,
+      userName: username,
       password: password,
       gender: gender,
       age: age,
-      email: email,
+      userEmail: email,
       phone: phone
-    })
-    console.log(this.profileForm.value);
+    });
   }
+
+  checkUsername(){
+      return (control: AbstractControl) => {
+        this.usernameService.checkExist(control.value).subscribe(
+          ans => {
+            if (ans) {
+              control.setErrors({'usernameExists': true})
+            }
+          })
+      }
+  }
+
+  oneUppercase(control: AbstractControl): ValidationErrors | null  {
+    if (control.value !== control.value.toLowerCase()){
+        return null;
+    } else {
+        return { "oneUppercase": "false" };
+    }
+  }
+
+  oneSpecialChar(control: AbstractControl): ValidationErrors | null {
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    if (specialChars.test(control.value)){
+        return null;
+    } else {
+        return { "oneSpecialChar": "false" };
+    }
+  }
+
+  passwordsMatch(match: FormControl){
+    return (control: AbstractControl) => {
+      const password = control.value;
+      const passwordConfirm = match.value;
+      if (password !== passwordConfirm){
+        match.setErrors({'passwordsDoNotMatch': true})
+      }
+    }
+  }
+
 }

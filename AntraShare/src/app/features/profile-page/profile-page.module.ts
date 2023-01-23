@@ -9,6 +9,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContentCardModule } from '../content-card/content-card.module';
 
 @NgModule({
   declarations: [ProfilePageComponent],
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatTabsModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ContentCardModule
   ],
   exports: [ProfilePageComponent],
 })

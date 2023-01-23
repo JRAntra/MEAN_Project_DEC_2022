@@ -7,6 +7,7 @@ import { AdminPageModule } from './admin-page/admin-page.module';
 import { NewsfeedPageModule } from './newsfeed-page/newsfeed-page.module';
 import { ProfilePageModule } from './profile-page/profile-page.module';
 import { TopNavModule } from './top-nav/top-nav.module';
+import { ContentCardModule } from './content-card/content-card.module';
 
 @NgModule({
   declarations: [],
@@ -18,7 +19,8 @@ import { TopNavModule } from './top-nav/top-nav.module';
     ProfilePageModule,
     AdminPageModule,
     TopNavModule,
-    SettingPageModule
+    SettingPageModule,
+    ContentCardModule
   ],
   exports: [
     SettingPageModule,

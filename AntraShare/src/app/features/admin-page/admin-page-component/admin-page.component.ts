@@ -20,10 +20,6 @@ export class AdminPageComponent implements OnInit {
         console.log("Response received.")
         this.users = response;
         console.log(this.users)
-      },
-      (error) => {
-        console.error("Request failed."),
-        this.errorMessage = error;
       }
     );
   }

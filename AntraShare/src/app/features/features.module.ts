@@ -13,6 +13,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { RouterModule } from '@angular/router';
     MatCardModule,
     ReactiveFormsModule,
     RouterModule,
+    HttpClientModule
   ],
   exports: [
     LoginPageComponent,

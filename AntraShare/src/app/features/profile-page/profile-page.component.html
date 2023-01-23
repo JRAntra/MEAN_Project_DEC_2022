@@ -11,7 +11,9 @@
         type="text"
         id="username"
         name="username"
+        (keyup)="show()"
       />
+      <div *ngIf="">Username already been used</div>
     </div>
     <div>
       <label for="password">Password:</label>
@@ -21,10 +23,12 @@
         id="password"
         name="password"
       />
+      <div *ngIf="form.get('password')?.errors?.['passwordValidation']">Password must have at least 1 uppercase, 1 lowercase, 1 special character</div>
     </div>
     <div>
       <label for="email">Email:</label>
       <input formControlName="email" type="email" id="email" name="email" />
+      <div *ngIf="">password confirm should be the same as password</div>
     </div>
     <app-button text="Save"></app-button>
     <!-- <button>Save</button> -->

@@ -1,5 +1,5 @@
 <body>
-  <div class="main-page" [formGroup]="usergroup" (ngSubmit)="onSubmit()">
+  <form class="main-page" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <img src="assets/antrashare.png" />
 
     <div>
@@ -10,7 +10,9 @@
         placeholder="User Name"
       />
     </div>
-
+    <span *ngIf="loginForm.controls['username'].hasError('nonexist')">
+      username not exist
+    </span>
     <div>
       <input
         formControlName="password"
@@ -19,8 +21,11 @@
         placeholder="Password"
       />
     </div>
+    <span *ngIf="loginForm.controls['password'].hasError('minlength')">
+      Name must be at least 8 characters long.
+    </span>
 
-    <button (click)="onLogin()" type="sumbit">Login</button>
+    <button type="sumbit" [disabled]="loginForm.invalid">Login</button>
 
     <button [routerLink]="['/register']" routerLinkActive="active">
       No Accounts? Register Now!
@@ -40,5 +45,5 @@
 
       <p class="help"><u>Need Help?</u></p>
     </div>
-  </div>
+  </form>
 </body>

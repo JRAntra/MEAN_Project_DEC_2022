@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { map, Observable } from 'rxjs';
+import { concatMap, debounceTime, first, flatMap, fromEvent, map, mergeMap, Observable, switchMap } from 'rxjs';
 import { UsernameProfilePageService } from './services/username-profile-page.service';
 
 @Component({
@@ -13,12 +13,13 @@ export class ProfilePageComponent {
   constructor(private checkService: UsernameProfilePageService) { }
 
   usernameValidation = (control: AbstractControl): Observable<ValidationErrors | null> =>{
-      return this.checkService.checkUserName(control.value).pipe(
-      map(res => {
-        if (res) return {"userExist": "The exact username have already exists"}
-        else return null
-      })
-    )}
+    return fromEvent(document.getElementById('username') as HTMLElement, 'keyup').pipe(
+      debounceTime(850),
+      mergeMap(() => this.checkService.checkUserName(control.value)),
+      map(res => res ? {"userExist": "The exact username have already exists"} : null),
+      first()
+    )
+  }
 
   form = new FormGroup({
     userName: new FormControl("", [Validators.required], [this.usernameValidation]),
@@ -43,11 +44,6 @@ export class ProfilePageComponent {
     else return {"mismatch": "password and confirm doesn't match"}
   }
 
-  show() {
-    console.log(this.checkService.checkUserName("CallbackCats") );
-
-    console.log(this.form.get("userName")?.errors);
-   }
 
   onSubmit() {
     const userName = this.form.get('userName')!.value;

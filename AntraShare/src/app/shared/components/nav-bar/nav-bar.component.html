@@ -7,5 +7,6 @@
   <li>
     <a [routerLink]="['/admins']" routerLinkActive="active">Admin</a>
   </li>
-  <li><a>Like List</a></li>
+  <li (click)="showLikeList()"><a>Like List</a></li>
 </ul>
+<app-like-list [hidden]="likeListHidden"></app-like-list>

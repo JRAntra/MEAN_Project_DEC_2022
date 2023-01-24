@@ -9,10 +9,12 @@ ul {
   li {
     float: left;
     border-right:1px solid #bbb;
+    cursor: pointer;
   }
   
   li:last-child {
     border-right: none;
+    float: right;
   }
   
   li a {

@@ -1,0 +1,11 @@
+<div [hidden]="hidden" class="likeListContainer">
+    <p>My Like List</p>
+    
+    <div class="likePost" *ngFor="let post of likeList">
+        <div class="likeListPost">
+            <div><span class="nameText">{{post.user}} </span>  <span class="timeText">{{post.time}}</span></div>
+            <div>{{post.content| characterLimitPipe}}</div>
+        </div>
+    </div>
+    
+</div>

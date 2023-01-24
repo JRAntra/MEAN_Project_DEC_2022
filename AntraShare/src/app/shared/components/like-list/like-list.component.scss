@@ -1,0 +1,38 @@
+div.likeListContainer {
+    width: 25%;
+    position: absolute;
+    right: 0;
+    background-color: crimson;
+    z-index: 10;
+    font-size: 1.5rem;
+    padding: 15px;
+    color:antiquewhite;
+}
+
+div.likeListPost {
+    position: relative;
+    text-align: left;
+}
+
+.timeText {
+    font-size: 1rem;
+    color: black;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+.nameText {
+    font-size: 1.2rem;
+}
+
+.likePost {
+    padding: 10px;
+    background-color: rgb(210, 62, 92);
+    cursor: pointer;
+}
+
+.likePost:hover {
+    background-color: rgb(211, 75, 103);
+}

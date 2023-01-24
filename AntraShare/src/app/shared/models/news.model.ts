@@ -3,6 +3,7 @@ export class News {
   publisherName: string;
   content: { image: string; video: string; text: string; _id: string };
   publishedTime: string;
+  likedIdList: Array<{ userId: string; _id: string }>;
   comment: Array<{
     publisherName: string;
     content: { image: string; video: string; text: string; _id: string };
@@ -15,6 +16,7 @@ export class News {
     publisherName: string,
     content: { image: string; video: string; text: string; _id: string },
     publishedTime: string,
+    likedIdList: Array<{ userId: string; _id: string }>,
     comment: Array<{
       publisherName: string;
       content: { image: string; video: string; text: string; _id: string };
@@ -27,5 +29,6 @@ export class News {
     this.content = content;
     this.publishedTime = publishedTime;
     this.comment = comment;
+    this.likedIdList = likedIdList;
   }
 }

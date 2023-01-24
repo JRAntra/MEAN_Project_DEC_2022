@@ -31,7 +31,9 @@
           <div class="user">
             <div class="user-top">
               <div class="user-left">
-                <span class="username">{{ singleNew.publisherName }}</span>
+                <span class="username"
+                  ><b>{{ singleNew.publisherName }}</b></span
+                >
               </div>
 
               <button
@@ -60,7 +62,7 @@
 
             <img
               [src]="singleNew.content.image"
-              onerror="this.src='assets/imgs/1.jpg'"
+              onerror="this.src='assets/imgs/1.jpg';"
               alt=""
               class="blog-img"
             />
@@ -92,13 +94,18 @@
                   ...more
                 </button>
               </div> -->
-              <button class="comments" (click)="viewComments = !viewComments">
-                View all 1 comments
+              <button class="comments" (click)="viewMore = !viewMore">
+                View all {{ singleNew.likedIdList.length }} comments
               </button>
-              <div class="comments_content" *ngIf="viewComments">
-                <div *ngFor="let singleComment of singleNew.comment">
-                  {{ singleComment.content.text }}
+              <div class="comments_content">
+                <div *ngIf="viewMore">
+                  <div *ngFor="let singleComment of singleNew.comment">
+                    {{ singleComment.publisherName }}:
+                    {{ singleComment.content.text }}<br />
+                    {{ singleComment.publishedTime }}
+                  </div>
                 </div>
+
                 <!-- <span>Peter: This picture looks great!</span> -->
               </div>
               <form class="example-form">

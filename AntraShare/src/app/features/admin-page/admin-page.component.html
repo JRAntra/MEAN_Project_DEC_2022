@@ -1,20 +1,29 @@
 <div class="admin-page">
     <div class="users-list">
-        <ul>
-            <li>User Tag1 <button>Delete</button></li>
-            <li>User Tag2 <button>Delete</button></li>
-            <li>User Tag3 <button>Delete</button></li>
-            <button class="add-user-button">Add User Button</button>
-        </ul>
+        <table class="users-table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td (click)="showInfo(user.userName)">{{user.userName}}</td>
+                    <td><button>Delete</button></td>
+                </tr>
         
+            </tbody>
+        </table>
+        <button class="add-user-button">Add User Button</button>
     </div>
     <div class="user-info-panel">
         <ul>
-            <li>Username:Name</li>
-            <li>Password:password</li>
-            <li>UserEmail:Email</li>
-            <li>Gender:gender</li>
-            <li>Age:age</li>
+            <li>Username:{{user.name}}</li>
+            <li>Password:{{user.password |shorten}}</li>
+            <li>UserEmail:{{user.userEmail}}</li>
+            <li>Gender:{{user.gender | uppercase}}</li>
+            <li>Age:{{user.age}}</li>
         </ul>
     </div>
 </div>

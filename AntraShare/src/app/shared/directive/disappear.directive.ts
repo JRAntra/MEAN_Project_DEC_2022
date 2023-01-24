@@ -9,6 +9,7 @@ export class DisappearDirective implements OnInit {
   @HostBinding('hidden') isHidden = false;
   // @HostListener
 
+  // use input for the seconds variable
   seconds = 5;
   intervalId: any;
 

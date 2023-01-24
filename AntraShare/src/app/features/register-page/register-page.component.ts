@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserInfoService } from 'src/app/shared/services/user-info.service';
+import { UserInfoService } from 'src/app/core/services/user-info.service';
+import { RegisterService } from './register.service';
 import { first } from 'rxjs/operators';
 
 @Component({
@@ -14,7 +15,7 @@ export class RegisterPageComponent implements OnInit {
   submitted = false;
   confirmPassword = new FormControl('nowyouseemypassword')
 
-  constructor(private formBuilder: FormBuilder, private userInfoService: UserInfoService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private userInfoService: UserInfoService, private registerService: RegisterService, private router: Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -35,7 +36,7 @@ export class RegisterPageComponent implements OnInit {
     });
 
 
-    this.userInfoService.register(this.registerForm.value)
+    this.registerService.register(this.registerForm.value)
     .pipe(first())
     .subscribe(val => {
       console.log('Registration successful')

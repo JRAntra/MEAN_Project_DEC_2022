@@ -1,4 +1,4 @@
-export interface User {
+export interface User{
     userId: string;
     userName: string;
     userEmail: string;
@@ -8,4 +8,5 @@ export interface User {
     age: number | null;
     phone: number | null;
     gender: string | null;
+
 }

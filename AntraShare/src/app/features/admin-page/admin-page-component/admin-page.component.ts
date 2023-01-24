@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../models/users.model';
+import { User } from '../../../shared/models/users.model';
 import { GetAllUsersService } from '../services/get-all-users.service';
 
 @Component({
@@ -20,10 +20,6 @@ export class AdminPageComponent implements OnInit {
         console.log("Response received.")
         this.users = response;
         console.log(this.users)
-      },
-      (error) => {
-        console.error("Request failed."),
-        this.errorMessage = error;
       }
     );
   }

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { faHeart, faShareSquare } from '@fortawesome/free-regular-svg-icons';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { faTag } from '@fortawesome/free-solid-svg-icons';
-import { GetAllNewsService } from 'app/core/services/news/news.service';
-import { News } from 'app/features/newsfeed-page/models/news.model';
+import { GetAllNewsService } from 'app/features/newsfeed-page/newsfeed-page-component/news.service';
+import { News } from '../../../shared/models/news.model';
 
 @Component({
   selector: 'app-newsfeed-page',

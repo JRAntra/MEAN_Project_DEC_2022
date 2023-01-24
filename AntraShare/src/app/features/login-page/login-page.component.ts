@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserInfoService } from 'src/app/shared/services/user-info.service';
+import { UserInfoService } from 'src/app/core/services/user-info.service';
+import { LoginService } from './login.service';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private router: Router,
     private fb:FormBuilder,
-    private userService: UserInfoService
+    private userService: UserInfoService,
+    private loginService: LoginService
   ) { }
 
   // ngOnInit() {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { User } from '../models/user';
+import { User } from '../../shared/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +18,6 @@ export class UserInfoService {
   checkUserName(userName: string){
     return this.http.get(`${this.apiUrl}/api/register/checkExistByUsername/${userName}`)
   }
-
-  register(user: User) {
-        return this.http.post(`${this.apiUrl}/api/register/createNewAccount`, user);
-    }
   
   getAll(){
     return this.http.get(`${this.apiUrl}/api/users/getAllUsers`)
@@ -29,9 +25,5 @@ export class UserInfoService {
 
   getByUsername(username:string){
     return this.http.get(`${this.apiUrl}/api/users/getProfile/${username}`)
-  }
-
-  login(userEmail:string, password:string){
-    return this.http.post(`${this.apiUrl}/api/login/`, { userEmail,password})
   }
 }

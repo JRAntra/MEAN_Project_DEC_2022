@@ -8,7 +8,7 @@ import { GetAllUsersService } from '../services/get-all-users.service';
   styleUrls: ['./admin-page.component.scss']
 })
 export class AdminPageComponent implements OnInit {
-  users: User[] = [];
+  users: Array<User> = [];
   errorMessage: string = '';
   user: undefined | User;
 
@@ -17,9 +17,8 @@ export class AdminPageComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getUsers().subscribe(
      (response) => {
-        console.log("Response received.")
+        console.log("Response recieved")
         this.users = response;
-        console.log(this.users)
       }
     );
   }

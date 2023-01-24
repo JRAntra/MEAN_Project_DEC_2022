@@ -24,6 +24,7 @@ export class NewsfeedPageComponent implements OnInit {
   errorMessage: string = '';
   new: undefined | News;
   showLikelist = false;
+  colNum = 2;
   constructor(private newsService: GetAllNewsService) {}
 
   ngOnInit(): void {
@@ -43,9 +44,11 @@ export class NewsfeedPageComponent implements OnInit {
     if (this.showLikelist){
       console.log("turn off like list");
       this.showLikelist = false;
+      this.colNum = 2;
     } else {
       console.log("turn on like list");
       this.showLikelist = true;
+      this.colNum = 1;
     }
   }
 }

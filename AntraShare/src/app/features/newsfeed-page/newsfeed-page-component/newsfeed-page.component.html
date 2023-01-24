@@ -3,7 +3,7 @@
 <mat-grid-list cols="2" rowHeight="2:1">
   <mat-grid-tile colspan="2">post here</mat-grid-tile>
 
-  <mat-grid-tile colspan="{{ showLikelist ? '1' : '2'}" (click)="toggleLikelist()">Main content
+  <mat-grid-tile [colspan]="colNum" (click)="toggleLikelist()">Main content
     <button>
       Click to show like list
     </button>

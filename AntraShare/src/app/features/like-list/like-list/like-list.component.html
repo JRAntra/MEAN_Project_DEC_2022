@@ -1,1 +1,24 @@
-<p>like-list works!</p>
+<mat-card class="content-card">
+    <mat-card-header>
+      <img mat-card-avatar class="header-image" src="../../../../assets/avatar2.jpeg">
+      <mat-card-title>User Woof</mat-card-title>
+      <mat-card-subtitle>dog person</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <div>
+        {{ output }}
+        <button mat-icon-button *ngIf="tooLong" (click)="showMore()">
+            <mat-icon aria-label="view more">more_horiz</mat-icon>
+        </button>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-icon-button>
+        <mat-icon aria-label="like it">favorite_border</mat-icon>
+    </button>
+      <button mat-icon-button>
+        <mat-icon aria-label="comment it">comment</mat-icon>
+    </button>
+    </mat-card-actions>
+  </mat-card>

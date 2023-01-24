@@ -20,35 +20,18 @@ export class NewsfeedPageComponent implements OnInit {
   viewMore = false;
   viewComments = false;
 
-  news: News[] = [];
+  allNews: News[] = [];
   errorMessage: string = '';
   new: undefined | News;
-  showLikelist = false;
-  colNum = 2;
+
   constructor(private newsService: GetAllNewsService) {}
 
   ngOnInit(): void {
     this.newsService.getNews().subscribe(
       (response) => {
-        console.log('Response received.');
-        this.news = response;
-        console.log(this.news);
-      },
-      (error) => {
-        console.error('Request failed.'), (this.errorMessage = error);
+        this.allNews = response;
       }
     );
   }
 
-  toggleLikelist(){
-    if (this.showLikelist){
-      console.log("turn off like list");
-      this.showLikelist = false;
-      this.colNum = 2;
-    } else {
-      console.log("turn on like list");
-      this.showLikelist = true;
-      this.colNum = 1;
-    }
-  }
 }

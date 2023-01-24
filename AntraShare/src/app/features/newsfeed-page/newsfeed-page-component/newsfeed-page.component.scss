@@ -1,7 +1,17 @@
-mat-grid-list{
+.container{
   margin-left: 5%;
   margin-right: 5%;
+  height: auto;
 }
-mat-grid-tile {
-  background: lightblue;
+.sidenav{
+  width: 60%;;
+}
+.mat-fab{
+  position: fixed;
+  bottom: 30px;
+  right: 10px
+}
+.post-panel{
+  margin-top: 100px;
+  height: 50px;
 }

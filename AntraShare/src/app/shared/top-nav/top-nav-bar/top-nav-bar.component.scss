@@ -5,8 +5,12 @@ button{
     width: 2%;
 }
 .mat-toolbar{
-    height: auto;
+    // height: auto;
+    position: fixed;
+    top: 0px;
+    z-index: 999;
 }
+
 .middle-spacer {
     flex: 1 1 auto;
 }

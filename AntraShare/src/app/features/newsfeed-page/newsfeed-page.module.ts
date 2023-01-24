@@ -7,6 +7,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatInputModule} from '@angular/material/input';
+import { LikeListModule } from '../like-list/like-list.module';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 @NgModule({
   declarations: [
     NewsfeedPageComponent
@@ -18,7 +21,9 @@ import {MatInputModule} from '@angular/material/input';
     MatButtonModule,
     MatIconModule,
     FontAwesomeModule,
-    MatInputModule
+    MatInputModule,
+    LikeListModule,
+    MatGridListModule
   ],
   exports: [
     NewsfeedPageComponent

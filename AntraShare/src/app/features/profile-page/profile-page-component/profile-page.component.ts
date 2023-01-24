@@ -44,7 +44,10 @@ export class ProfilePageComponent implements OnInit{
       phone: phone
     });
   }
-
+  //  AsyncValidators
+  // 1. observable for userEvent: from(userEvent) / formControl.valueChanges
+  // 2. pipe the observable, debounce / throttle inside pipe
+  // 3. get data from http request: map / switch
   checkUsername(){
       return (control: AbstractControl) => {
         this.usernameService.checkExist(control.value).subscribe(

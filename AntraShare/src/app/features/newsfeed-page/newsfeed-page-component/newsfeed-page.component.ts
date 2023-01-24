@@ -23,6 +23,7 @@ export class NewsfeedPageComponent implements OnInit {
   news: News[] = [];
   errorMessage: string = '';
   new: undefined | News;
+  showLikelist = false;
   constructor(private newsService: GetAllNewsService) {}
 
   ngOnInit(): void {
@@ -36,5 +37,15 @@ export class NewsfeedPageComponent implements OnInit {
         console.error('Request failed.'), (this.errorMessage = error);
       }
     );
+  }
+
+  toggleLikelist(){
+    if (this.showLikelist){
+      console.log("turn off like list");
+      this.showLikelist = false;
+    } else {
+      console.log("turn on like list");
+      this.showLikelist = true;
+    }
   }
 }

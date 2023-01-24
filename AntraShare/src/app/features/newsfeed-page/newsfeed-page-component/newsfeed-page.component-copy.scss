@@ -1,0 +1,197 @@
+body {
+  .content {
+    width: 70%;
+    margin: 0 20rem;
+    display: flex;
+    button {
+      border: none;
+      background-color: transparent;
+      color: rgb(64, 190, 240);
+      font-weight: 500;
+    }
+    .left_section {
+      width: 50%;
+      .live {
+        border: 1px solid rgba(184, 184, 184, 0.301);
+        border-radius: 10px;
+
+        padding: 1rem;
+        margin: 1rem 0 1rem 0;
+        display: flex;
+        div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            padding: 1rem;
+            object-fit: cover;
+          }
+        }
+      }
+      .blogs {
+        display: flex;
+        flex-direction: column;
+        .user {
+          display: flex;
+          flex-direction: column;
+          border: 1px solid rgba(170, 170, 170, 0.349);
+          border-radius: 10px;
+          .user-top {
+            display: flex;
+            padding: 1rem;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(170, 170, 170, 0.349);
+            border-radius: 0 0 10px 10px;
+            .menu_button {
+              color: black;
+            }
+            img {
+              width: 50px;
+              height: 50px;
+              border: 50%;
+              border-radius: 50%;
+            }
+            .user-left {
+              margin-left: 1rem;
+              align-items: center;
+              img {
+                margin-right: 1rem;
+              }
+            }
+          }
+          .blog-img {
+            padding: 1rem;
+            border-radius: 10px;
+          }
+          .post_details {
+            padding: 0 1rem;
+            .icons {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              font-size: 25px;
+              .left_icons {
+                fa-icon {
+                  padding: 0.5rem;
+                  font-size: 25px;
+                }
+              }
+            }
+            .comments {
+              color: gray;
+              padding: 0.5rem 0;
+            }
+            .example-form {
+              min-width: 150px;
+              width: 100%;
+              button {
+                border: none;
+                background-color: transparent;
+                color: rgb(64, 190, 240);
+                font-weight: 500;
+              }
+            }
+
+            .example-full-width {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .right_section {
+    border: 1px solid rgba(170, 170, 170, 0.349);
+    margin: 1rem;
+    border-radius: 10px;
+    height: min-content;
+    margin-top: 2rem;
+    width: 50%;
+    padding: 2rem;
+    .user {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      button {
+        border: none;
+        background-color: transparent;
+        color: rgb(64, 190, 240);
+        font-weight: 500;
+      }
+      .user_left {
+        display: flex;
+        align-items: center;
+        img {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          padding: 1rem;
+          object-fit: cover;
+        }
+        div {
+          display: flex;
+          flex-direction: column;
+          span {
+            padding: 0.5rem;
+          }
+        }
+      }
+    }
+    .suggestions_for_you {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      button {
+        border: none;
+        background-color: transparent;
+        color: rgb(64, 190, 240);
+        font-weight: 500;
+      }
+      span {
+        font-size: 20px;
+        color: gray;
+      }
+    }
+    .suggestion {
+      ul {
+        display: flex;
+        flex-direction: column;
+        li {
+          width: 100%;
+          list-style-type: none;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          button {
+            border: none;
+            background-color: transparent;
+            color: rgb(64, 190, 240);
+            font-weight: 500;
+            padding-right: 2rem;
+          }
+          div {
+            display: flex;
+            align-items: center;
+            div {
+              display: flex;
+              flex-direction: column;
+            }
+            img {
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+              object-fit: cover;
+              margin: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

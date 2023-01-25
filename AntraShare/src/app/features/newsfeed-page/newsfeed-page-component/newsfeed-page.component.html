@@ -8,26 +8,10 @@
   </head>
   <body>
     <app-top-nav-bar></app-top-nav-bar>
+    <!-- <div *ngIf="expression"></div> -->
+
     <div class="content">
       <div class="left_section">
-        <div class="live">
-          <div>
-            <img src="assets/imgs/1.jpg" alt="" />
-            <span>Leoni_tu</span>
-          </div>
-          <div>
-            <img src="assets/imgs/2.jpg" alt="" />
-            <span>Katarina</span>
-          </div>
-          <div>
-            <img src="assets/imgs/3.jpg" alt="" />
-            <span>Brandon</span>
-          </div>
-          <div>
-            <img src="assets/imgs/4.jpg" alt="" />
-            <span>Stephen</span>
-          </div>
-        </div>
         <div class="blogs" *ngFor="let singleNew of news">
           <div class="user">
             <div class="user-top">
@@ -36,7 +20,6 @@
                   ><b>{{ singleNew.publisherName }}</b></span
                 >
               </div>
-
               <button
                 mat-icon-button
                 [matMenuTriggerFor]="menu"
@@ -68,33 +51,21 @@
               class="blog-img"
             />
             <div class="post_details">
-              <!-- "faHeart" -->
               <div class="icons">
                 <div class="left_icons">
-                  <fa-icon [icon]="heart"></fa-icon>
-                  <fa-icon [icon]="comment"></fa-icon>
-                  <fa-icon [icon]="arrow"></fa-icon>
+                  <a (click)="onItemClick(singleNew)"
+                    ><fa-icon
+                      [icon]="heart"
+                      [ngClass]="{ green: toggle, red: !toggle }"
+                    ></fa-icon
+                  ></a>
                 </div>
-                <fa-icon [icon]="tag"></fa-icon>
               </div>
               <span class="live_numbers">
                 Liked by <b>you</b> and
                 <b>{{ singleNew.comment.length }}</b> others
               </span>
-              <!-- <div class="topic">
-                <span>
-                  <b
-                    >#mediamodifier #mockups #design #blackfriday
-                    #blackfridaysale @cybermondy
-                  </b>
-                  <b *ngIf="viewMore">
-                    <b>#mediamodifier #mediamodifier # #mediamodifier</b>
-                  </b>
-                </span>
-                <button class="view_more" (click)="viewMore = !viewMore">
-                  ...more
-                </button>
-              </div> -->
+
               <button class="comments" (click)="viewMore = !viewMore">
                 View all {{ singleNew.likedIdList.length }} comments
               </button>
@@ -103,16 +74,14 @@
                   <div *ngFor="let singleComment of singleNew.comment">
                     {{ singleComment.publisherName }}:
                     {{ singleComment.content.text }}<br />
-                    {{ singleComment.publishedTime }}
+                    {{ singleComment.publishedTime | date }}
                   </div>
                 </div>
-
-                <!-- <span>Peter: This picture looks great!</span> -->
               </div>
               <form class="example-form">
                 <mat-form-field class="example-full-width">
                   <mat-label>Add a comment ...</mat-label>
-                  <input type="tel" matInput />
+                  <input matInput />
                   <button matSuffix>Publish</button>
                 </mat-form-field>
               </form>
@@ -120,87 +89,6 @@
           </div>
         </div>
       </div>
-
-      <div class="right_section">
-        <div class="user">
-          <div class="user_left">
-            <img src="assets/imgs/2.jpg" alt="" />
-            <div>
-              <span class="username"><b>Katarina</b></span>
-              <span class="tags">Mediamodifier Building Brands</span>
-            </div>
-          </div>
-
-          <button>Switch</button>
-        </div>
-        <div class="suggestions_for_you">
-          <span>Suggestions For you</span>
-          <button>See All</button>
-        </div>
-
-        <div class="suggestion">
-          <ul>
-            <li class="suggested_user">
-              <div>
-                <img src="assets/imgs/1.jpg" alt="" />
-                <div>
-                  <span class="username"><b>Katarina</b></span>
-                  <span class="tags">Mediamodifier Building Brands</span>
-                </div>
-              </div>
-              <button>Follow</button>
-            </li>
-            <li class="suggested_user">
-              <div>
-                <img src="assets/imgs/2.jpg" alt="" />
-                <div>
-                  <span class="username"><b>Katarina</b></span>
-                  <span class="tags">Mediamodifier Building Brands</span>
-                </div>
-              </div>
-              <button>Follow</button>
-            </li>
-            <li class="suggested_user">
-              <div>
-                <img src="assets/imgs/3.jpg" alt="" />
-                <div>
-                  <span class="username"><b>Katarina</b></span>
-                  <span class="tags">Mediamodifier Building Brands</span>
-                </div>
-              </div>
-              <button>Follow</button>
-            </li>
-            <li class="suggested_user">
-              <div>
-                <img src="assets/imgs/4.jpg" alt="" />
-                <div>
-                  <span class="username"><b>Katarina</b></span>
-                  <span class="tags">Mediamodifier Building Brands</span>
-                </div>
-              </div>
-              <button>Follow</button>
-            </li>
-            <li class="suggested_user">
-              <div>
-                <img src="assets/imgs/5.jpg" alt="" />
-                <div>
-                  <span class="username"><b>Katarina</b></span>
-                  <span class="tags">Mediamodifier Building Brands</span>
-                </div>
-              </div>
-              <button>Follow</button>
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
-
-    <!-- <footer>
-      <span class="home">Home</span>
-      <span class="find">Find</span>
-      <span class="video">Video</span>
-      <span class="shopping">Shopping</span>
-      <span class="like">Like</span>
-    </footer> -->
   </body>
 </html>

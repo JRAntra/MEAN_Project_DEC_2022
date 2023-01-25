@@ -1,8 +1,15 @@
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
 body {
   .content {
-    width: 70%;
-    margin: 0 20rem;
+    align-items: center;
     display: flex;
+    justify-content: center;
     button {
       border: none;
       background-color: transparent;
@@ -10,11 +17,10 @@ body {
       font-weight: 500;
     }
     .left_section {
-      width: 50%;
+      width: 40%;
       .live {
         border: 1px solid rgba(184, 184, 184, 0.301);
         border-radius: 10px;
-
         padding: 1rem;
         margin: 1rem 0 1rem 0;
         display: flex;

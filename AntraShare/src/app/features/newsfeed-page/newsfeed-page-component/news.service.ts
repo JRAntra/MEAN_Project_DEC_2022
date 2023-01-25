@@ -1,17 +1,43 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { News } from 'app/shared/models/news.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GetAllNewsService {
-  url = 'http://localhost:4231/api/news';
+  apiUrl = 'http://localhost:4231/api/news';
 
-  constructor(private http: HttpClient) { }
-  
-  getNews(): Observable<any>{
-    return this.http.get(this.url);
+  constructor(private http: HttpClient) {}
+
+  getNews(): Observable<News[]> {
+    return this.http.get<News[]>(this.apiUrl);
+  }
+  getSingleNews(page: number, perpage: number): Observable<News[]> {
+    return this.http.get<News[]>(
+      `${this.apiUrl}/api/news/` + page + '/' + perpage
+    );
+  }
+  getNewsFromId(id: string) {
+    return this.http.get(`${this.apiUrl}/api/news/` + id);
   }
 
+  postNews(story: News) {
+    return this.http.post(`${this.apiUrl}/api/news/`, story);
+  }
+
+  patchComment(id: string, comment: Comment) {
+    return this.http.patch(`${this.apiUrl}/api/news/addComment/` + id, comment);
+  }
+
+  deleteNews(story: News, id: string) {
+    return this.http.delete(`${this.apiUrl}/api/news/deletePost/` + id);
+  }
+
+  deleteComment(story: News, postId: string, commentId: string) {
+    return this.http.delete(
+      `${this.apiUrl}/api/news/deleteComment/` + postId + '/' + commentId
+    );
+  }
 }

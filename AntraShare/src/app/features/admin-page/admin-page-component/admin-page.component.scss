@@ -19,7 +19,9 @@
     width: 70%;
     margin-left: 2%;
     padding: 10px;
-    margin-top: 20%;
+    position: sticky;
+    height: 100px;
+    top: 40%;
 }
 .users__btn{
     margin-top: 100px;

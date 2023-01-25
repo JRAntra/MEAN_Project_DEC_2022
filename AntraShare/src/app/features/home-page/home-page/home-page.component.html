@@ -15,12 +15,12 @@
           <mat-card-subtitle>{{ news.publishedTime | date :'short' }}</mat-card-subtitle>
         </mat-card-header>
         <img mat-card-image  *ngIf="news.content?.image" src={{news.content.image}} alt="Photos not available">
-        <div *ngIf="news.content?.video"> {{news.content.video}} </div>
         <mat-card-content *ngIf="news.content">
-          <div>{{ news.content.text }}</div>
+          <div *ngIf="news.content.video"> {{news.content.video}} </div>
+          <div *ngIf="news.content.text">{{ news.content.text }}</div>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-icon-button>
+          <button mat-icon-button (click)="onLikeClicked(news)">
             <mat-icon aria-label="like it">favorite_border</mat-icon>
         </button>
           <button mat-icon-button>

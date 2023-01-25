@@ -6,12 +6,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
-import { LikeListComponent } from './like-list/like-list.component';
+import { LikeListModule } from '../like-list/like-list.module';
 
 @NgModule({
   declarations: [
-    HomePageComponent,
-    LikeListComponent
+    HomePageComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +18,8 @@ import { LikeListComponent } from './like-list/like-list.component';
     MatIconModule,
     MatInputModule,
     MatSidenavModule,
-    MatCardModule
+    MatCardModule,
+    LikeListModule
   ],
   exports: [
     HomePageComponent

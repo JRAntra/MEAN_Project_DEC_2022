@@ -9,7 +9,9 @@ import { News } from 'app/shared/models/news.model';
 })
 export class HomePageComponent implements OnInit {
   allNews: News[] = [];
-  
+  likedPost: undefined | News;
+  liked = false;
+
   constructor(private newsService: GetAllNewsService) {}
 
   ngOnInit(): void {
@@ -19,6 +21,10 @@ export class HomePageComponent implements OnInit {
         this.allNews = response;
       }
     );
+  }
+
+  onLikeClicked(news: News){
+    this.likedPost = news;
   }
 
 }

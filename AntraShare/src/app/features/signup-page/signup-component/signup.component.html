@@ -1,4 +1,4 @@
-<div class="outer">
+<!-- <div class="outer">
     <div class="container">
         <div class="row">
             <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
@@ -48,14 +48,78 @@
                             <div class="text-center pt-4 text-muted">Already have account? <a id="forget" routerLink="/login">Login</a></div>
                         </form>
                     </div> 
-                    <!-- <div class="mx-3 my-2 py-2 bordert">
+                    <div class="mx-3 my-2 py-2 bordert">
                         <div class="text-center py-3">
                             <a href="https://www.instagram.com" target="_blank" class="px-2"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUwgsP6leo9FOxWuEjJgnPiuVV-LOwZq6priQ1VfqFJnj1t9C5&s" alt=""> </a>
                             <a href="https://www.google.com" target="_blank" class="px-2"> <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png" alt=""> </a>
                             <a href="https://github.com" target="_blank" class="px-2"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIPPlnUnhPRbSLfZr0TctDI3RN7mB7hqw8aqJjMCZaS9NvUQk&s" alt=""> </a>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <mat-card class="bg-white">
+                    <mat-card-header>
+                        <mat-card-title class="font-weight-bold">Sign Up</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <form [formGroup]="signUpForm">
+                            <mat-form-field class="pt-3">
+                                <mat-label>First Name</mat-label>
+                                <input matInput formControlName="firstName" placeholder="FirstName"> 
+                            </mat-form-field>
+                            <mat-form-field class="pt-3">
+                                <mat-label>Last Name</mat-label>
+                                <input matInput formControlName="lastName" placeholder="LastName">
+                            </mat-form-field>
+                            <mat-form-field class="pt-3">
+                                <mat-label>Username</mat-label>
+                                <input matInput formControlName="userName" placeholder="Username"> 
+                                <mat-hint *ngIf="signUpForm.controls['userName'].errors?.['availableUsername']">
+                                    *Username is not available
+                                </mat-hint>
+                            </mat-form-field>
+                            <mat-form-field class="pt-3">
+                                <mat-label>Email</mat-label>
+                                <input matInput formControlName="email" placeholder="Email"> 
+                                <mat-hint *ngIf="signUpForm.controls['email'].errors?.['availableEmail']">
+                                  *Email is not available
+                                </mat-hint>
+                            </mat-form-field>
+                            
+                            <mat-form-field class="pt-3">
+                                <mat-label>Password</mat-label>
+                                <input matInput type="password" formControlName="password" placeholder="Password">
+                                <mat-hint *ngIf="
+                                signUpForm.controls['password'].errors?.['minlength'] &&
+                                (signUpForm.controls['password'].errors?.['upperCase'] || 
+                                signUpForm.controls['password'].errors?.['specialChar'])
+                                ">
+                                  Your password must have:<br/>A length of at least 8 characters, 1 uppercase character, 1 lowercase character, 1 special character
+                                </mat-hint>
+                            </mat-form-field>
+                            <mat-form-field class="pt-3">
+                                <mat-label>Password Confirmation</mat-label>
+                                <input matInput type="password" formControlName="passwordConfirmation" placeholder="Confirm Password">
+                                <mat-hint *ngIf="signUpForm.controls['passwordConfirmation'].errors?.['passwordsMatch']">
+                                  Please make sure your passwords match.
+                                </mat-hint>
+                            </mat-form-field>
+                            <div class="text-center pt-4 text-muted">
+                                Already have an account? 
+                                <a routerLink="/login" class="text-primary">Sign In</a>
+                            </div>
+                        </form>
+                        <button mat-raised-button color="primary" class="btn btn-block mt-4 w-100" [disabled]="!signUpForm.valid" (click)="onSignup()">Sign Up</button>
+                    </mat-card-content>
+                </mat-card>
             </div>
         </div>
     </div>

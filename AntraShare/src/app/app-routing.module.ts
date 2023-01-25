@@ -6,6 +6,7 @@ import { SettingPageComponent } from './features/setting-page/setting-page-compo
 import { AdminPageComponent } from './features/admin-page/admin-page-component/admin-page.component';
 import { ProfilePageComponent } from './features/profile-page/profile-page-component/profile-page.component';
 import { NewsfeedPageComponent } from './features/newsfeed-page/newsfeed-page-component/newsfeed-page.component';
+import { HomePageComponent } from './features/home-page/home-page/home-page.component';
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'settings', component: SettingPageComponent },
   { path: 'admin', component: AdminPageComponent },
   { path: 'newsfeed', component: NewsfeedPageComponent },
-  { path: 'profile', component: ProfilePageComponent}
+  { path: 'profile', component: ProfilePageComponent},
+  { path: 'home', component: HomePageComponent}
 ];
 
 @NgModule({

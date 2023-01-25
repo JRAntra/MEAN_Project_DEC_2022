@@ -6,9 +6,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {MatInputModule} from '@angular/material/input';
-import { LikeListModule } from '../like-list/like-list.module';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -20,10 +17,7 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatIconModule,
     FontAwesomeModule,
-    MatInputModule,
-    LikeListModule,
-    MatSidenavModule,
-    MatCardModule
+    MatInputModule
   ],
   exports: [
     NewsfeedPageComponent

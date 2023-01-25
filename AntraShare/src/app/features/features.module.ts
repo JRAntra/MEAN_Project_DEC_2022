@@ -6,6 +6,7 @@ import { SettingPageModule } from './setting-page/setting-page.module';
 import { AdminPageModule } from './admin-page/admin-page.module';
 import { NewsfeedPageModule } from './newsfeed-page/newsfeed-page.module';
 import { ProfilePageModule } from './profile-page/profile-page.module';
+import { HomePageModule } from './home-page/home-page.module';
 
 @NgModule({
   declarations: [],
@@ -17,7 +18,7 @@ import { ProfilePageModule } from './profile-page/profile-page.module';
     ProfilePageModule,
     AdminPageModule,
     SettingPageModule,
-
+    HomePageModule
   ],
   exports: [
     SettingPageModule,

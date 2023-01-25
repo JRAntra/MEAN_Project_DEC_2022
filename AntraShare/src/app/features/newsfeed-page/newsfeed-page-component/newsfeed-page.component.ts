@@ -20,7 +20,7 @@ export class NewsfeedPageComponent implements OnInit {
   viewMore = false;
   viewComments = false;
 
-  allNews: News[] = [];
+  news: News[] = [];
   errorMessage: string = '';
   new: undefined | News;
 
@@ -29,7 +29,7 @@ export class NewsfeedPageComponent implements OnInit {
   ngOnInit(): void {
     this.newsService.getNews().subscribe(
       (response) => {
-        this.allNews = response;
+        this.news = response;
       }
     );
   }

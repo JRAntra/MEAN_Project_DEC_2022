@@ -1,36 +1,205 @@
-<div class="post-panel">
-  Post here
-</div>
-<br><br>
-<mat-drawer-container class="container">
-  <mat-drawer #drawer class="sidenav" mode="push">
-    <app-like-list></app-like-list>
-  </mat-drawer>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <div class="content">
+      <div class="left_section">
+        <div class="live">
+          <div>
+            <img src="assets/imgs/1.jpg" alt="" />
+            <span>Leoni_tu</span>
+          </div>
+          <div>
+            <img src="assets/imgs/2.jpg" alt="" />
+            <span>Katarina</span>
+          </div>
+          <div>
+            <img src="assets/imgs/3.jpg" alt="" />
+            <span>Brandon</span>
+          </div>
+          <div>
+            <img src="assets/imgs/4.jpg" alt="" />
+            <span>Stephen</span>
+          </div>
+        </div>
+        <div class="blogs" *ngFor="let singleNew of news">
+          <div class="user">
+            <div class="user-top">
+              <div class="user-left">
+                <span class="username"
+                  ><b>{{ singleNew.publisherName }}</b></span
+                >
+              </div>
 
-  <div class="sidenav-content">
-    <mat-card class="content-card" *ngFor="let news of allNews">
-      <mat-card-header>
-        <img mat-card-avatar class="header-image" src="../../../../assets/avatar3.jpeg">
-        <mat-card-title>{{ news.publisherName }}</mat-card-title>
-        <mat-card-subtitle>{{ news.publishedTime | date :'short' }}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image  *ngIf="news.content?.image" src={{news.content?.image}} alt="Photos not available">
-      <div *ngIf="news.content?.video"> {{news.content?.video}} </div>
-      <mat-card-content *ngIf="news.content">
-        <div>{{ news.content.text }}</div>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-icon-button>
-          <mat-icon aria-label="like it">favorite_border</mat-icon>
-      </button>
-        <button mat-icon-button>
-          <mat-icon aria-label="view comments">comment</mat-icon>
-          <!-- use expansion panel to show/hide comments -->
-      </button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-</mat-drawer-container>
-<button mat-fab color="primary" (click)="drawer.toggle()"> 
-  <mat-icon>favorite</mat-icon>
-</button>
+              <button
+                mat-icon-button
+                [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu"
+                class="menu_button"
+              >
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>dialpad</mat-icon>
+                  <span>Redial</span>
+                </button>
+                <button mat-menu-item disabled>
+                  <mat-icon>voicemail</mat-icon>
+                  <span>Check voice mail</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>notifications_off</mat-icon>
+                  <span>Disable alerts</span>
+                </button>
+              </mat-menu>
+            </div>
+
+            <img
+              [src]="singleNew.content.image"
+              onerror="this.src='assets/imgs/1.jpg';"
+              alt=""
+              class="blog-img"
+            />
+            <div class="post_details">
+              <!-- "faHeart" -->
+              <div class="icons">
+                <div class="left_icons">
+                  <fa-icon [icon]="heart"></fa-icon>
+                  <fa-icon [icon]="comment"></fa-icon>
+                  <fa-icon [icon]="arrow"></fa-icon>
+                </div>
+                <fa-icon [icon]="tag"></fa-icon>
+              </div>
+              <span class="live_numbers">
+                Liked by <b>you</b> and
+                <b>{{ singleNew.comment.length }}</b> others
+              </span>
+              <!-- <div class="topic">
+                <span>
+                  <b
+                    >#mediamodifier #mockups #design #blackfriday
+                    #blackfridaysale @cybermondy
+                  </b>
+                  <b *ngIf="viewMore">
+                    <b>#mediamodifier #mediamodifier # #mediamodifier</b>
+                  </b>
+                </span>
+                <button class="view_more" (click)="viewMore = !viewMore">
+                  ...more
+                </button>
+              </div> -->
+              <button class="comments" (click)="viewMore = !viewMore">
+                View all {{ singleNew.likedIdList.length }} comments
+              </button>
+              <div class="comments_content">
+                <div *ngIf="viewMore">
+                  <div *ngFor="let singleComment of singleNew.comment">
+                    {{ singleComment.publisherName }}:
+                    {{ singleComment.content.text }}<br />
+                    {{ singleComment.publishedTime }}
+                  </div>
+                </div>
+
+                <!-- <span>Peter: This picture looks great!</span> -->
+              </div>
+              <form class="example-form">
+                <mat-form-field class="example-full-width">
+                  <mat-label>Add a comment ...</mat-label>
+                  <input type="tel" matInput />
+                  <button matSuffix>Publish</button>
+                </mat-form-field>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right_section">
+        <div class="user">
+          <div class="user_left">
+            <img src="assets/imgs/2.jpg" alt="" />
+            <div>
+              <span class="username"><b>Katarina</b></span>
+              <span class="tags">Mediamodifier Building Brands</span>
+            </div>
+          </div>
+
+          <button>Switch</button>
+        </div>
+        <div class="suggestions_for_you">
+          <span>Suggestions For you</span>
+          <button>See All</button>
+        </div>
+
+        <div class="suggestion">
+          <ul>
+            <li class="suggested_user">
+              <div>
+                <img src="assets/imgs/1.jpg" alt="" />
+                <div>
+                  <span class="username"><b>Katarina</b></span>
+                  <span class="tags">Mediamodifier Building Brands</span>
+                </div>
+              </div>
+              <button>Follow</button>
+            </li>
+            <li class="suggested_user">
+              <div>
+                <img src="assets/imgs/2.jpg" alt="" />
+                <div>
+                  <span class="username"><b>Katarina</b></span>
+                  <span class="tags">Mediamodifier Building Brands</span>
+                </div>
+              </div>
+              <button>Follow</button>
+            </li>
+            <li class="suggested_user">
+              <div>
+                <img src="assets/imgs/3.jpg" alt="" />
+                <div>
+                  <span class="username"><b>Katarina</b></span>
+                  <span class="tags">Mediamodifier Building Brands</span>
+                </div>
+              </div>
+              <button>Follow</button>
+            </li>
+            <li class="suggested_user">
+              <div>
+                <img src="assets/imgs/4.jpg" alt="" />
+                <div>
+                  <span class="username"><b>Katarina</b></span>
+                  <span class="tags">Mediamodifier Building Brands</span>
+                </div>
+              </div>
+              <button>Follow</button>
+            </li>
+            <li class="suggested_user">
+              <div>
+                <img src="assets/imgs/5.jpg" alt="" />
+                <div>
+                  <span class="username"><b>Katarina</b></span>
+                  <span class="tags">Mediamodifier Building Brands</span>
+                </div>
+              </div>
+              <button>Follow</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- <footer>
+      <span class="home">Home</span>
+      <span class="find">Find</span>
+      <span class="video">Video</span>
+      <span class="shopping">Shopping</span>
+      <span class="like">Like</span>
+    </footer> -->
+  </body>
+</html>

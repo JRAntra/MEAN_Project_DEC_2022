@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirstFewCharsPipe } from '../../../shared/pipes/first-few-chars.pipe';
+import { FirstFewCharsPipe } from 'app/shared/pipes/first-few-chars.pipe';
 
 
 @Component({

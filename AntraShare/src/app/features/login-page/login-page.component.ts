@@ -7,7 +7,7 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { map, debounceTime, Observable, Subject } from 'rxjs';
+import { debounceTime, switchMap, take } from 'rxjs';
 import { LoginService } from './services/login.service';
 @Component({
   selector: 'app-login-page',
@@ -39,16 +39,16 @@ export class LoginPageComponent implements OnInit {
   validateUserExist() {
     return (control: AbstractControl) => {
       if (control?.value.length !== 0) {
-        this.loginService
-          .checkUserExist(control.value)
+        control.valueChanges
           ?.pipe(
-            debounceTime(2000),
-            map((res) => {
-              if (!res) control.setErrors({ nonexist: true });
-              console.log(res);
-            })
+            debounceTime(500),
+            switchMap((username) => this.loginService.checkUserExist(username)),
+            take(1) // it runs.complete function after emit the first value(unsubscribe itself)
           )
-          .subscribe();
+          .subscribe((exist) => {
+            if (!exist) control.setErrors({ nonexist: true });
+            console.log(exist);
+          });
       }
       return null;
     };

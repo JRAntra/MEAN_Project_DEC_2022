@@ -1,35 +1,27 @@
 <form [formGroup]="form" class="register-main" (submit)="onSubmit()">
   <p><strong>Register</strong></p>
   <div>
-    <label for="username">User Name:</label>
-    <input
-      formControlName="userName"
-      type="text"
-      id="username"
-      name="username"
-    />
+      <label for="username">User Name:</label>
+      <input formControlName="userName" type="text" id="username" name="username">
+      <p *ngIf="form.controls['userName']?.errors?.['usernameExists']">Username already been used</p>
   </div>
   <div>
-    <label for="password">Password:</label>
-    <input
-      formControlName="password"
-      type="password"
-      id="password"
-      name="password"
-    />
+      <label for="password">Password:</label>
+      <input formControlName="password" type="password" id="password" name="password">
+      <p *ngIf="form.controls['password'].errors?.['error']">Password must have at least 1 uppercase, 1 lowercase, 1 special character</p>
   </div>
   <div>
-    <label for="passwordcon">Password Confirm:</label>
-    <input
-      formControlName="passwordcon"
-      type="password"
-      id="passwordcon"
-      name="passwordcon"
-    />
+      <label for="passwordcon">Password Confirm:</label>
+      <input formControlName="passwordcon" type="password" id="passwordcon" name="passwordcon">
+      <p *ngIf="form.controls['passwordcon'].errors?.['passwordMismatch']">password confirm should be the same as password</p>
   </div>
   <div>
-    <label for="email">Email:</label>
-    <input formControlName="email" type="email" id="email" name="email" />
+      <label for="email">Email:</label>
+      <input formControlName="email" type="email" id="email" name="email">
+      <p *ngIf="form.controls['email']?.errors?.['emailExists']">Email already been used</p>
   </div>
-  <button (click)="goToLoginPage()">Register</button>
+  <button>Register</button>
+
+
+
 </form>

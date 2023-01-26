@@ -26,10 +26,10 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "angular-font-awesome": "^3.1.2",
-    "angular-material": "^1.2.5",
+    "angular-material": "^0.8.0",
     "font-awesome": "^4.7.0",
+    "random-hash": "^4.0.1",
     "rxjs": "~7.5.0",
-    "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -43,6 +43,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "tslib": "^2.4.1",
     "typescript": "~4.7.2"
   }
 }

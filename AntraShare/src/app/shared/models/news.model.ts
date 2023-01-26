@@ -1,34 +1,29 @@
-export class News {
-  newsId: string;
+export interface News {
   publisherName: string;
-  content: { image: string; video: string; text: string; _id: string };
-  publishedTime: string;
-  likedIdList: Array<{ userId: string; _id: string }>;
-  comment: Array<{
-    publisherName: string;
-    content: { image: string; video: string; text: string; _id: string };
-    _id: string;
-    publishedTime: string;
-  }>;
+  publishedTime: Date;
+  content: Content;
+  comment?: Comment[];
+  LikedIdList: LikedIdList;
+  _id: string;
+}
 
-  constructor(
-    newsId: string,
-    publisherName: string,
-    content: { image: string; video: string; text: string; _id: string },
-    publishedTime: string,
-    likedIdList: Array<{ userId: string; _id: string }>,
-    comment: Array<{
-      publisherName: string;
-      content: { image: string; video: string; text: string; _id: string };
-      _id: string;
-      publishedTime: string;
-    }>
-  ) {
-    this.newsId = newsId;
-    this.publisherName = publisherName;
-    this.content = content;
-    this.publishedTime = publishedTime;
-    this.comment = comment;
-    this.likedIdList = likedIdList;
-  }
+export interface Comment {
+  publisherName: string;
+  content: Content;
+  publishedTime: Date;
+  _id: string;
+}
+
+export interface Content {
+  imageUrl: string;
+  image?: string;
+  videoUrl: string;
+  video?: string;
+  textUrl: string;
+  text?: string;
+  _id: string;
+}
+
+export interface LikedIdList {
+  _id?: string;
 }

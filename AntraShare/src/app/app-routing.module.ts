@@ -8,17 +8,17 @@ import { ProfilePageComponent } from './features/profile-page/profile-page-compo
 import { NewsfeedPageComponent } from './features/newsfeed-page/newsfeed-page-component/newsfeed-page.component';
 // Navigate to module
 const routes: Routes = [
-  {path:'', component: LoginComponent},
-  { path:'login', component: LoginComponent },
-  { path:'signup', component: SignupComponent },
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'settings', component: SettingPageComponent },
   { path: 'admin', component: AdminPageComponent },
   { path: 'newsfeed', component: NewsfeedPageComponent },
-  { path: 'profile', component: ProfilePageComponent}
+  { path: 'profile', component: ProfilePageComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -7,7 +7,7 @@ import { User } from '../../shared/models/user';
   providedIn: 'root'
 })
 export class LoginService {
-   apiUrl = 'http://localhost:4231';
+  apiUrl = 'http://localhost:4231';
 
   constructor(private http: HttpClient) { }
 

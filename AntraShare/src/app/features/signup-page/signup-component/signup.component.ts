@@ -92,15 +92,24 @@ export class SignupComponent implements OnInit {
   onSignup() {
     var name = this.signUpForm.get('firstName')?.value + ' ' + this.signUpForm.get('lastName')?.value;
 
-    var newAccount = {
-      name: name,
-      userName: this.signUpForm.get('userName')?.value,
-      userEmail: this.signUpForm.get('email')?.value,
-      password: this.signUpForm.get('password')?.value,
+    var newAccount: User = {
+      userName: this.userName.value ? this.userName.value : '',
+      userEmail: this.emailValue.value ? this.emailValue.value : '',
+      password: this.passwordValue.value ? this.passwordValue.value : '',
     }
 
     this.registerService.postNewAccount(newAccount).subscribe(console.log);
   }
+  get userName(): FormControl {
+    return this.signUpForm.get('userName') as FormControl
+    //type transform
+  }
+  get emailValue() {
+    return this.signUpForm?.get('email') as FormControl
+  }
+  get passwordValue() {
+    return this.signUpForm?.get('password') as FormControl
+}
 }
   
 
@@ -108,9 +117,10 @@ export class SignupComponent implements OnInit {
 //     this.signUpForm?.get('name')?.setValue(val)
 //   }
 
-//   get nameValue() {
-//     return this.signUpForm?.get('name')?.value
-//   }
+  // get userName(): FormControl {
+  //   return this.signUpForm.get('userName') as FormControl
+  //   //type transform
+  // }
 
 //   set usernameValue(val) {
 //     this.signUpForm?.get('userName')?.setValue(val)

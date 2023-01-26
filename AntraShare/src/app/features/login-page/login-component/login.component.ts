@@ -31,16 +31,8 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm. value)
   }
 
-  set usernameValue(val) {
-    this.loginForm?.get('username')?.setValue(val)
-}
-
 get usernameValue() {
     return this.loginForm?.get('username')?.value
-}
-
-set passwordValue(val) {
-    this.loginForm?.get('password')?.setValue(val)
 }
 
 get passwordValue() {

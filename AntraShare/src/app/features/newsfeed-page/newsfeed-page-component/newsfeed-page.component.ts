@@ -1,4 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { GetAllNewsService } from 'app/features/newsfeed-page/newsfeed-page-component/news.service';
 import { Subscription } from 'rxjs';
@@ -10,13 +16,12 @@ import { LikedListService } from '../likedList.service';
   templateUrl: './newsfeed-page.component.html',
   styleUrls: ['./newsfeed-page.component.scss'],
 })
-export class NewsfeedPageComponent implements OnInit, OnDestroy {
+export class NewsfeedPageComponent implements OnInit {
   commentList: String[] = [];
   newComment: String = '';
   heart = faHeart;
   viewMore = false;
   viewComments = false;
-
   errorMessage: string = '';
   new: undefined | News;
   toggle = true;
@@ -55,9 +60,13 @@ export class NewsfeedPageComponent implements OnInit, OnDestroy {
 
   onItemClick(news: News) {
     // this.toggle = !this.toggle;
-    this.likeService.addNew(news);
+    if (this.likeService.checkExist(news)) {
+      this.likeService.removeExist(news);
+    } else {
+      this.likeService.addNew(news);
+    }
   }
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
 }

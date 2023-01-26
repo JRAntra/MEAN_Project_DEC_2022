@@ -13,4 +13,14 @@ export class LikedListService {
   getBlogs(): Observable<any> {
     return this.likeListsubject.asObservable();
   }
+  checkExist(blog: News) {
+    return this.likeList.includes(blog);
+    // delete this.likeList[this.likeList.indexOf(blog)];
+  }
+  removeExist(blog: News) {
+    const index: number = this.likeList.indexOf(blog);
+    if (index !== -1) {
+      this.likeList.splice(index, 1);
+    }
+  }
 }

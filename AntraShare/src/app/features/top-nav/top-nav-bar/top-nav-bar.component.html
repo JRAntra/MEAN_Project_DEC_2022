@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <div>
+  <div class="content">
     <span class="logo">
       <img
         src="../../../../assets/AntraShare.svg"
@@ -13,6 +13,7 @@
       mat-icon-button
       color="warn"
       aria-label="Example icon button with a heart icon"
+      (click)="viewMore = !viewMore"
     >
       <mat-icon>favorite</mat-icon>
     </button>
@@ -56,17 +57,14 @@
       <mat-icon>manage_accounts</mat-icon>
     </button>
   </div>
-  <div>{{ likeList }}sfds</div>
-
-  <div *ngFor="let item of likeList">
-    <!-- <span>1</span> -->
-    <span>{{ item.publisherName }}</span>
-    <img src="{{ item.content.image }}" alt="" /> -->
-    <div *ngFor="let comment of item.comment">
+</mat-toolbar>
+<div *ngIf="viewMore" class="likeList">
+  <div *ngFor="let item of likeList" class="single">
+    <div>{{ item.publisherName }}</div>
+    <img src="{{ item.content.image }}" alt="" />
+    <!-- <div *ngFor="let comment of item.comment">
       <span>{{ comment.publisherName }}</span>
       <span>{{ comment.publishedTime }}</span>
-    </div>
+    </div> -->
   </div>
-
-  <div>hello</div>
-</mat-toolbar>
+</div>

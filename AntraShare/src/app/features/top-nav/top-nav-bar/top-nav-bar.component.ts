@@ -11,19 +11,11 @@ import { ChangeDetectorRef } from '@angular/core';
 export class TopNavBarComponent implements OnInit {
   subscription!: Subscription;
   likeList: News[] = [];
-  // likeList = [1, 2, 3];
-
+  viewMore = false;
   constructor(
     private likeService: LikedListService,
     private changeDetector: ChangeDetectorRef
-  ) {
-    // this.subscription = this.like.getBlogs().subscribe((blog) => {
-    //   // if (blog) {
-    //   //   this.likeList.push(blog);
-    //   //   console.log(this.likeList);
-    //   // }
-    // });
-  }
+  ) {}
 
   ngOnInit(): void {
     this.subscription = this.likeService.getBlogs().subscribe((list) => {

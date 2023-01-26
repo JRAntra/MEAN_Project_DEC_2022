@@ -6,7 +6,6 @@ import { SettingPageModule } from './setting-page/setting-page.module';
 import { AdminPageModule } from './admin-page/admin-page.module';
 import { NewsfeedPageModule } from './newsfeed-page/newsfeed-page.module';
 import { ProfilePageModule } from './profile-page/profile-page.module';
-import { TopNavModule } from './top-nav/top-nav.module';
 import { ContentCardModule } from './content-card/content-card.module';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { ContentCardModule } from './content-card/content-card.module';
     NewsfeedPageModule,
     ProfilePageModule,
     AdminPageModule,
-    TopNavModule,
     SettingPageModule,
     ContentCardModule
   ],

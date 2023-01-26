@@ -6,7 +6,7 @@ import { SettingPageComponent } from './features/setting-page/setting-page-compo
 import { AdminPageComponent } from './features/admin-page/admin-page-component/admin-page.component';
 import { ProfilePageComponent } from './features/profile-page/profile-page-component/profile-page.component';
 import { NewsfeedPageComponent } from './features/newsfeed-page/newsfeed-page-component/newsfeed-page.component';
-
+// Navigate to module
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },

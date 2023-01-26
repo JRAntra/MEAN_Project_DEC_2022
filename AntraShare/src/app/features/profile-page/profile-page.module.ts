@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfilePageComponent } from './profile-page-component/profile-page.component';
-import { TopNavModule } from '../top-nav/top-nav.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -15,7 +14,6 @@ import { ContentCardModule } from '../content-card/content-card.module';
   declarations: [ProfilePageComponent],
   imports: [
     CommonModule,
-    TopNavModule,
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,

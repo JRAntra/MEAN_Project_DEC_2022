@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { UsernameService } from '../service/username.service';
 
 @Component({
@@ -24,10 +25,13 @@ export class ProfilePageComponent implements OnInit{
         email: [' ', [Validators.required, Validators.email]],
         phone: [''],
         gender: [''],
-      })
+      });
+      // this.passwordConfirm = ['',[this.passwordsValidator]];
   }
 
   onSubmit(): void{
+    // validate fields before submission
+    // check for error list
     const username = this.profileForm.get('username')?.value;
     const password = this.profileForm.get('password')?.value;
     const gender = this.profileForm.get('gender')?.value;
@@ -44,7 +48,7 @@ export class ProfilePageComponent implements OnInit{
       phone: phone
     });
   }
-
+  
   checkUsername(){
       return (control: AbstractControl) => {
         this.usernameService.checkExist(control.value).subscribe(
@@ -72,7 +76,9 @@ export class ProfilePageComponent implements OnInit{
         return { "oneSpecialChar": "false" };
     }
   }
-
+  // 'this' is undefined
+  // When apply validator function as a validator, this refers to outside wrapper of the form control
+  // No the class itself -- user arrow function
   passwordsMatch(match: FormControl){
     return (control: AbstractControl) => {
       const password = control.value;
@@ -82,5 +88,14 @@ export class ProfilePageComponent implements OnInit{
       }
     }
   }
-
+  // 
+  // passwordsValidator(): AsyncValidatorFn{
+  //   return (control: AbstractControl): Observable<ValidationErrors | null> => {
+  //     const password = control.value;
+  //     const passwordConfirm = match.value;
+  //     if (password !== passwordConfirm){
+  //       match.setErrors({'passwordsDoNotMatch': true})
+  //     }
+  //   }
+  // }
 }

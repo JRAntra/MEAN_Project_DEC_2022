@@ -14,7 +14,6 @@ export interface Comment {
     content: Content;
     publishedTime: Date;
     _id: string;
-
 }
 
 export interface Content {
@@ -25,8 +24,6 @@ export interface Content {
     textUrl: string;
     text?: string;
     _id: string;
-
-
 }
 
 export interface LikedIdList {

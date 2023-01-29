@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { NewsStoriesComponent } from './news-feed/news-stories/news-stories.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[
     NewsFeedComponent,

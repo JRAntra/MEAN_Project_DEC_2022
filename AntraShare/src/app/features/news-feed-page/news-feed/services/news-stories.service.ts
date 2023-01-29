@@ -39,8 +39,4 @@ export class NewsStoriesService {
   deleteComment(story: News, postId: string, commentId: string){
     return this.http.delete(`${this.apiUrl}/api/news/deleteComment/` + postId + '/' + commentId);
   }
-
-
-
-  
 }

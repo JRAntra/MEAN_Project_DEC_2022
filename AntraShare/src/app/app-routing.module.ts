@@ -6,6 +6,7 @@ import { SettingPageComponent } from './features/setting-page/setting-page.compo
 import { LoginPageComponent } from './features/login-page/login-page.component';
 import { RegisterPageComponent } from './features/register-page/register-page.component';
 import { AdminPageComponent } from './features/admin-page/admin-page.component';
+import { AuthGuard } from './core/auth.guard';
 
 const routes: Routes = [
   {
@@ -27,14 +28,15 @@ const routes: Routes = [
   },
 
   {
-    path: 'admin', component: AdminPageComponent
-  },
+    path: 'admin', component: AdminPageComponent,
+    canActivate: [AuthGuard]
 
+  },
   
   {
     path: '', component: LoginPageComponent
   },
-  
+
   {
     // path: '**', component: NotFoundComponent
     path: '**', component: LoginPageComponent

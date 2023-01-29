@@ -48,7 +48,8 @@ export class NewsStoriesComponent implements OnInit {
     this.newsService.getNews(this.numsOfPage,this.numsOfNews)
       .subscribe(Response => {
         this.stories = Response;
-        
+        this.stories.reverse();
+
       })
   }
 
@@ -56,6 +57,7 @@ export class NewsStoriesComponent implements OnInit {
     this.newsService.getAllNews()
       .subscribe(Response => {
         this.stories = Response;
+        this.stories.reverse();
       })
   }
 

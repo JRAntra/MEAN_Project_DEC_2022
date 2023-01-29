@@ -23,12 +23,13 @@
 
 
 <div class="news-feed">
-    <div class="news-post">
-        <input class="news-post-area" type="text" placeholder="What's on your mind?">
+    <div class="news-post" [formGroup]="newStory" >
+        <!-- <input aria-label="publishername" formControlName="publisherName" type="text" placeholder="upoiu: publishername"> -->
 
-        <button class="submit-post" (click)="onSubmit()">Submit</button>
+        <input class="news-post-area" formControlName="content" type="text" placeholder="What's on your mind?">
+
+        <button class="submit-post" type="submit" (click)="onPost()">Submit</button>
     </div>
-
     <app-news-stories (newLikeList)="addLikeList($event)"></app-news-stories>
 
 </div>

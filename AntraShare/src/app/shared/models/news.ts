@@ -5,8 +5,14 @@ export interface News {
     publishedTime: Date;
     content: Content;
     comment?: Comment[];
-    LikedIdList: LikedIdList;
+    LikedIdList?: LikedIdList;
     _id: string;
+}
+
+export interface PostNews {
+    publisherName: string;
+    publishedTime: Date;
+    content: Content;
 }
 
 export interface Comment {
@@ -17,13 +23,13 @@ export interface Comment {
 }
 
 export interface Content {
-    imageUrl: string;
+    imageUrl?: string;
     image? : string;
-    videoUrl: string;
+    videoUrl?: string;
     video?: string;
-    textUrl: string;
+    textUrl?: string;
     text?: string;
-    _id: string;
+    _id?: string;
 }
 
 export interface LikedIdList {

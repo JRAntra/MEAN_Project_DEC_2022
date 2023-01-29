@@ -42,6 +42,11 @@ export class LoginPageComponent implements OnInit {
       .subscribe(user => {
         if(user){
           this.sessionUser = user
+          // console.log(user);
+
+          localStorage.setItem('role', this.sessionUser.userRole);
+          localStorage.setItem('userName', this.sessionUser.userName);
+          localStorage.setItem('userEmail', this.sessionUser.userEmail);
           this.toNewsFeed()
         } else {
           return

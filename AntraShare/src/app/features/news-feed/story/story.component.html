@@ -1,21 +1,19 @@
-<div class="container">
+<div class="container" *ngFor="let news of newsList">
     <div class="top-container">
         <ul>
             <li><div class="avatar"></div></li>
-            <li class="userName">Shiba Inu</li>
-            <li class="publishTime">01/07/2023 11:34 PM</li>
+            <li class="userName">{{news.publisherName}}</li>
+            <li class="publishTime">{{news.publishedTime | date }}</li>
         </ul>
     </div>
     <div class="mid-container">
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <p>The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.</p>
+        <img src={{news?.content?.image}}>
+        <p>{{news?.content?.text}}</p>
     </div>
     <div class="btm-container">
         <ul>
             <li><mat-icon>comment</mat-icon> <span>4</span></li>
             <li><mat-icon>favorite</mat-icon><span>23</span></li>
         </ul>
-    </div>
+    </div>  
 </div>

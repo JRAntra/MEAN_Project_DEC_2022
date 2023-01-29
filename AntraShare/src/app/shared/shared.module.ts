@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterBannerComponent } from './router-banner/router-banner.component';
 import { ShortenPipe } from './shorten-pipe/shorten.pipe';
 import { HideAfterFiveSecDirective } from './hide-directive/hide-after-five-sec.directive';
+import { PasswordValidatorDirective } from './directive/password-validator.directive';
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import { HideAfterFiveSecDirective } from './hide-directive/hide-after-five-sec.
     RouterBannerComponent,
     ShortenPipe,
     HideAfterFiveSecDirective,
+    PasswordValidatorDirective,
   ],
   imports: [
     CommonModule

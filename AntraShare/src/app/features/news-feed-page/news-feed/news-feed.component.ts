@@ -1,5 +1,10 @@
+import { ResourceLoader } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { News } from 'src/app/shared/models/news';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { News, PostNews } from 'src/app/shared/models/news';
+import { NewsStoriesService } from './services/news-stories.service';
+import { first } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-news-feed',
@@ -12,18 +17,54 @@ export class NewsFeedComponent implements OnInit{
   
   item: News[] = [];
   likeList = new Set(this.item);
-
   showLikedList = false;
+  newStory: FormGroup = this.fb.group({})
+  userName = localStorage.getItem('userName');
 
-
+  constructor(
+    private newsService: NewsStoriesService,
+    private fb: FormBuilder
+  )
+  {}
   ngOnInit(): void {
-    console.log("Start");
-    
     this.hideDiv();
+
+    this.newStory = this.fb.group({
+      publisherName: ["upoiu"],
+      content: ['']
+    })
   }
 
-  onSubmit(){
+  // onPost(news: News){
+  onPost(): void{    
     console.log("Submitted!")  //  not implemented yet
+    
+    const pulisherName = this.userName? this.userName: '' ;
+    const content = this.newStory.get('content')?.value;
+    this.newStory.setValue({
+      publisherName: pulisherName,
+      content: {
+        text: content,
+      },
+    })
+
+    const post: PostNews = {
+      publisherName: pulisherName,
+      content: {
+        text: content,
+      },
+      publishedTime: new Date(),
+    }
+
+    console.log(post);
+
+    this.newsService.postNews(post)
+    .pipe(first())
+    .subscribe(val => {
+      console.log(val);
+      
+    })
+    
   }
 
   hideDiv(){

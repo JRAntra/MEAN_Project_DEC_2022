@@ -24,7 +24,7 @@ export class NewsStoriesService {
     return this.http.get(`${this.apiUrl}/api/news/` + id);
   }
 
-  postNews(story: News) {
+  postNews(story: any) { // check body requirements?
     return this.http.post(`${this.apiUrl}/api/news/`, story);
   }
 

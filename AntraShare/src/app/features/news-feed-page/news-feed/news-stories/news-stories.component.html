@@ -13,6 +13,21 @@
             <img class="news-image" src="{{story.content.image}}">
         </div>
 
+        <!-- Add comment to news story -->
+        <div class="news-comment-button">
+            <a (click)="onComment(story)">
+                <img src="../../../../assets/icons/like.png" alt="comment button" height="20px">
+                Comment
+            </a>
+            <form [formGroup]='commentAreaForm' (ngSubmit)="onSubmitComment(story)" class='comment-area-panel'
+                *ngIf="showCommentArea">
+                <p>Comment:</p>
+                <textarea class="comment-area" formControlName="text" rows="4" cols="50"></textarea>
+                <br>
+                <button class='commentSubmitButton' type="submit">Submit</button>
+            </form>
+        </div>
+
         <div class="news-like-button">
             <a (click)="onLike(story)">
                 <!-- add alt -->

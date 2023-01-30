@@ -4,13 +4,13 @@
 
     <div>
       <input
-        formControlName="username"
+        formControlName="email"
         class="text"
-        type="text"
-        placeholder="User Name"
+        type="email"
+        placeholder="Email"
       />
     </div>
-    <span *ngIf="loginForm.controls['username'].hasError('nonexist')">
+    <span *ngIf="loginForm.controls['email'].hasError('nonexist')">
       username not exist
     </span>
     <div>

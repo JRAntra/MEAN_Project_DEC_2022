@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LoginService {
-  checkUserExistUrl = 'http://localhost:4231/api/register/checkExistByUsername';
+  checkUserExistUrl = 'http://localhost:4231/api/register/checkExistByEmail';
   constructor(private http: HttpClient) {}
-  checkUserExist(username: string): Observable<Boolean> {
-    return this.http.get<boolean>(`${this.checkUserExistUrl}/${username}`);
+  checkEmailExist(email: string): Observable<Boolean> {
+    return this.http.get<boolean>(`${this.checkUserExistUrl}/${email}`);
   }
 }

@@ -28,7 +28,7 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      username: new FormControl('', { validators: [this.validateUserExist()] }),
+      email: new FormControl('', { validators: [this.validateEmailExist()] }),
       password: new FormControl('', {
         validators: [Validators.minLength(8)],
       }),
@@ -36,18 +36,17 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
-  validateUserExist() {
+  validateEmailExist() {
     return (control: AbstractControl) => {
       if (control?.value.length !== 0) {
         control.valueChanges
           ?.pipe(
             debounceTime(500),
-            switchMap((username) => this.loginService.checkUserExist(username)),
+            switchMap((email) => this.loginService.checkEmailExist(email)),
             take(1) // it runs.complete function after emit the first value(unsubscribe itself)
           )
           .subscribe((exist) => {
             if (!exist) control.setErrors({ nonexist: true });
-            console.log(exist);
           });
       }
       return null;

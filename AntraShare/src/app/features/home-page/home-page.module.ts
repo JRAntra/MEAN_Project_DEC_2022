@@ -7,6 +7,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCardModule } from '@angular/material/card';
 import { LikeListModule } from '../like-list/like-list.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { LikeListModule } from '../like-list/like-list.module';
     MatInputModule,
     MatSidenavModule,
     MatCardModule,
-    LikeListModule
+    LikeListModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
   exports: [
     HomePageComponent

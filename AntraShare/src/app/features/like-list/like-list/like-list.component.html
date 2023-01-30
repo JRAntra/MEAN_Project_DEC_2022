@@ -1,24 +1,34 @@
-<mat-card class="content-card">
+<mat-card class="content-card" *ngFor="let news of (likedPosts$ | async)">
     <mat-card-header>
-      <img mat-card-avatar class="header-image" src="../../../../assets/avatar2.jpeg">
-      <mat-card-title>User Woof</mat-card-title>
-      <mat-card-subtitle>dog person</mat-card-subtitle>
+      <img mat-card-avatar class="header-image" src="../../../../assets/avatar3.jpeg">
+      <mat-card-title>{{ news.publisherName }}</mat-card-title>
+      <mat-card-subtitle>{{ news.publishedTime | date :'short' }}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <div>
-        {{ output }}
-        <button mat-icon-button *ngIf="tooLong" (click)="showMore()">
-            <mat-icon aria-label="view more">more_horiz</mat-icon>
+    <img mat-card-image  *ngIf="news.content?.image" src={{news.content.image}} alt="Photos not available">
+        <mat-card-content *ngIf="news.content">
+          <div #video *ngIf="news.content.video"> {{ news.content.video | first20chars }} 
+            <ng-container *ngIf="tooLong">
+              <button mat-icon-button  click="showMore(video)">
+                <mat-icon aria-label="view more">more_horiz</mat-icon>
+              </button>
+            </ng-container>
+          </div>
+          
+          <div #text *ngIf="news.content.text">{{ news.content.text | first20chars }}
+            <ng-container *ngIf="tooLong">
+              <button mat-icon-button  click="showMore(video)">
+                <mat-icon aria-label="view more">more_horiz</mat-icon>
+              </button>
+            </ng-container>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-icon-button>
+            <mat-icon aria-label="like it">favorite_border</mat-icon>
         </button>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-icon-button>
-        <mat-icon aria-label="like it">favorite_border</mat-icon>
-    </button>
-      <button mat-icon-button>
-        <mat-icon aria-label="comment it">comment</mat-icon>
-    </button>
-    </mat-card-actions>
+          <button mat-icon-button>
+            <mat-icon aria-label="view comments">comment</mat-icon>
+            <!-- use expansion panel to show/hide comments -->
+        </button>
+        </mat-card-actions>
   </mat-card>

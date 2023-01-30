@@ -4,11 +4,12 @@ import { LikeListComponent } from './like-list/like-list.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
+import { First20charsPipe } from './first20chars.pipe';
 
 @NgModule({
   declarations: [
-    LikeListComponent
+    LikeListComponent,
+    First20charsPipe
   ],
   imports: [
     CommonModule,

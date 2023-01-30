@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FirstFewCharsPipe } from 'app/shared/pipes/first-few-chars.pipe';
-
+import { News } from 'app/shared/models/news.model';
+import { Post } from 'app/shared/models/post.model';
+import { Observable } from 'rxjs';
+import { LikedPostService } from '../services/liked-post.service';
 
 @Component({
   selector: 'app-like-list',
   templateUrl: './like-list.component.html',
   styleUrls: ['./like-list.component.scss'],
-  providers: [FirstFewCharsPipe]
 })
 export class LikeListComponent implements OnInit {
   longText: string =
@@ -14,17 +15,17 @@ export class LikeListComponent implements OnInit {
   // trimmed: boolean = false;
   tooLong: boolean = this.longText.length > 20;
   output: string = "";
+  likedPosts$: Observable<Post[]>;
 
-  constructor(private trim: FirstFewCharsPipe) { }
-
-  ngOnInit(): void {
-    this.output = this.trim.transform(this.longText);
+  constructor(private likeService: LikedPostService) {
+    this.likedPosts$ = this.likeService.posts$;
   }
 
-  showMore(): void{
-    console.log(this.longText);
-    this.output = this.longText;
-    this.tooLong = false;
+  ngOnInit(): void {
+  }
+
+  showMore(content: HTMLElement): void{
+    console.log(content.innerText);
   }
 
 }

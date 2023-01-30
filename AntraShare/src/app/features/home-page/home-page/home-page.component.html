@@ -1,6 +1,25 @@
-<div class="post-panel">
-    Post here
-  </div>
+<div>
+    <mat-card class="post-panel">
+      <mat-card-header>
+        <mat-card-title>Create Your Post</mat-card-title>
+      </mat-card-header>
+        <mat-form-field appearance="outline">
+          <textarea matInput placeholder="Type Message..." #textContent></textarea>
+        </mat-form-field>
+      
+
+    <mat-card-actions align="end">
+        <button mat-button color="primary">
+            <label for="photo-upload">
+                <input #photoSelector 
+                id="photo-upload" type="file" accept="image/*"/>
+                <mat-icon>insert_photo</mat-icon>
+            </label>
+        </button>
+        <button mat-raised-button color="primary" (click)="onSubmit(textContent.value)">Post</button>
+    </mat-card-actions>
+    </mat-card>
+</div>
   <br><br>
   <mat-drawer-container class="container">
     <mat-drawer #drawer class="sidenav" mode="push">
@@ -16,11 +35,11 @@
         </mat-card-header>
         <img mat-card-image  *ngIf="news.content?.image" src={{news.content.image}} alt="Photos not available">
         <mat-card-content *ngIf="news.content">
-          <div *ngIf="news.content.video"> {{news.content.video}} </div>
+          <div *ngIf="news.content.video"> {{ news.content.video }} </div>
           <div *ngIf="news.content.text">{{ news.content.text }}</div>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-icon-button (click)="onLikeClicked(news)">
+          <button mat-icon-button (click)="toggleLiked(news)">
             <mat-icon aria-label="like it">favorite_border</mat-icon>
         </button>
           <button mat-icon-button>

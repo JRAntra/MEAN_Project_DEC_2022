@@ -1,6 +1,7 @@
 .container{
     height: auto;
     width: 70%;
+    // margin-top: 10%;
   }
   .sidenav{
     width: 60%;;
@@ -12,5 +13,20 @@
   }
   .post-panel{
     margin-top: 70px;
-    height: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 20%;
   }
+#photo-upload {
+    display: none;
+}
+.mat-form-field {
+  width: 100%;
+  padding: 0;
+  
+  textarea{
+    resize: none;
+    height: max-content;
+    border: none;
+  }
+}

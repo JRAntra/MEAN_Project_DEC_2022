@@ -12,7 +12,7 @@ import { first } from 'rxjs/operators';
 })
 export class RegisterPageComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
-  submitted = false;
+  submitted = true;
   confirmPassword = new FormControl('nowyouseemypassword')
 
   constructor(private formBuilder: FormBuilder, private userInfoService: UserInfoService, private registerService: RegisterService, private router: Router) { }
@@ -38,11 +38,17 @@ export class RegisterPageComponent implements OnInit {
 
     this.registerService.register(this.registerForm.value)
     .pipe(first())
-    .subscribe(val => {
-      console.log('Registration successful')
-      this.submitted = true
-      this.router.navigate(['/login'])
-    })
+    .subscribe(
+      val => {
+        console.log('Registration successful')
+        this.submitted = true
+        this.router.navigate(['/login'])
+    },
+      error => {
+        this.submitted = false
+        console.error(error)
+      }
+    )
   }
 
   matchPassword(matchingControl: FormControl){
@@ -62,7 +68,6 @@ export class RegisterPageComponent implements OnInit {
     return (control: AbstractControl) => {
       if (control.value.length !== 0){
         this.userInfoService.checkUserName(control.value).subscribe(val => {
-          console.log(val)
           if (val) control.setErrors({'userNameAlreadyExists': true})
           else return null
         })
@@ -74,7 +79,6 @@ export class RegisterPageComponent implements OnInit {
     return (control: AbstractControl) => {
       if (control.value.length !== 0){
         this.userInfoService.checkUserEmail(control.value).subscribe(val => {
-          // console.log(val)
           if (val) control.setErrors({'userEmailAlreadyExists': true})
           else return null
         })

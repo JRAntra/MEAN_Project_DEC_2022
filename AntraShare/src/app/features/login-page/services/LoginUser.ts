@@ -6,3 +6,14 @@ export class LoginUser {
     this.password = password;
   }
 }
+
+export type UserProfile = {
+  name: string;
+  userName: string;
+  userEmail: string;
+  userRole: string;
+  age: number;
+  gender: string;
+  phone: number;
+  bearerToken: string;
+};

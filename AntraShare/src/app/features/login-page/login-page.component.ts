@@ -53,7 +53,11 @@ export class LoginPageComponent implements OnInit {
 
   onSubmit(): void {
     this.loginService.login(this.loginForm.value).subscribe({
-      next: (result) => console.log('result: ', result),
+      next: (userProfile) => {
+        // TODO
+        // 1. set token to login user
+        // 2. redirect to home page
+      },
       error: (error) => this.successLogin.setErrors({ error: error }),
     });
     // this.usergroup.reset();

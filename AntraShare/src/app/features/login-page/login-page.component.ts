@@ -53,7 +53,7 @@ export class LoginPageComponent implements OnInit {
 
   onSubmit(): void {
     this.loginService.login(this.loginForm.value).subscribe({
-      next: (userProfile) => {
+      next: (userProfile: UserProfile) => {
         // TODO
         // 1. set token to login user
         // 2. redirect to home page
@@ -66,3 +66,13 @@ export class LoginPageComponent implements OnInit {
     this.router.navigate(['']);
   }
 }
+type UserProfile = {
+  name: string;
+  userName: string;
+  userEmail: string;
+  userRole: string;
+  age: number;
+  gender: string;
+  phone: number;
+  bearerToken: string;
+};

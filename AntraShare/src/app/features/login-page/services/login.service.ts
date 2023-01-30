@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { LoginUser, UserProfile } from './LoginUser';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +13,21 @@ export class LoginService {
     return this.http.get<boolean>(`${this.checkUserExistUrl}/${email}`);
   }
   // email: string, password: string
-  login(data: LoginUser): Observable<UserProfile> {
+  login(data: {
+    userEmail: string;
+    password: string;
+  }): Observable<UserProfile> {
     return this.http.post<UserProfile>(this.loginUrl, data);
   }
 }
+
+type UserProfile = {
+  name: string;
+  userName: string;
+  userEmail: string;
+  userRole: string;
+  age: number;
+  gender: string;
+  phone: number;
+  bearerToken: string;
+};

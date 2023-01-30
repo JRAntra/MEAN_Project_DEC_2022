@@ -16,10 +16,7 @@ import { LoginService } from './services/login.service';
 })
 export class LoginPageComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
-  agree_or_not: FormGroup = new FormGroup({
-    agreecheckbox: new FormControl(''),
-  });
-
+  successLogin = new FormControl();
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -28,11 +25,12 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email: new FormControl('', { validators: [this.validateEmailExist()] }),
+      userEmail: new FormControl('', {
+        validators: [this.validateEmailExist()],
+      }),
       password: new FormControl('', {
         validators: [Validators.minLength(8)],
       }),
-      agreecheckbox: '',
     });
   }
 
@@ -54,10 +52,12 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.loginForm.value);
+    this.loginService.login(this.loginForm.value).subscribe({
+      next: (result) => console.log('result: ', result),
+      error: (error) => this.successLogin.setErrors({ error: error }),
+    });
     // this.usergroup.reset();
   }
-
   onLogin() {
     this.router.navigate(['']);
   }

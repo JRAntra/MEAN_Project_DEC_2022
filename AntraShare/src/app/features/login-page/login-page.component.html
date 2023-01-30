@@ -4,14 +4,14 @@
 
     <div>
       <input
-        formControlName="email"
+        formControlName="userEmail"
         class="text"
         type="email"
         placeholder="Email"
       />
     </div>
-    <span *ngIf="loginForm.controls['email'].hasError('nonexist')">
-      username not exist
+    <span *ngIf="loginForm.controls['userEmail'].hasError('nonexist')">
+      user email doesn't exist
     </span>
     <div>
       <input
@@ -25,25 +25,14 @@
       Name must be at least 8 characters long.
     </span>
 
+    <span *ngIf="successLogin.hasError('error')">
+      Unmatch password with given user name
+    </span>
+
     <button type="sumbit" [disabled]="loginForm.invalid">Login</button>
 
     <button [routerLink]="['/register']" routerLinkActive="active">
       No Accounts? Register Now!
     </button>
-
-    <div class="agree">
-      <div class="checkbox" [formGroup]="agree_or_not">
-        <input
-          formControlName="agreecheckbox"
-          type="checkbox"
-          id="agree"
-          name="agree"
-          value="agree"
-        />
-        <label for="agree">Agreement</label>
-      </div>
-
-      <p class="help"><u>Need Help?</u></p>
-    </div>
   </form>
 </body>

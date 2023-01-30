@@ -46,7 +46,11 @@
                         used</small>
             </div>
 
+
             <button class="registerButton" type="submit" value='Register'>Register</button>
+            <div *ngIf="!submitted" class='invalid-feedback'>
+                  <small>Registration Failed. Please double check your input.</small>
+            </div>
 
             <a href='/'>Already got an account? Login here</a><br>
             <a href='#'>Need Help?</a><br>

@@ -17,7 +17,7 @@ export class RegisterService {
     return (control: AbstractControl):Observable<ValidationErrors | null> => {
       return this.checkEmail(control.value)
       .pipe(map(res => {
-        if (res === 'Email is good to use.') {
+        if (res === 'Email is OK to use.') {
           return null;
         } else {
           return { availableEmail : false };
@@ -30,7 +30,7 @@ export class RegisterService {
     return(control: AbstractControl): Observable<ValidationErrors | null> => {
       return this.checkUsername(control.value)
         .pipe(map(res => {
-          if (res === 'username is good to use') {
+          if (res === 'username is OK to use') {
             return null;
           } else {
             return { availableUsername: false }

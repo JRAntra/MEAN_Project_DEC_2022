@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'app/core/services/login/login.service';
+import { UserAccount } from 'app/shared/model/user';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -10,83 +12,81 @@ import { LoginService } from 'app/core/services/login/login.service';
 })
 export class LoginComponent implements OnInit {
   public loginForm = new FormGroup({
-    username: new FormControl('', {
+    userName: new FormControl('', {
       validators: [
         Validators.required,
+        Validators.minLength(8)
       ]
     }),
     password: new FormControl('', {
       validators: [
         Validators.required,
-        Validators.minLength(8)
+        Validators.minLength(5),
+        this.upperCase,
+        this.specialChar
       ]
     })
   })
 
-  constructor(private loginService: LoginService) {}
+  constructor(
+    private router: Router,
+    private loginService: LoginService
+    ) {}
 
   ngOnInit(): void { }
 
-  onSubmit() {
-    console.log(this.loginForm. value)
+  upperCase(control: AbstractControl): ValidationErrors | null {
+    if (control.value !== control.value.toLowerCase()) {
+      return null;
+    } else {
+      return { upperCase: false}
+    }
   }
 
-get usernameValue() {
-    return this.loginForm?.get('username')?.value
+  specialChar(control: AbstractControl): ValidationErrors | null {
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    if (specialChars.test(control.value)){
+        return null;
+    } else {
+        return { specialChar: false };
+    }
+  }
+
+  onSubmit() {
+
+    var postBody: UserAccount = {
+      userName: this.userName.value ? this.userName.value : '',
+      password: this.passwordValue.value ? this.passwordValue.value : '',
+    // console.log(this.loginForm. value)
+  }
+  
+  this.loginService.postLogin(postBody)
+    .subscribe((res:any) => {
+      if(res != null) {
+        this.loginService.decodeToken(res);
+        this.router.navigate(['/newsfeed'])
+      } else {
+        this.loginForm.reset({
+          userName: '',
+          password: ''
+        });
+      }
+      
+    }
+    )
+}
+  get userName(): FormControl {
+    return this.loginForm.get('userName') as FormControl
+  }
+  get passwordValue() {
+    return this.loginForm?.get('password') as FormControl
 }
 
-get passwordValue() {
-    return this.loginForm?.get('password')?.value
-}
-}
-
-
-//   type: string = "password";
-//   isText: boolean = false;
-//   eyeIcon: string = "fa-eye-slash";
-//   loginForm!: FormGroup;
-//   constructor(private fb: FormBuilder) { }
-
-//   ngOnInit(): void {
-//     this.loginForm = this.fb.group ({
-//       username: ['', Validators.required],
-//       password: ['', Validators.required]
-//     })
-//   }
-
-//   hideShowPass() {
-//     this.isText = !this.isText;
-//     this.isText ? this.eyeIcon = "fa-eye" : this.eyeIcon = "fa-eye-slash";
-//     this.isText ? this.type = "text" : this.type = "password";
-//   }
-
-//   onSubmit() {
-//     if(this.loginForm.valid) {
-//       console.log(this.loginForm.value)
-//       //send the obj to database
-//     } else {
-//       //throw the error using toaster and with required fields
-//       this.validateAllFormFields(this.loginForm);
-//       alert("Your form is invalid")
-//     }
-//   }
-
-//   private validateAllFormFields(formGroup: FormGroup) {
-//     // Object.keys(formGroup.controls).forEach(field=>{
-//     //   const control = formGroup.get(field);
-//     //   if(control instanceof FormControl) {
-//     //     control.markAsDirty({ onlySelf:true });
-//     //   } else if(control instanceof FormGroup) {
-//     //     this.validateAllFormFields(control)
-//     //   }
-//     // })
-//     console.log(formGroup.controls)
-//     for(let control in formGroup.controls) {
-//       //remove for loop
-//       // markAllAsTouched()
-//       // updateValueAndValidity
-//     }
-
-//   }
-
+// get usernameValue() {
+//     return this.loginForm?.get('username')?.value
 // }
+
+// get passwordValue() {
+//     return this.loginForm?.get('password')?.value
+// }
+}

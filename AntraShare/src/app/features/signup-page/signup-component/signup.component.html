@@ -71,47 +71,54 @@
                     </mat-card-header>
                     <mat-card-content>
                         <form [formGroup]="signUpForm">
-                            <mat-form-field class="pt-3">
+                            <mat-form-field appearance="outline">
                                 <mat-label>First Name</mat-label>
                                 <input matInput formControlName="firstName" placeholder="FirstName"> 
                             </mat-form-field>
-                            <mat-form-field class="pt-3">
+
+                            <mat-form-field appearance="outline">
                                 <mat-label>Last Name</mat-label>
                                 <input matInput formControlName="lastName" placeholder="LastName">
                             </mat-form-field>
-                            <mat-form-field class="pt-3">
+
+                            <mat-form-field appearance="outline">
                                 <mat-label>Username</mat-label>
                                 <input matInput formControlName="userName" placeholder="Username"> 
-                                <mat-hint *ngIf="signUpForm.controls['userName'].errors?.['availableUsername']">
+                                <mat-error *ngIf="signUpForm.controls['userName'].errors?.['availableUsername']">
                                     *Username is not available
-                                </mat-hint>
+                                </mat-error>
                             </mat-form-field>
-                            <mat-form-field class="pt-3">
+
+                            <mat-form-field appearance="outline">
                                 <mat-label>Email</mat-label>
                                 <input matInput formControlName="email" placeholder="Email"> 
-                                <mat-hint *ngIf="signUpForm.controls['email'].errors?.['availableEmail']">
-                                  *Email is not available
-                                </mat-hint>
+                                <mat-error *ngIf="signUpForm.controls['email'].errors?.['email']">
+                                    Please enter a valid email.
+                                </mat-error>
+                                <mat-error *ngIf="signUpForm.controls['email'].errors?.['availableEmail']">
+                                    The email is not available
+                                  </mat-error>
                             </mat-form-field>
                             
-                            <mat-form-field class="pt-3">
+                            <mat-form-field appearance="outline">
                                 <mat-label>Password</mat-label>
-                                <input matInput type="password" formControlName="password" placeholder="Password">
-                                <mat-hint *ngIf="
-                                signUpForm.controls['password'].errors?.['minlength'] &&
-                                (signUpForm.controls['password'].errors?.['upperCase'] || 
-                                signUpForm.controls['password'].errors?.['specialChar'])
+                                <input matInput type="password" formControlName="password" placeholder="Password" />
+                                <mat-error *ngIf="
+                                signUpForm.controls['password'].errors?.['upperCase'] &&
+                                signUpForm.controls['password'].errors?.['specialChar']
                                 ">
-                                  Your password must have:<br/>A length of at least 8 characters, 1 uppercase character, 1 lowercase character, 1 special character
-                                </mat-hint>
+                                  Your password must have: A length of at least 8 characters, 1 uppercase character, 1 lowercase character, 1 special character
+                                </mat-error>
                             </mat-form-field>
-                            <mat-form-field class="pt-3">
+
+                            <mat-form-field appearance="outline">
                                 <mat-label>Password Confirmation</mat-label>
-                                <input matInput type="password" formControlName="passwordConfirmation" placeholder="Confirm Password">
-                                <mat-hint *ngIf="signUpForm.controls['passwordConfirmation'].errors?.['passwordsMatch']">
+                                <input matInput type="password" formControlName="passwordConfirmation" placeholder="Confirm Password" />
+                                <mat-error *ngIf="signUpForm.controls['passwordConfirmation'].errors?.['passwordsMatch']">
                                   Please make sure your passwords match.
-                                </mat-hint>
+                                </mat-error>
                             </mat-form-field>
+
                             <div class="text-center pt-4 text-muted">
                                 Already have an account? 
                                 <a routerLink="/login" class="text-primary">Sign In</a>

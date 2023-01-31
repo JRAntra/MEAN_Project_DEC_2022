@@ -2,7 +2,7 @@
       <form class="login-box" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <h1>Login</h1>
             <div class="input-box">
-                  <div *ngIf="submitted === true" class="invalid-message">Please enter valid Email or Password </div>
+                  <div *ngIf="hasError === true" class="invalid-message">Please enter valid Email or Password </div>
                   <label>Email</label>
                   <input aria-label="userEmail" formControlName="userEmail" type="text" name="" placeholder="Enter Email">
                   <div *ngIf="(loginForm.get('userEmail')?.invalid && loginForm.get('userEmail')?.touched) || loginForm.get('userName')?.dirty">

@@ -5,7 +5,12 @@ import { NewsStoriesComponent } from './news-feed/news-stories/news-stories.comp
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LikeListComponent } from './news-feed/like-list/like-list.component';
+import { RouterModule, Routes } from '@angular/router';
 
+
+const routes: Routes = [
+  {path: '', component: NewsFeedComponent}
+]
 
 
 @NgModule({
@@ -18,7 +23,8 @@ import { LikeListComponent } from './news-feed/like-list/like-list.component';
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forChild(routes)
   ],
   exports:[
     NewsFeedComponent,
@@ -26,4 +32,8 @@ import { LikeListComponent } from './news-feed/like-list/like-list.component';
     LikeListComponent
   ]
 })
-export class NewsFeedPageModule { }
+export class NewsFeedPageModule {
+  constructor(){
+    console.log("this is news feed")
+  }
+}

@@ -53,18 +53,18 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-
-    var postBody: UserAccount = {
-      userName: this.userName.value ? this.userName.value : '',
+//no var 
+    const postBody: UserAccount = {
+      userEmail: this.usernameValue.value ? this.usernameValue.value : '',
       password: this.passwordValue.value ? this.passwordValue.value : '',
     // console.log(this.loginForm. value)
   }
   
   this.loginService.postLogin(postBody)
-    .subscribe((res:any) => {
+    .subscribe((res: any) => {
       if(res != null) {
-        this.loginService.decodeToken(res);
-        this.router.navigate(['/newsfeed'])
+        this.loginService.decodeToken(res.bearerToken);
+        this.router.navigate(['/newsfeed']);
       } else {
         this.loginForm.reset({
           userName: '',
@@ -75,11 +75,11 @@ export class LoginComponent implements OnInit {
     }
     )
 }
-  get userName(): FormControl {
+  get usernameValue(): FormControl {
     return this.loginForm.get('userName') as FormControl
   }
   get passwordValue() {
-    return this.loginForm?.get('password') as FormControl
+    return this.loginForm.get('password') as FormControl
 }
 
 // get usernameValue() {

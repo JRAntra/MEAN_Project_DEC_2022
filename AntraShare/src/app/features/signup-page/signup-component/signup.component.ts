@@ -100,8 +100,8 @@ export class SignupComponent implements OnInit {
       name: name,
       userRole: 'user',
       userName: this.userName.value ? this.userName.value : '',
-      userEmail: this.emailValue.value ? this.emailValue.value : '',
-      password: this.passwordValue.value ? this.passwordValue.value : '',
+      userEmail: this.email.value ? this.email.value : '',
+      password: this.password.value ? this.password.value : '',
     }
 
     this.registerService.postNewAccount(newAccount).subscribe(console.log);
@@ -111,11 +111,11 @@ export class SignupComponent implements OnInit {
     return this.signUpForm.get('userName') as FormControl
     //type transform
   }
-  get emailValue() {
-    return this.signUpForm?.get('email') as FormControl
+  get email() {
+    return this.signUpForm.get('email') as FormControl
   }
-  get passwordValue() {
-    return this.signUpForm?.get('password') as FormControl
+  get password() {
+    return this.signUpForm.get('password') as FormControl
 }
 }
   

@@ -11,8 +11,8 @@ export interface User {
 }
 
 export interface UserAccount {
-    userName: string;
-    // userEmail: string,
+    // userName: string;
+    userEmail: string,
     _userRole?:string,
     password: string
 }

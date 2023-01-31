@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthGuard } from 'src/app/core/auth.guard';
 
 @Component({
   selector: 'app-router-banner',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./router-banner.component.scss']
 })
 export class RouterBannerComponent {
-
+  role = localStorage.getItem('role');
+  
 }

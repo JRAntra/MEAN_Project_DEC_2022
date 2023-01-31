@@ -1,14 +1,22 @@
 
-<div class="outer">
-    <a href="/profile">
-        <div class="banner">My Profile</div>
-    </a>
+<div class="banner">
+    <div>
+        <a href="/profile">
+            <div>My Profile</div>
+        </a>
+    </div>
 
     <a href="/news">
-        <div class="banner">News Feed</div>
+        <div class="outer">News Feed</div>
     </a>
 
     <a href="/settings">
-        <div class="banner">Settings</div>
+        <div class="outer">Settings</div>
     </a>
+
+    <div *ngIf="role=='admin'" class="admin">
+        <a href="/admin">
+            <div>Admin</div>
+        </a>
+    </div>
 </div>

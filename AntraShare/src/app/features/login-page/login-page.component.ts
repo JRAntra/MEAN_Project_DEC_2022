@@ -57,6 +57,12 @@ export class LoginPageComponent implements OnInit {
         // TODO
         // 1. set token to login user
         // 2. redirect to home page
+        
+        console.log(userProfile);
+        localStorage.setItem('token', userProfile.bearerToken)
+        localStorage.setItem('role', userProfile.userRole)
+        this.onLogin()
+        
       },
       error: (error) => this.successLogin.setErrors({ error: error }),
     });

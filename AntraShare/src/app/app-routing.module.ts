@@ -5,6 +5,7 @@ import { NewsFeedComponent } from './features/news-feed/news-feed.component';
 import { ProfilePageComponent } from './features/profile-page/profile-page.component';
 import { RegisterPageComponent } from './features/register-page/register-page.component';
 import { SettingPageComponent } from './features/setting-page/setting-page.component';
+import { PreventVisitAdminGuard } from './shared/guard/prevent-visit-admin.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'news', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
       import('./features/admin-page/admin-page.module').then(
         (m) => m.AdminPageRoutingModule
       ),
+    canActivate: [PreventVisitAdminGuard]
   },
   {
     path: 'login',

@@ -42,7 +42,7 @@ export class HomePageComponent implements OnInit {
       },
       publishedTime: new Date()
     }
-    console.log(post);
+    // console.log(post);
     this.newsService.postNews(post).pipe(first()).subscribe(val => {
       console.log(val);
     })

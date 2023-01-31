@@ -6,25 +6,25 @@
     </mat-card-header>
     <img mat-card-image  *ngIf="news.content?.image" src={{news.content.image}} alt="Photos not available">
         <mat-card-content *ngIf="news.content">
-          <div #video *ngIf="news.content.video"> {{ news.content.video | first20chars }} 
+          <div *ngIf="news.content.video"> <p #video>{{ news.content.video | first20chars }}</p> 
             <ng-container *ngIf="tooLong">
-              <button mat-icon-button  click="showMore(video)">
+              <button mat-icon-button  (click)="showMore(video)">
                 <mat-icon aria-label="view more">more_horiz</mat-icon>
               </button>
             </ng-container>
           </div>
           
-          <div #text *ngIf="news.content.text">{{ news.content.text | first20chars }}
+          <div #text *ngIf="news.content.text"><p #text>{{ news.content.text | first20chars }}</p>
             <ng-container *ngIf="tooLong">
-              <button mat-icon-button  click="showMore(video)">
+              <button mat-icon-button  (click)="showMore(text)">
                 <mat-icon aria-label="view more">more_horiz</mat-icon>
               </button>
             </ng-container>
           </div>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-icon-button>
-            <mat-icon aria-label="like it">favorite_border</mat-icon>
+          <button mat-icon-button (click)="removeLike(news)">
+            <mat-icon aria-label="like it">favorite</mat-icon>
         </button>
           <button mat-icon-button>
             <mat-icon aria-label="view comments">comment</mat-icon>

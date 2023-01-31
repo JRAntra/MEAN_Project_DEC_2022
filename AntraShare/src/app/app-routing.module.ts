@@ -7,13 +7,14 @@ import { AdminPageComponent } from './features/admin-page/admin-page-component/a
 import { ProfilePageComponent } from './features/profile-page/profile-page-component/profile-page.component';
 import { NewsfeedPageComponent } from './features/newsfeed-page/newsfeed-page-component/newsfeed-page.component';
 import { HomePageComponent } from './features/home-page/home-page/home-page.component';
+import { AdminAuthGuard } from './core/admin-auth.guard'
 
 const routes: Routes = [
   {path:'', component: LoginComponent},
   { path:'login', component: LoginComponent },
   { path:'signup', component: SignupComponent },
   { path: 'settings', component: SettingPageComponent },
-  { path: 'admin', component: AdminPageComponent },
+  { path: 'admin', component: AdminPageComponent, canActivate: [AdminAuthGuard] },
   { path: 'newsfeed', component: NewsfeedPageComponent },
   { path: 'profile', component: ProfilePageComponent},
   { path: 'home', component: HomePageComponent}

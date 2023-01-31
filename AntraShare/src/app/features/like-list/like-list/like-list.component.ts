@@ -13,7 +13,7 @@ export class LikeListComponent implements OnInit {
   longText: string =
     'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.';
   // trimmed: boolean = false;
-  tooLong: boolean = this.longText.length > 20;
+  tooLong: boolean = false;
   output: string = "";
   likedPosts$: Observable<Post[]>;
 
@@ -24,8 +24,18 @@ export class LikeListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showMore(content: HTMLElement): void{
-    console.log(content.innerText);
+  showMore(content: HTMLParagraphElement): void{
+    console.log(content);
+    this.tooLong = false;
+  }
+
+  removeLike(news: Post){
+    if (news._id) {
+      this.likeService.removeLikedPost(news._id);
+    }
+    else {
+      console.log("Not valid post.");
+    }
   }
 
 }

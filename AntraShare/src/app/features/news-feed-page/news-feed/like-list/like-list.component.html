@@ -1,0 +1,14 @@
+<div class="news-liked-list-outer">
+      <a (click)="toggleLikeList()"> Liked List </a>
+      <div class="news-liked-list" [hidden]="!showLikedList">
+            <div *ngFor="let item of likeList">
+                  <span class="news-publisher"> <b>{{item.publisherName}}</b></span>
+                  <span class="news-publish-time">{{item.publishedTime | date}}</span>
+                  <div class="news-content-text" *ngIf="item.content.text">
+                        {{item.content.text}}
+                  </div>
+                  <button (click)="removeLikedList(item)">Remove</button>
+                  <hr>
+            </div>
+      </div>
+</div>

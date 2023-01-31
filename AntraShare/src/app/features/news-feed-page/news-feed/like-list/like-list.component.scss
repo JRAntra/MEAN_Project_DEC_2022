@@ -1,0 +1,26 @@
+.news-liked-list-outer{
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 20px;
+    width: 33%;
+    height: 20px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: beige;
+    border: 1px solid black;
+    z-index: 9;
+}
+
+
+.news-liked-list-outer:hover{
+    background-color: sandybrown;
+    border: 1px solid black;
+}
+
+.news-liked-list  {
+
+    background-color: grey;
+    border: 1px solid black;
+    z-index: 9;
+
+}

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidator, AsyncValidatorFn, FormBuilder, FormControl, FormGroup, Validators, ValidationErrors } from '@angular/forms';
 import { UserInfoService } from 'src/app/core/services/user-info.service';
 import { RegisterService } from './register.service';
-import { first } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-register-page',
@@ -19,9 +21,9 @@ export class RegisterPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
-      userName: ["John Doe", [Validators.required, this.asyncValidatorForUserName()]],
+      userName: ["John Doe", [Validators.required], [this.asyncValidatorForUserName()]],
       password: ['nowyouseemypassword', [Validators.required, Validators.minLength(6), Validators.maxLength(20), Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*?&])[A-Za-z$@$!%*?&].{6,20}'), this.matchPassword(this.confirmPassword)]],
-      userEmail: ['jdoe1@yahoo.com', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"), this.asyncValidatorForUserEmail()]],
+      userEmail: ['jdoe1@yahoo.com', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")], [this.asyncValidatorForUserEmail()]],
     })
   }
 
@@ -58,27 +60,20 @@ export class RegisterPageComponent implements OnInit {
     }
   }
 
-  asyncValidatorForUserName(){
-    return (control: AbstractControl) => {
-      if (control.value.length !== 0){
-        this.userInfoService.checkUserName(control.value).subscribe(val => {
-          console.log(val)
-          if (val) control.setErrors({'userNameAlreadyExists': true})
-          else return null
-        })
-      } else return null
+  asyncValidatorForUserName():AsyncValidatorFn{
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+        return this.userInfoService.checkUserName(control.value).pipe(map(res => {
+          return res ? { userNameAlreadyExists: true } : null;
+        }))
     }
   }
 
-  asyncValidatorForUserEmail(){
-    return (control: AbstractControl) => {
-      if (control.value.length !== 0){
-        this.userInfoService.checkUserEmail(control.value).subscribe(val => {
-          // console.log(val)
-          if (val) control.setErrors({'userEmailAlreadyExists': true})
-          else return null
-        })
-      } else return null
+  asyncValidatorForUserEmail() :AsyncValidatorFn{ 
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+        return this.userInfoService.checkUserEmail(control.value).pipe(map((res) => {
+          console.log(res)
+          return res ? { userEmailAlreadyExists: true } : null;
+        }))
     }
   }
 }

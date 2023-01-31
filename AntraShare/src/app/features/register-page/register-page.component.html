@@ -12,7 +12,7 @@
   </div>
   <div>
       <label for="passwordcon">Password Confirm:</label>
-      <input formControlName="passwordcon" type="password" id="passwordcon" name="passwordcon" (keyup)="show()">
+      <input formControlName="passwordcon" type="password" id="passwordcon" name="passwordcon">
       <p *ngIf="form.controls['passwordcon'].errors?.['passwordMismatch']">password confirm should be the same as password</p>
   </div>
   <div>
@@ -20,7 +20,7 @@
       <input formControlName="email" type="email" id="email" name="email">
       <p *ngIf="form.controls['email']?.errors?.['emailExists']">Email already been used</p>
   </div>
-  <button>Register</button>
+  <button [disabled]="form.controls['userName'].errors?.['usernameExists'] || form.controls['password'].errors?.['error'] || form.controls['passwordcon'].errors?.['passwordMismatch'] || form.controls['email'].errors?.['emailExists']">Register</button>
 
 
 

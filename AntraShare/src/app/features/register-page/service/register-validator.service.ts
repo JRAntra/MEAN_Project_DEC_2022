@@ -23,7 +23,7 @@ export class RegisterValidatorService {
   }
 
   register(user: postUser) {
-    this.http.post("http://localhost:4231/api/register/createNewAccount", user)
+    return this.http.post("http://localhost:4231/api/register/createNewAccount", user)
   }
 
 }

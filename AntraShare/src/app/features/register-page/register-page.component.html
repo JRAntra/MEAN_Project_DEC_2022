@@ -12,7 +12,7 @@
   </div>
   <div>
       <label for="passwordcon">Password Confirm:</label>
-      <input formControlName="passwordcon" type="password" id="passwordcon" name="passwordcon">
+      <input formControlName="passwordcon" type="password" id="passwordcon" name="passwordcon" (keyup)="show()">
       <p *ngIf="form.controls['passwordcon'].errors?.['passwordMismatch']">password confirm should be the same as password</p>
   </div>
   <div>

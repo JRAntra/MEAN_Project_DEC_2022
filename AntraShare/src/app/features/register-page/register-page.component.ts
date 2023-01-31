@@ -17,6 +17,7 @@ export class RegisterPageComponent implements OnInit{
       passwordcon:['',[Validators.required]],
       email:['',[Validators.required],[this.emailValidator()]]
     },{Validators:this.MatchPassword('password','passwordcon')})
+    this.form.setValidators(this.MatchPassword('password','passwordcon'))
   }
   ngOnInit(): void {
     //this.form.addControl("passwordcon",new FormControl('',[this.passwordconValidator]))
@@ -98,25 +99,31 @@ export class RegisterPageComponent implements OnInit{
   //       : null;
   //   };
   // }
-  MatchPassword(password: string, confirmPassword: string) {
-    return (formGroup: FormGroup) => {
-      const passwordControl = formGroup.controls[password];
-      const confirmPasswordControl = formGroup.controls[confirmPassword];
+  MatchPassword(password: string, confirmPassword: string): ValidatorFn {
+    return (formGroup: AbstractControl) => {
+      const passwordControl = formGroup.get(password);
+      const confirmPasswordControl = formGroup.get(confirmPassword);
 
       // if (!passwordControl || !confirmPasswordControl) {
       //   return null;
       // }
 
-      if (passwordControl.value !== confirmPasswordControl.value) {
-        confirmPasswordControl.setErrors({ passwordMismatch: true });
+      
+
+      if (passwordControl?.value !== confirmPasswordControl?.value) {
+        confirmPasswordControl?.setErrors({ passwordMismatch: true });
       } else {
-        confirmPasswordControl.setErrors(null);
+        confirmPasswordControl?.setErrors(null);
       }
+      return of(null)
     }
   }
 
   
-
+show() {
+  console.log(this.form.get("passwordcon"));
+  
+}
     
 
 

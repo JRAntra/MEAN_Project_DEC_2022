@@ -54,16 +54,14 @@ export class LoginPageComponent implements OnInit {
   onSubmit(): void {
     this.loginService.login(this.loginForm.value).subscribe({
       next: (userProfile: UserProfile) => {
-        // TODO
-        // 1. set token to login user
-        // 2. redirect to home page
+        console.log(userProfile); // the response actually doesn't match all userProfile field
+        // set token to local storage
+        localStorage.setItem('token', userProfile.bearerToken);
+        // redirect to home page
+        this.router.navigate(['']);
       },
       error: (error) => this.successLogin.setErrors({ error: error }),
     });
-    // this.usergroup.reset();
-  }
-  onLogin() {
-    this.router.navigate(['']);
   }
 }
 type UserProfile = {

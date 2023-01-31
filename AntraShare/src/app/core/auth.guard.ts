@@ -13,13 +13,14 @@ export class AuthGuard implements CanActivate {
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): any
-    // boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree>
+    state: RouterStateSnapshot): 
+    boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree>
     { 
     if (localStorage.getItem('role')== "admin"){
       return true;
     }else {
       this.router.navigate(['/'])
+      return false
     }
   }
 

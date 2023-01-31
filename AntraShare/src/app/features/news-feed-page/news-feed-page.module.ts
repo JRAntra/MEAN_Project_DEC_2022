@@ -4,13 +4,15 @@ import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { NewsStoriesComponent } from './news-feed/news-stories/news-stories.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LikeListComponent } from './news-feed/like-list/like-list.component';
 
 
 
 @NgModule({
   declarations: [
     NewsFeedComponent,
-    NewsStoriesComponent
+    NewsStoriesComponent,
+    LikeListComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   exports:[
     NewsFeedComponent,
-    NewsStoriesComponent
+    NewsStoriesComponent,
+    LikeListComponent
   ]
 })
 export class NewsFeedPageModule { }

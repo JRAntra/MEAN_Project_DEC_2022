@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { News, PostNews } from 'src/app/shared/models/news';
 import { NewsStoriesService } from './services/news-stories.service';
 import { first } from 'rxjs/operators';
+import { SharedService } from './services/shared.service';
 
 
 @Component({
@@ -16,13 +17,13 @@ export class NewsFeedComponent implements OnInit{
   isHidden = false; // 5 sec countdown
   
   item: News[] = [];
-  likeList = new Set(this.item);
   showLikedList = false;
   newStory: FormGroup = this.fb.group({})
   userName = localStorage.getItem('userName');
 
   constructor(
     private newsService: NewsStoriesService,
+    private sharedService: SharedService,
     private fb: FormBuilder
   )
   {}
@@ -75,22 +76,9 @@ export class NewsFeedComponent implements OnInit{
     }, 5000)
   }
 
-  toggleLikeList(){
-    if (this.showLikedList == false) {
-      this.showLikedList = true;
-    } else {
-      this.showLikedList = false;
-    }
-    
-  }
-
-
   addLikeList(event: News){
-    this.likeList.add(event);
+    this.item.push(event)
+    this.sharedService.sendData.next(this.item);
+    console.log(this.item)
   }
-
-  removeLikedList(event: News){
-    this.likeList.delete(event);
-  }
-
 }

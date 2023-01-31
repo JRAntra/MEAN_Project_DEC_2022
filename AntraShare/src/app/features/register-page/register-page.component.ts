@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class RegisterPageComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
-  submitted = false;
+  submitted = true;
   confirmPassword = new FormControl('nowyouseemypassword')
 
   constructor(private formBuilder: FormBuilder, private userInfoService: UserInfoService, private registerService: RegisterService, private router: Router) { }
@@ -40,11 +40,17 @@ export class RegisterPageComponent implements OnInit {
 
     this.registerService.register(this.registerForm.value)
     .pipe(first())
-    .subscribe(val => {
-      console.log('Registration successful')
-      this.submitted = true
-      this.router.navigate(['/login'])
-    })
+    .subscribe(
+      val => {
+        console.log('Registration successful')
+        this.submitted = true
+        this.router.navigate(['/login'])
+    },
+      error => {
+        this.submitted = false
+        console.error(error)
+      }
+    )
   }
 
   matchPassword(matchingControl: FormControl){

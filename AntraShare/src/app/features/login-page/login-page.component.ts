@@ -57,6 +57,7 @@ export class LoginPageComponent implements OnInit {
         console.log(userProfile); // the response actually doesn't match all userProfile field
         // set token to local storage
         localStorage.setItem('token', userProfile.bearerToken);
+        localStorage.setItem('role', userProfile.userRole);
         // redirect to home page
         this.router.navigate(['']);
       },

@@ -12,7 +12,7 @@ import { LoginService } from './login.service';
 export class LoginPageComponent implements OnInit {
   loginForm:FormGroup = new FormGroup({});
   sessionUser:any;
-  submitted:boolean = false;
+  hasError:boolean = false;
   constructor(
     private router: Router,
     private fb:FormBuilder,
@@ -20,7 +20,7 @@ export class LoginPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.submitted = false
+    this.hasError = false
     this.loginForm = this.fb.group({
       userEmail: [null, Validators.required],
       password: [null, [Validators.required, Validators.minLength(8)]],
@@ -33,7 +33,7 @@ export class LoginPageComponent implements OnInit {
 
 
   onSubmit(){
-    this.submitted = true
+    
     if(this.loginForm.invalid){
       return
     }
@@ -43,12 +43,12 @@ export class LoginPageComponent implements OnInit {
         if(user){
           this.sessionUser = user
           // console.log(user);
-
           localStorage.setItem('role', this.sessionUser.userRole);
           localStorage.setItem('userName', this.sessionUser.userName);
           localStorage.setItem('userEmail', this.sessionUser.userEmail);
           this.toNewsFeed()
         } else {
+          this.hasError = true
           return
         }
       })

@@ -12,8 +12,9 @@
     </div>
     <div class="btm-container">
         <ul>
-            <li><mat-icon>comment</mat-icon> <span>4</span></li>
-            <li><mat-icon>favorite</mat-icon><span>23</span></li>
+            <li><mat-icon>comment</mat-icon> <span>{{news?.comment?.length}}</span></li>
+            <li [style.color]="news?.liked" (click)="likes(news)"
+            ><mat-icon>favorite</mat-icon><span>{{news?.likedIdList?.length}}</span></li>
         </ul>
     </div>  
 </div>

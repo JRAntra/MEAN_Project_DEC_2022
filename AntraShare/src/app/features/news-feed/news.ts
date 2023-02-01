@@ -32,3 +32,11 @@ export interface News {
     __v: number;
 }
 
+export interface postedNews {
+    publisherName: string;
+    content: Content;
+    publishedTime: Date;
+    comment: Comment[];
+    likedIdList: LikedIdList[];
+}
+

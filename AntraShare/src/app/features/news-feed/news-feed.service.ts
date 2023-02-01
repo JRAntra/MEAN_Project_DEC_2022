@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {News} from './news'
+import { News, postedNews } from './news'
 import { Observable } from 'rxjs';
 
 
@@ -15,5 +15,10 @@ export class NewsFeedService {
   getNewsInfo():Observable<News[]>{
     const url=[this.baseurl,this.newspath].join('/');
     return this.http.get<News[]>(url);
+  }
+
+  postNews(news:postedNews) {
+    const url=[this.baseurl,this.newspath].join('/');
+    return this.http.post(url, news);
   }
 }

@@ -4,7 +4,8 @@
     cols="100"
     rows="8"
     placeholder="Your Post Here..."
+    [formControl]="content"
   ></textarea>
   <!-- <input type="submit" href="#" value="POST"/> -->
-  <app-button text="POST"></app-button>
+  <app-button text="POST" (click)="postStory($event)"></app-button>
 </form>

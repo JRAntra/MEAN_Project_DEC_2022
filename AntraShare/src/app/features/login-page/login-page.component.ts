@@ -16,10 +16,7 @@ import { LoginService } from './services/login.service';
 })
 export class LoginPageComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
-  agree_or_not: FormGroup = new FormGroup({
-    agreecheckbox: new FormControl(''),
-  });
-
+  successLogin = new FormControl();
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -28,26 +25,26 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      username: new FormControl('', { validators: [this.validateUserExist()] }),
+      userEmail: new FormControl('', {
+        validators: [this.validateEmailExist()],
+      }),
       password: new FormControl('', {
         validators: [Validators.minLength(8)],
       }),
-      agreecheckbox: '',
     });
   }
 
-  validateUserExist() {
+  validateEmailExist() {
     return (control: AbstractControl) => {
       if (control?.value.length !== 0) {
         control.valueChanges
           ?.pipe(
             debounceTime(500),
-            switchMap((username) => this.loginService.checkUserExist(username)),
+            switchMap((email) => this.loginService.checkEmailExist(email)),
             take(1) // it runs.complete function after emit the first value(unsubscribe itself)
           )
           .subscribe((exist) => {
             if (!exist) control.setErrors({ nonexist: true });
-            console.log(exist);
           });
       }
       return null;
@@ -55,11 +52,26 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.loginForm.value);
-    // this.usergroup.reset();
-  }
-
-  onLogin() {
-    this.router.navigate(['']);
+    this.loginService.login(this.loginForm.value).subscribe({
+      next: (userProfile: UserProfile) => {
+        console.log(userProfile); // the response actually doesn't match all userProfile field
+        // set token to local storage
+        localStorage.setItem('token', userProfile.bearerToken);
+        localStorage.setItem('role', userProfile.userRole);
+        // redirect to home page
+        this.router.navigate(['']);
+      },
+      error: (error) => this.successLogin.setErrors({ error: error }),
+    });
   }
 }
+type UserProfile = {
+  name: string;
+  userName: string;
+  userEmail: string;
+  userRole: string;
+  age: number;
+  gender: string;
+  phone: number;
+  bearerToken: string;
+};

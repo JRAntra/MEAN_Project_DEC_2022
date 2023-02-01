@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from 'app/core/services/login/login.service';
+import { UserAccount } from 'app/shared/model/user';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -8,47 +11,82 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  type: string = "password";
-  isText: boolean = false;
-  eyeIcon: string = "fa-eye-slash";
-  loginForm!: FormGroup;
-  constructor(private fb: FormBuilder) { }
-
-  ngOnInit(): void {
-    this.loginForm = this.fb.group ({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+  public loginForm = new FormGroup({
+    userName: new FormControl('', {
+      validators: [
+        Validators.required,
+        Validators.minLength(8)
+      ]
+    }),
+    password: new FormControl('', {
+      validators: [
+        Validators.required,
+        Validators.minLength(5),
+        this.upperCase,
+        this.specialChar
+      ]
     })
-  }
+  })
 
-  hideShowPass() {
-    this.isText = !this.isText;
-    this.isText ? this.eyeIcon = "fa-eye" : this.eyeIcon = "fa-eye-slash";
-    this.isText ? this.type = "text" : this.type = "password";
-  }
+  constructor(
+    private router: Router,
+    private loginService: LoginService
+    ) {}
 
-  onSubmit() {
-    if(this.loginForm.valid) {
-      console.log(this.loginForm.value)
-      //send the obj to database
+  ngOnInit(): void { }
+
+  upperCase(control: AbstractControl): ValidationErrors | null {
+    if (control.value !== control.value.toLowerCase()) {
+      return null;
     } else {
-      //throw the error using toaster and with required fields
-      this.validateAllFormFields(this.loginForm);
-      alert("Your form is invalid")
+      return { upperCase: false}
     }
   }
 
-  private validateAllFormFields(formGroup: FormGroup) {
-    Object.keys(formGroup.controls).forEach(field=>{
-      const control = formGroup.get(field);
-      if(control instanceof FormControl) {
-        control.markAsDirty({ onlySelf:true });
-      } else if(control instanceof FormGroup) {
-        this.validateAllFormFields(control)
-      }
-    })
-
+  specialChar(control: AbstractControl): ValidationErrors | null {
+    const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    if (specialChars.test(control.value)){
+        return null;
+    } else {
+        return { specialChar: false };
+    }
   }
 
+  onSubmit() {
+//no var 
+    const postBody: UserAccount = {
+      userEmail: this.usernameValue.value ? this.usernameValue.value : '',
+      password: this.passwordValue.value ? this.passwordValue.value : '',
+    // console.log(this.loginForm. value)
+  }
+  
+  this.loginService.postLogin(postBody)
+    .subscribe((res: any) => {
+      if(res != null) {
+        this.loginService.decodeToken(res.bearerToken);
+        this.router.navigate(['/newsfeed']);
+      } else {
+        this.loginForm.reset({
+          userName: '',
+          password: ''
+        });
+      }
+      
+    }
+    )
+}
+  get usernameValue(): FormControl {
+    return this.loginForm.get('userName') as FormControl
+  }
+  get passwordValue() {
+    return this.loginForm.get('password') as FormControl
+}
+
+// get usernameValue() {
+//     return this.loginForm?.get('username')?.value
+// }
+
+// get passwordValue() {
+//     return this.loginForm?.get('password')?.value
+// }
 }

@@ -1,4 +1,4 @@
-<div class="outer">
+<!-- <div class="outer">
     <div class="container">
         <div class="row">
             <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
@@ -30,15 +30,57 @@
                             <div class="text-center pt-4 text-muted">Don't have account? <a id="forget" routerLink="/signup">Register</a></div>
                         </form>
                     </div> 
-                    <!-- <div class="mx-3 my-2 py-2 bordert">
+                    <div class="mx-3 my-2 py-2 bordert">
                         <div class="text-center py-3">
                             <a href="https://www.instagram.com" target="_blank" class="px-2"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUwgsP6leo9FOxWuEjJgnPiuVV-LOwZq6priQ1VfqFJnj1t9C5&s" alt=""> </a>
                             <a href="https://www.google.com" target="_blank" class="px-2"> <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png" alt=""> </a>
                             <a href="https://github.com" target="_blank" class="px-2"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIPPlnUnhPRbSLfZr0TctDI3RN7mB7hqw8aqJjMCZaS9NvUQk&s" alt=""> </a>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <mat-card class="bg-white">
+                    <mat-card-header>
+                        <mat-card-title class="font-weight-bold">Login</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <form [formGroup]="loginForm">
+                            <mat-form-field class="pt-3" appearance="outline">
+                                <mat-label>Username</mat-label>
+                                <mat-icon matPrefix>person</mat-icon>
+                                <input matInput formControlName="userName" type="text" placeholder="Username">
+                                <mat-hint *ngIf="
+                                loginForm.controls['userName'].errors?.['required']">
+                                    Username is required
+                                </mat-hint>
+                            </mat-form-field>
+                            <mat-form-field class="pt-3" appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <mat-icon matPrefix>lock</mat-icon>
+                                <input matInput formControlName="password" type="password" placeholder="Password">
+                                <mat-hint *ngIf="
+                                loginForm.controls['password']?.errors?.['minlength'] ||
+                                loginForm.controls['password'].errors?.['required']"
+                                >
+                                    *Password is required and must be at least 8 characters long
+                                </mat-hint>
+                            </mat-form-field>
+                            <!-- <div class="form-inline fr mt-4">
+                                <a id="forget" class="font-weight-bold">Forgot Password?</a>
+                            </div> -->
+                            <button mat-raised-button color="primary" class="btn btn-block mt-4 w-100" [disabled]="!loginForm.valid" (click)="onSubmit()">Login</button>
+                            <div class="text-center pt-4 text-muted">Don't have account? <a id="forget" routerLink="/signup">Register</a></div>
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>

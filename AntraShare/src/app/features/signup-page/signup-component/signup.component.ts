@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { RegisterService  } from 'app/core/services/register/register.service';
 import { User } from 'app/shared/model/user';
+
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss']
+  styleUrls: ['./signup.component.scss'],
 })
 
 export class SignupComponent implements OnInit {
@@ -58,6 +59,8 @@ export class SignupComponent implements OnInit {
   })
 
 
+
+
   constructor(
     private router: Router,
     private registerService: RegisterService
@@ -68,6 +71,7 @@ export class SignupComponent implements OnInit {
   upperCase(control: AbstractControl): ValidationErrors | null {
     if (control.value !== control.value.toLowerCase()) {
       return null;
+
     } else {
       return { upperCase: false}
     }
@@ -116,6 +120,7 @@ export class SignupComponent implements OnInit {
   }
   get password() {
     return this.signUpForm.get('password') as FormControl
+
 }
 }
   

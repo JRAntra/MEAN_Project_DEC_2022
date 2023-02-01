@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminPageComponent } from './admin-page-component/admin-page.component';
 import { MatButtonModule } from '@angular/material/button';
-import { TopNavModule } from '../top-nav/top-nav.module';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
@@ -14,8 +13,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatButtonModule,
     MatListModule,
     MatIconModule,
-    MatDividerModule,
-    TopNavModule,
+    MatDividerModule
   ],
   exports: [AdminPageComponent],
 })

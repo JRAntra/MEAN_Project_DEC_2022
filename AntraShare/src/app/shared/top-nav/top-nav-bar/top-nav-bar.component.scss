@@ -1,0 +1,28 @@
+button {
+  color: black;
+}
+.icon-spacer {
+  width: 2%;
+}
+.mat-toolbar {
+  height: auto;
+}
+.middle-spacer {
+  flex: 1 1 auto;
+}
+.likeList {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+  margin: 0.25rem;
+  .single {
+    display: flex;
+    align-items: center;
+    div {
+      width: 200px;
+      justify-content: center;
+    }
+  }
+  img {
+    height: 100px;
+  }
+}

@@ -1,0 +1,70 @@
+<mat-toolbar>
+  <div class="content">
+    <span class="logo">
+      <img
+        src="../../../../assets/AntraShare.svg"
+        width="120"
+        height="50"
+        style="vertical-align: bottom"
+      />
+    </span>
+    <span class="middle-spacer"></span>
+    <button
+      mat-icon-button
+      color="warn"
+      aria-label="Example icon button with a heart icon"
+      (click)="viewMore = !viewMore"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      aria-label="Button that redirects to home page"
+      matTooltip="Home"
+      [routerLink]="['/newsfeed']"
+      routerLinkActive="router-link-active"
+    >
+      <mat-icon>home</mat-icon>
+    </button>
+    <span class="icon-spacer"></span>
+    <button
+      mat-icon-button
+      aria-label="Button that redirects to setting page"
+      matTooltip="Setting"
+      [routerLink]="['/settings']"
+      routerLinkActive="router-link-active"
+    >
+      <mat-icon>settings</mat-icon>
+    </button>
+    <span class="icon-spacer"></span>
+    <button
+      mat-icon-button
+      aria-label="Button that redirects to profile page"
+      matTooltip="Profile"
+      [routerLink]="['/profile']"
+      routerLinkActive="router-link-active"
+    >
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <span class="icon-spacer"></span>
+    <button
+      mat-icon-button
+      aria-label="Button that redirects to admin page"
+      matTooltip="Admin"
+      [routerLink]="['/admin']"
+      routerLinkActive="router-link-active"
+    >
+      <mat-icon>manage_accounts</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<div *ngIf="viewMore" class="likeList">
+  <div *ngFor="let item of likeList" class="single">
+    <div>{{ item.publisherName }}</div>
+    <img src="{{ item.content.image }}" alt="" />
+    <!-- <div *ngFor="let comment of item.comment">
+      <span>{{ comment.publisherName }}</span>
+      <span>{{ comment.publishedTime }}</span>
+    </div> -->
+  </div>
+</div>

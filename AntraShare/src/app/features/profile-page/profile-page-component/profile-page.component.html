@@ -1,72 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-  </head>
-  <body>
-    <app-top-nav-bar></app-top-nav-bar>
-    <div class="profile">
-      <section class="section_1">
-        <img src="assets/imgs/6.jpg" alt="" />
-        <div class="details">
-          <div class="line_1">
-            <span>Mediamodifier</span>
-            <a href="">send a message</a>
-            <a href="">✓</a>
-            <a href="">>>></a>
-          </div>
-          <div class="line_2">
-            <span>1132 Posts</span>
-            <span>60K</span>
-            <span>4 Following</span>
-          </div>
-          <div class="introduction">
-            <span>Mediamodifier Building Brands</span>
-            <span>Product/service</span>
-            <span
-              >We provide essential tools to help entrepreneurs grow their
-              businesses online</span
-            >
-            <a href="">mediamodifier.com</a>
-          </div>
-        </div>
-      </section>
-      <section class="section_2">
-        <ul>
-          <li>
-            <img src="assets/imgs/7.png" alt="" />
-            <span>Templates</span>
-          </li>
-          <li>
-            <img src="assets/imgs/8.png" alt="" />
-            <span>Templates</span>
-          </li>
-          <li>
-            <img src="assets/imgs/7.png" alt="" />
-            <span>Templates</span>
-          </li>
-          <li>
-            <img src="assets/imgs/8.png" alt="" />
-            <span>Templates</span>
-          </li>
-          <li>
-            <img src="assets/imgs/7.png" alt="" />
-            <span>Templates</span>
-          </li>
-        </ul>
-      </section>
-      <section class="section_3">
-        <img src="assets/imgs/9.jpg" alt="" />
-        <img src="assets/imgs/10.jpg" alt="" />
-        <img src="assets/imgs/11.jpg" alt="" />
-      </section>
-    </div>
-  </body>
-</html> -->
-<app-top-nav-bar></app-top-nav-bar>
 <main class="profile-panel">
   
   <div class="profile-panel__avatar">
@@ -77,25 +8,46 @@
     <mat-form-field appearance="outline">
       <mat-label>Username</mat-label>
       <input matInput name="username" formControlName="username" required>
+      <mat-error *ngIf="profileForm.controls['username'].hasError('required')">Please enter your username</mat-error>
+      <mat-error *ngIf="profileForm.get('username')?.errors?.['usernameExists']">This username already exists</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Password</mat-label>
-      <input type="password" matInput name="password" formControlName="password" required>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput name="email" formControlName="email" required>
+      <mat-error *ngIf="profileForm.controls['email'].hasError('required') || profileForm.controls['email'].hasError('email')">Please enter a valid email address</mat-error>
     </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input [type]="hide ? 'password' : 'text'" matInput name="password" formControlName="password" required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="profileForm.controls['password'].hasError('oneUppercase') || profileForm.controls['password'].hasError('oneSpecialChar')">Your password must have at least
+      1 uppercase letter and 1 special character</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Confirm Password</mat-label>
+      <input [type]="hide ? 'password' : 'text'" matInput [formControl]="passwordConfirm" required>
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="passwordConfirm?.errors?.['passwordsDoNotMatch']">Passwords do not match</mat-error>
+    </mat-form-field>
+    
+    <br><br>
     <mat-form-field appearance="outline">
       <mat-label>Gender</mat-label>
       <mat-select formControlName="gender">
-        <mat-option *ngFor="let g of genders" [value]="g" name="gender">{{g}}</mat-option>
+        <mat-option *ngFor="let gender of genders" [value]="gender" name="gender">{{gender}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Age</mat-label>
       <input type="number" matInput name="age" formControlName="age">
     </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Email</mat-label>
-      <input type="email" matInput name="email" formControlName="email" required>
-    </mat-form-field>
+
     <mat-form-field appearance="outline">
       <mat-label>Phone</mat-label>
       <input type="tel" matInput name="phone" formControlName="phone">
@@ -107,18 +59,25 @@
   </form>
 
   <mat-tab-group>
-    <mat-tab> 
+    <mat-tab>
       <ng-template mat-tab-label>
         <mat-icon aria-label="See my post">view_module</mat-icon>
       
       </ng-template>
-      My post
+      <div>
+        <!-- My post -->
+        <app-content-card></app-content-card>
+      </div>
     </mat-tab>
+
     <mat-tab>
       <ng-template mat-tab-label>
         <mat-icon aria-label="See my likes">favorite</mat-icon>
       </ng-template>
-      My likes
+      <div>
+        <!-- My likes -->
+        <app-content-card></app-content-card>
+      </div>
     </mat-tab>
   </mat-tab-group>
 </main>

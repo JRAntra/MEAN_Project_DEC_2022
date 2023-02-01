@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AbstractControl, AsyncValidatorFn, ValidationErrors } from '@angular/forms';
 import { User } from 'app/shared/model/user';
-import { map, Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 @Injectable({

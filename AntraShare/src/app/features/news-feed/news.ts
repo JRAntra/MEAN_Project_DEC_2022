@@ -30,5 +30,6 @@ export interface News {
     comment: Comment[];
     likedIdList: LikedIdList[];
     __v: number;
+    liked: string | null
 }
 

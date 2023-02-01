@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,FormBuilder, Validators, AbstractControl, ValidationErrors, AsyncValidatorFn, ValidatorFn } from '@angular/forms';
+import { Router } from '@angular/router';
 import { map, Observable, of } from 'rxjs';
+import { postUser } from '../admin-page/models/Users';
 import { RegisterValidatorService } from './service/register-validator.service';
 @Component({
   selector: 'app-register-page',
@@ -10,13 +12,14 @@ import { RegisterValidatorService } from './service/register-validator.service';
 export class RegisterPageComponent implements OnInit{
   form:FormGroup=new FormGroup({});
   user:FormControl=new FormControl();
-  constructor(private fb:FormBuilder, private registerservice:RegisterValidatorService){
+  constructor(private fb:FormBuilder, private registerservice:RegisterValidatorService, private router: Router){
     this.form=this.fb.group({
       userName:['',[Validators.required],[this.usernameValidator()]],
       password:['',[Validators.required,this.passwordValidator]],
       passwordcon:['',[Validators.required]],
       email:['',[Validators.required],[this.emailValidator()]]
     },{Validators:this.MatchPassword('password','passwordcon')})
+    this.form.setValidators(this.MatchPassword('password','passwordcon'))
   }
   ngOnInit(): void {
     //this.form.addControl("passwordcon",new FormControl('',[this.passwordconValidator]))
@@ -98,25 +101,27 @@ export class RegisterPageComponent implements OnInit{
   //       : null;
   //   };
   // }
-  MatchPassword(password: string, confirmPassword: string) {
-    return (formGroup: FormGroup) => {
-      const passwordControl = formGroup.controls[password];
-      const confirmPasswordControl = formGroup.controls[confirmPassword];
+  MatchPassword(password: string, confirmPassword: string): ValidatorFn {
+    return (formGroup: AbstractControl) => {
+      const passwordControl = formGroup.get(password);
+      const confirmPasswordControl = formGroup.get(confirmPassword);
 
       // if (!passwordControl || !confirmPasswordControl) {
       //   return null;
       // }
 
-      if (passwordControl.value !== confirmPasswordControl.value) {
-        confirmPasswordControl.setErrors({ passwordMismatch: true });
+      
+
+      if (passwordControl?.value !== confirmPasswordControl?.value) {
+        confirmPasswordControl?.setErrors({ passwordMismatch: true });
       } else {
-        confirmPasswordControl.setErrors(null);
+        confirmPasswordControl?.setErrors(null);
       }
+      return of(null)
     }
   }
 
   
-
     
 
 
@@ -127,6 +132,24 @@ export class RegisterPageComponent implements OnInit{
     // this.form.get('passwordcon')?.value, 
     // this.form.get('email')?.value;
     // this.form.setValue({userName: "", password: "", passwordcon: "", email: ""});  
+    const user = <postUser>{
+      name : this.form.get("userName")!.value,
+      userName: this.form.get("userName")!.value,
+      userEmail: this.form.get("email")!.value,
+      password: this.form.get("password")!.value,
+    }
+
+    this.registerservice.register(user).subscribe({
+      next : (res) => {console.log(res);
+      },
+      error: (res) => {console.log("Error: ", res);
+      this.form.reset()
+      alert("There's something wrong with the registration, please try again")
+      },
+      complete: () => {console.log("Successfully register a new user");
+      this.router.navigate(['/login'])
+      }
+    })
     
   }
 }

@@ -21,3 +21,23 @@ export class User {
         this.phone= phone;
     }
 }
+
+export class postUser {
+    name : string
+    userName: string
+    userEmail: string
+    password: string
+    age: number
+    gender: string
+    phone: number
+
+    constructor(name:string, userName: string, userEmail: string, password: string, age: number, gender: string, phone: number) {
+        this.name = name;
+        this.userName= userName;
+        this.userEmail= userEmail;
+        this.password= password;
+        this.age= age,
+        this.gender= gender;
+        this.phone= phone;
+    }
+}

@@ -20,7 +20,7 @@
       <input formControlName="email" type="email" id="email" name="email">
       <p *ngIf="form.controls['email']?.errors?.['emailExists']">Email already been used</p>
   </div>
-  <button>Register</button>
+  <button [disabled]="form.controls['userName'].errors?.['usernameExists'] || form.controls['password'].errors?.['error'] || form.controls['passwordcon'].errors?.['passwordMismatch'] || form.controls['email'].errors?.['emailExists']">Register</button>
 
 
 

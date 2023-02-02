@@ -9,7 +9,7 @@
   <body>
     <div class="content">
       <div class="left_section">
-        <div class="blogs" *ngFor="let singleNew of news">
+        <div class="blogs" *ngFor="let singleNew of news; let i = index">
           <div *ngIf="singleNew.content">
             <div class="user">
               <div class="user-top">
@@ -52,8 +52,9 @@
               <div class="post_details">
                 <div class="icons">
                   <div class="left_icons">
+                    <!-- <a (click)="onItemClick(singleNew)" -->
                     <a (click)="onItemClick(singleNew)"
-                      ><fa-icon [icon]="heart" #heartColor></fa-icon
+                      ><fa-icon [icon]="heart"></fa-icon
                     ></a>
                   </div>
                 </div>
@@ -62,24 +63,39 @@
                   <b>{{ singleNew.comment.length }}</b> others
                 </span>
 
-                <button class="comments" (click)="viewMore = !viewMore">
+                <button class="comments" (click)="viewMoreComments(singleNew)">
                   View all {{ singleNew.likedIdList.length }} comments
                 </button>
-                <div class="comments_content">
-                  <div *ngIf="viewMore">
-                    <div *ngFor="let singleComment of singleNew.comment">
+                <div class="comments_content" *ngIf="viewComments">
+                  <div
+                    class="singleComment"
+                    *ngFor="let singleComment of singleNew.comment"
+                  >
+                    <span>
                       {{ singleComment.publisherName }}:
-                      {{ singleComment.content.text }}<br />
+                      {{ singleComment.content.text }}
+                      <br />
                       {{ singleComment.publishedTime | date }}
-                    </div>
+                    </span>
                   </div>
                 </div>
-                <form class="example-form">
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Add a comment ...</mat-label>
-                    <input matInput />
-                    <button matSuffix>Publish</button>
-                  </mat-form-field>
+                <form [formGroup]="commitForm" (ngSubmit)="onSubmitComment(i)">
+                  <label for="comment-content">Name:</label>
+                  <input type="text" formControlName="name" id="comment-name" />
+                  <span
+                    *ngIf="
+                      !commitForm.controls['content'].valid &&
+                      commitForm.controls['content'].touched
+                    "
+                    >Please enter a valid name</span
+                  >
+                  <label for="comment-content">Content:</label>
+                  <input
+                    type="text"
+                    formControlName="content"
+                    id="comment-content"
+                  />
+                  <button>Publish</button>
                 </form>
               </div>
             </div>

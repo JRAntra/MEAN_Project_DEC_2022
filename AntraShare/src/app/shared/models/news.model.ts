@@ -2,7 +2,7 @@ export interface News {
   publisherName: string;
   publishedTime: Date;
   content: Content;
-  comment?: Comment[];
+  comment: Comment[];
   LikedIdList: LikedIdList;
   _id: string;
 }

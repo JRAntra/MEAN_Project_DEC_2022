@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FeaturesModule } from './features/features.module';
@@ -12,12 +11,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { TopNavModule } from '../app/shared/top-nav/top-nav.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FirstFewCharsPipe,
-    AppComponent
-
-  ],
+  declarations: [AppComponent, FirstFewCharsPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,12 +19,18 @@ import { TopNavModule } from '../app/shared/top-nav/top-nav.module';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    TopNavModule
+    TopNavModule,
+    FormsModule,
   ],
   providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {
-      appearance: 'outline', floatLabel: 'always'}}
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: {
+        appearance: 'outline',
+        floatLabel: 'always',
+      },
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

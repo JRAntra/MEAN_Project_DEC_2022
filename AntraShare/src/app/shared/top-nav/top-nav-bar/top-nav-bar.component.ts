@@ -3,6 +3,7 @@ import { LikedListService } from 'app/features/newsfeed-page/likedList.service';
 import { Subscription } from 'rxjs';
 import { News } from '../../../shared/models/news.model';
 import { ChangeDetectorRef } from '@angular/core';
+
 @Component({
   selector: 'app-top-nav-bar',
   templateUrl: './top-nav-bar.component.html',
@@ -21,8 +22,6 @@ export class TopNavBarComponent implements OnInit {
     this.subscription = this.likeService.getBlogs().subscribe((list) => {
       this.likeList = list;
       this.changeDetector.detectChanges();
-      console.log(this.likeList);
-      console.log(typeof this.likeList);
     });
   }
 }

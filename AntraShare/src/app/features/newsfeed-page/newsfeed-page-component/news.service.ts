@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { News } from 'app/shared/models/news.model';
+import { News, Comment } from 'app/shared/models/news.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +14,9 @@ export class GetAllNewsService {
   getNews(): Observable<News[]> {
     return this.http.get<News[]>(this.apiUrl);
   }
+  patchComment(id: number, comment: Comment): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/api/news/addComment/` + id, comment);
+  }
   getSingleNews(page: number, perpage: number): Observable<News[]> {
     return this.http.get<News[]>(
       `${this.apiUrl}/api/news/` + page + '/' + perpage
@@ -25,10 +28,6 @@ export class GetAllNewsService {
 
   postNews(story: News) {
     return this.http.post(`${this.apiUrl}/api/news/`, story);
-  }
-
-  patchComment(id: string, comment: Comment) {
-    return this.http.patch(`${this.apiUrl}/api/news/addComment/` + id, comment);
   }
 
   deleteNews(story: News, id: string) {

@@ -6,6 +6,7 @@ import { Observable, Subject } from 'rxjs';
 export class LikedListService {
   likeListsubject = new Subject<News[]>();
   likeList: News[] = [];
+  obj = {};
   addNew(blog: News) {
     this.likeList.push(blog);
     this.likeListsubject.next(this.likeList);
@@ -15,7 +16,6 @@ export class LikedListService {
   }
   checkExist(blog: News) {
     return this.likeList.includes(blog);
-    // delete this.likeList[this.likeList.indexOf(blog)];
   }
   removeExist(blog: News) {
     const index: number = this.likeList.indexOf(blog);

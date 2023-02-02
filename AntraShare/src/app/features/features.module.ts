@@ -7,7 +7,7 @@ import { AdminPageModule } from './admin-page/admin-page.module';
 import { NewsfeedPageModule } from './newsfeed-page/newsfeed-page.module';
 import { ProfilePageModule } from './profile-page/profile-page.module';
 import { ContentCardModule } from './content-card/content-card.module';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [],
   imports: [
@@ -18,7 +18,8 @@ import { ContentCardModule } from './content-card/content-card.module';
     ProfilePageModule,
     AdminPageModule,
     SettingPageModule,
-    ContentCardModule
+    ContentCardModule,
+    ReactiveFormsModule,
   ],
   exports: [
     SettingPageModule,
@@ -26,7 +27,7 @@ import { ContentCardModule } from './content-card/content-card.module';
     LoginPageModule,
     SignupPageModule,
     NewsfeedPageModule,
-    ProfilePageModule
-  ]
+    ProfilePageModule,
+  ],
 })
-export class FeaturesModule { }
+export class FeaturesModule {}

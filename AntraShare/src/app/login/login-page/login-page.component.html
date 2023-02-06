@@ -1,1 +1,8 @@
-<input value="firstname">
+<div [formGroup]="userForm">
+<input value="firstname" >
+<input formControlName="password">
+<input formControlName="passwordCon" (keyup)="checkStatus()">
+</div>
+<!-- <input [formControl]="passwordCon"> -->
+<a [routerLink]="['/nav/bar']" >go to nav componenet</a>
+<a [routerLink]="['/nav/bar']" routerLinkActive="styleClass" ></a>

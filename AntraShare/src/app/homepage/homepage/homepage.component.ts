@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router, UrlSerializer } from '@angular/router';
 import { UserInfoService } from 'src/app/services/user-info.service';
 @Component({
@@ -12,6 +13,8 @@ export class HomepageComponent implements OnInit {
   blueIndicator: boolean = false;
   greenIndicator: boolean = false;
   color: string = 'black';
+
+  electricalConsent : FormControl = new FormControl(false);
 
   time : Date = new Date();
 
@@ -37,8 +40,16 @@ export class HomepageComponent implements OnInit {
 
 
   goToLoginPage() {
-    this.router.navigate(['login'])
+    let id = 123;
+    // const path = "inventory/" + id + "/asd"
+    const path ="login"
+    this.router.navigate([path])
   }
+checkStatus(){
+  console.log(this.electricalConsent)
+}
+
+
   changeColor(color: string) {
     switch (color) {
       case 'red':

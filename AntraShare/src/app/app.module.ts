@@ -13,28 +13,29 @@ import { First10CharsPipe } from './pipes/first10-chars.pipe';
 import { ChildDataBindingComponent } from './data-binding/child-data-binding/child-data-binding.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserFormsComponent } from './formInput/user-forms/user-forms.component';
-<<<<<<< HEAD
 import { TestAComponent } from './dataSharing/test-a/test-a.component';
 import { TestBComponent } from './dataSharing/test-b/test-b.component'
-=======
 import { LifeCycleComponent } from './lifeCycle/life-cycle/life-cycle.component';
 import { ChildLifeCycleComponent } from './lifeCycle/child-life-cycle/child-life-cycle.component';
-import { ValidatorsComponent } from './validators/validators.component'
->>>>>>> 7383eeb649c05138090e13bd5873e99ba888c753
+import { ValidatorsComponent } from './validators/validators.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { ParentComComponent } from './contentProjection/parent-com/parent-com.component';
+import { ChildComComponent } from './contentProjection/parent-com/child-com/child-com.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     DataBindingComponent,
     ChildDataBindingComponent,
     UserFormsComponent,
-<<<<<<< HEAD
     TestAComponent,
     TestBComponent,
-=======
     LifeCycleComponent,
     ChildLifeCycleComponent,
     ValidatorsComponent,
->>>>>>> 7383eeb649c05138090e13bd5873e99ba888c753
+    InventoryComponent,
+    ParentComComponent,
+    ChildComComponent,
 
   ],
   imports: [
@@ -44,7 +45,7 @@ import { ValidatorsComponent } from './validators/validators.component'
     FormsModule,
     ReactiveFormsModule,
     HomepageModule,
-    HttpClientModule
+    HttpClientModule,
 
 
 

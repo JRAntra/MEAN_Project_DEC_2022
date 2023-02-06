@@ -1,0 +1,75 @@
+<p>parent-com works!</p>
+<input #userInput>
+<ng-container *ngIf="shouldDisplay">
+    <app-child-com>
+
+        <div class="middle" #middle>
+            <p>dynamic message</p>
+            <button>Confirm</button>
+            <button>Cancel</button>
+        </div>
+        <div class="middle">
+            <p>this is the second middle class content</p>
+
+        </div>
+
+        <div id="footer">
+            <p>this is the footer</p>
+        </div>
+
+
+    </app-child-com>
+</ng-container>
+<button (click)="sendValue()">send</button>
+
+<ng-container>
+    <p>this is ng-container</p>
+</ng-container>
+
+<!-- flexbox -->
+<!-- <div id="products-Container">  
+    
+        <div class="products">
+            <h3>
+                this is the product #{{i}}
+            </h3>
+            <button>Buy</button>
+
+        </div>
+
+        <div class="products">
+            <h3>
+                this is the product #{{i}}
+            </h3>
+            <button>Buy</button>
+
+        </div>
+
+        <div class="products">
+            <h3>
+                this is the product #{{i}}
+            </h3>
+            <button>Buy</button>
+
+        </div>
+
+
+</div> -->
+
+<p class="ptag">Display templates</p>
+
+<div *ngTemplateOutlet="template2">
+
+</div>
+
+<ng-template #template1>
+    <div>This is template1</div>
+</ng-template>
+
+<ng-template #template2>
+    <div>This is template2</div>
+</ng-template>
+
+<ng-template>
+    <div>This is template3</div>
+</ng-template>

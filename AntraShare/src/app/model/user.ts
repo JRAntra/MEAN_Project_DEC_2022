@@ -60,4 +60,12 @@ export class userE implements User, UserInterface {
 }
 
 
+export enum gender{
+    male = 10,
+    female = 11,
+    other = 20,
+}
 
+export type role = string
+
+export type userRole = "user" | "admin" | "superUser"

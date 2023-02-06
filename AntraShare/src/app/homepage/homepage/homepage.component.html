@@ -1,9 +1,10 @@
 <p>homepage works!</p>
 <!-- <button [routerLink]="['login']" >Go to Login Page</button> -->
 <!-- <a href="login">go to login page</a> -->
-<!-- <button (click)="goToLoginPage()">Go to Login Page with Logic</button>
+<button (click)="goToLoginPage()">Go to Login Page with Logic</button>
 
-<div *ngIf="indicator">This is a test for direvtives</div> -->
+<div *ngIf="indicator">This is a test for direvtives</div>
+<input type="checkbox" [formControl]="electricalConsent" (change)="checkStatus()">
 
 <!-- <div *ngif='boolean'>test</div> -->
 
@@ -58,4 +59,4 @@
 
 <!-- <div>current time : <i>{{time | date: 'M/d/yyyy'}}</i></div> -->
 
-<div>This is the text that using pipe : {{longtextObj | first10Chars}} </div>
+<!-- <div>This is the text that using pipe : {{longtextObj | first10Chars}} </div> -->
